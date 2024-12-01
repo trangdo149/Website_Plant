@@ -1,4 +1,4 @@
-html {
+/*html {
   font-size: 14px;
 }
 
@@ -19,4 +19,76 @@ html {
 
 body {
   margin-bottom: 60px;
+}*/
+html, body {
+    height: 100%; 
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.header {
+    height: 80px;
+    background-color: #1F3505;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-nav-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header-nav_item {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.header-nav_item i {
+    margin-right: 8px;
+    font-size: 24px;
+}
+
+.header-nav-item-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+}
+
+.header-nav-item-link:hover {
+    color: white;
+}
+
+.grid {
+    width: 1400px;
+    max-width: 100%;
+    margin: auto;
+}
+/*.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}*/
+.footer {
+    background-color: #f1f1f1; /*mau nen*/
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /*day footer xuong cuoi*/
+}
+.main-content {
+    flex: 1;
 }
