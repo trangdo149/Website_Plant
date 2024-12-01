@@ -1,0 +1,39 @@
+﻿body {
+    font-family: 'Inter', sans-serif;
+}
+.header {
+    height: 80px;
+    background-color: #1F3505;
+}
+.header-nav {  
+    display: flex;
+    justify-content: space-between;
+}
+.header-nav-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+}
+.header-nav_item {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.header-nav_item i{
+    margin-right: 8px;
+    font-size: 24px;
+}
+.header-nav-item-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+}
+.header-nav-item-link:hover {
+    color: white;
+}
+.grid {
+    width: 1400px;
+    max-width: 100%;
+    margin: auto;
+}
