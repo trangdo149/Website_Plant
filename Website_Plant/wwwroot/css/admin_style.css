@@ -4,6 +4,9 @@
 .header {
     height: 80px;
     background-color: #1F3505;
+    position: sticky;
+    top: 0; 
+    z-index: 1000; 
 }
 .header-nav {  
     display: flex;
@@ -46,13 +49,16 @@
     flex-wrap: wrap;
     margin-left: -12px;
     margin-right: -12px;
-    padding-top: 36px;
+    padding-top: 24px;
 }
 .grid_column-2 {
     padding-left: 12px;
     padding-right: 12px;
     width: 16.6667%;
-    
+    position: sticky;
+    top: 0; 
+    height: 100vh;
+    overflow-y: auto;
 }
 .menu {
     position: relative;
@@ -63,9 +69,12 @@
     top: 50%; 
     right: 0;
     width: 1px;
-    height: calc(100% - 50%); 
+    height: 100%; 
     background-color: #EFEFEF;
     transform: translateY(-50%); 
+}
+.tmp {
+    height: 500px;
 }
 .grid_column-10 {
     padding-left: 12px;
@@ -94,20 +103,38 @@
     margin-top: 12px;
     margin-bottom: 0px;
 }
-.menu-item--active {
-
-}
 .menu-item, .menu-item--active {
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px;
 }
+.menu-item--active {
+    background-color: #F4FDF4;
+    border-radius: 12px;
+}
+.menu-item--active a{
+    text-decoration: none;
+    color: #016D06;
+    font-size: 14px;
+}
+
+.menu-item--active a:hover {
+    color: #016D06;
+}
+
+.menu-item--active i{
+    color: #016D06;
+    font-size: 20px;
+    text-shadow: 0.1px 0.1px 0 black, -0.1px -0.1px 0 black, 0.1px -0.1px 0 black, -0.1px 0.1px 0 black;
+}
 .menu-item_link {
     text-decoration: none;
     color: black;
     font-size: 14px;
-    
+}
+.menu-item_link:hover {
+    color:black;
 }
 .menu-item--icon {
     color: black;
