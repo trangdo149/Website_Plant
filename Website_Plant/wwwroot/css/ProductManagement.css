@@ -1,0 +1,41 @@
+﻿.title-buttonAdd-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-buttonAdd-link {
+    text-decoration: none;
+    color: white;
+    font-style: normal;
+    background-color: #1F79BE;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.title-buttonAdd-link:hover {
+    color: white;
+    
+}
+.title-buttonAdd-link:active {
+    opacity: 0.8;
+    transition: opacity 0.1s ease;
+}
+.title-buttonAdd-item h1 {
+    font-size: 34px;
+}
+.search-input {
+    width: 400px;
+}
+.btn-outline-success {
+    background-color: #1F3505; 
+    border: none;
+    color: white;
+    font-size: 14px;
+}
+.btn-outline-success:hover {
+    background-color: #1F3505;
+    opacity: 0.9;
+    color: white;             
+}
