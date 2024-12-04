@@ -1,4 +1,224 @@
-﻿h4 {
-    font-size: 50px;
-    color: deeppink;
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: Inter, sans-serif;
+    line-height: 1.6;
+    background-color: #fef7ef;
+}
+
+/* Hero Section */
+.hero {
+    background: url(/image/context1.jpeg) no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content h1 { 
+    font-size: 4.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Products Section */
+.products {
+    text-align: center;
+    padding: 4rem;
+}
+
+    .products h2 {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+        color: #1F3505;
+    }
+
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 3.5px 4px 0 rgb(0, 0, 0, 0.10);
+    overflow: hidden;
+    width: 200px;
+    height : 370px;
+    text-align: center;
+    padding: 0;
+    transition: transform 0.3s;
+}
+
+    .product-card img {
+        width: 100%;
+        height: 60%;
+        border-radius: 0
+        
+    }
+
+    .product-card h3 {
+        font-size: 1.2rem;
+        margin:0;
+        margin-top: 1.2rem ;
+        color: #333;
+    }
+
+    .product-card p {
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .product-card:hover {
+        transform: scale(1.05);
+    }
+
+/* Best Sellers Section */
+.best-sellers {
+    text-align: center;
+    padding: 2rem;
+}
+
+    .best-sellers h2 {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+        color: #1F3505;
+    }
+
+/* About Us Section */
+section {
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+    width: 100%;
+    margin: 0 auto;
+}
+.image {
+    background: url(/image/abt3.jpeg) center/cover no-repeat;
+}
+
+.content {
+    background: #c1ceb2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .content h2 {
+        font-size: 36px;
+        padding : 2rem;
+        margin :15px 0;
+    }
+
+    .content span {
+        height:2px;
+        width: 120px;
+        background: #777;
+        margin-bottom:45px;
+        
+        
+    }
+
+    .content p {
+        padding-bottom: 15px;
+        font-weight: 300;
+        opacity: 0.7;
+        width: 60%;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 1.7;
+        color:#0c2b0e;
+    }
+
+.links {
+    margin: 15px 0;
+}
+
+    .links li {
+        border: 0.5px solid #777;
+        list-style: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        width: 200px;
+        text-align: center;
+    }
+
+        .links li a {
+            text-transform: uppercase;
+            color: #777;
+            text-decoration: none;
+        }
+
+        .links li:hover {
+            border-color: #1F3505;
+        }
+
+            .links li:hover a {
+                color: #1F3505;
+            }
+
+.vertical-line {
+    height: 35px;
+    width: 0.5px;
+    background: #777;
+    margin: 0 auto;
+}
+
+a {
+    color: #0b2328;
+}
+
+.icons {
+    display: flex;
+}
+
+    .icons li {
+        display: block;
+        padding: 5px;
+        margin: 10px;
+    }
+
+        .icons li i {
+            font-size: 26px;
+        }
+
+            .icons li i:hover {
+                color: #fef7ef;
+            }
+
+/* Why Choose Us Section */
+.why-choose-us {
+    text-align: center;
+    padding: 3rem;
+}
+
+    .why-choose-us h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #1F3505;
+    }
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.feature {
+    text-align: center;
+    font-size: 2.2rem;
+    padding: 1.8rem;
+}
+
+    .feature p {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+        color: #1F3505;
+    }
