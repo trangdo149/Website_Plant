@@ -4,23 +4,124 @@
     <link rel="stylesheet" href="~/css/home.css" />
 }
 @{
-    ViewData["NoContainer"] = true;
+    ViewData["Title"] = "Home Sweet Garden";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Explore the green world</h1>
+        </div>
+    </header>
 
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
-<h4>Đang ở homepage</h4>
+    <section class="products">
+        <h2>Sản phẩm mới</h2>
+        <div class="product-list">
+            <div class="product-card">
+                <a href="#"><img src="/image/buomdem2.jpg" alt=""></a>
+                <h3>Cây bướm đêm</h3>
+                <p>80.000 VND</p>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="/image/conhat2.jpg" alt=""></a>
+                <h3>Cây cọ Nhật</h3>
+                <p>350.000 VND</p>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="/image/thailaitia1.jpg" alt=""></a>
+                <h3>Thài lài tía</h3>
+                <p>95.000 VND</p>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="~/image/traubanammy2.jpg" alt=""></a>
+                <h3>Trầu bà Nam Mỹ</h3>
+                <p>150.000 VND</p>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="~/image/kimngan2.jpg" alt=""></a>
+                <h3>Cây kim ngân</h3>
+                <p>180.000 VND</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="best-sellers">
+        <h2>Sản phẩm bán chạy</h2>
+        <div class="product-list">
+            <div class="product-card">
+                <a href="#"><img src="/image/lany2.jpg" alt=""></a>
+                <h3>Lan ý</h3>
+                <p>200.000 VND</p>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="/image/xuongrong1.jpg" alt=""></a>
+                <h3>Cây xương rồng</h3>
+                <p>40.000 VND</p>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="/image/daynhen2.jpg" alt=""></a>
+                <h3>Cây dây nhện</h3>
+                <p>100.000VND</p>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="~/image/senda2.jpg" alt=""></a>
+                <h3>Sen đá</h3>
+                <p>30.000 VND</p>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="~/image/dayenthao.jpg" alt=""></a>
+                <h3>Dạ yến thảo</h3>
+                <p>50.000VND</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="image"></div>
+
+        <div class="content">
+            <h2>Về chúng tôi</h2>
+            <span><!-- line here --></span>
+
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis aspernatur voluptas inventore ab voluptates nostrum minus illo laborum harum laudantium earum ut, temporibus fugiat sequi explicabo facilis unde quos corporis!</p>
+
+            <ul class="links">
+                <li><a href="#">Tìm hiểu thêm</a></li>
+                <div class="vertical-line"></div>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+            <ul class="icons">
+                <li>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                </li>
+                
+            </ul>
+        </div>
+    </section>
+
+    <section class="why-choose-us">
+        <h2>Vì sao nên chọn chúng tôi?</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="bi bi-telephone"></i>
+                <strong><p>Dịch vụ 24/7</p></strong>
+            </div>
+            <div class="feature">
+                <i class="bi bi-truck"></i>
+                <strong><p>Vận chuyển nhanh</p></strong>
+            </div>
+            <div class="feature">
+                <i class="bi bi-calendar2-check"></i>
+                <strong><p>Bảo hành 15 ngày</p></strong>
+            </div>
+        </div>
+    </section>
+
+</body>
