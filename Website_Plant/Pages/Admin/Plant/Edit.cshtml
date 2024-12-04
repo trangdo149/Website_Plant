@@ -1,0 +1,70 @@
+﻿@page
+@model Website_Plant.Pages.Admin.Plant.EditModel
+@{
+    Layout = "_LayoutAdmin";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/CreateProduct.css" />
+}
+<div class="navbar-con">
+    <ul class="navbar-listtext">
+        <li class="navbar-listtext-item">
+            <a href="/Admin/Plant" class="navbar-listtext-item-link">Danh sách sản phẩm</a>
+        </li>
+        <li class="navbar-listtext-item">
+            <i class="navbar-listtext-item-icon bi bi-chevron-right"></i>
+        </li>
+        <li class="navbar-listtext-item navbar-listtext-item--active">
+            <span class="navbar-listtext-item-link">Sửa thông tin sản phẩm</span>
+        </li>
+    </ul>
+</div>
+<ul class="title-buttonAdd-list">
+    <li class="title-buttonAdd-item">
+        <h1>Sửa thông tin sản phẩm</h1>
+    </li>
+</ul>
+<ul class="form-list">
+    <li class="form-item">
+        <h2>Thông tin chung</h2>
+        <ul class="form-infoCommon-list">
+            <li class="form-infoCommon-item">
+                <h4>Tên sản phẩm</h4>
+                <input class="form-infoCommon-item-input" placeholder="Nhập tên sản phẩm ở đây..." />
+            </li>
+            <li class="form-infoCommon-item">
+                <h4>Mô tả</h4>
+                <textarea class="form-infoCommon-item-textarea" placeholder="Nhập mô tả sản phẩm ở đây..."></textarea>
+            </li>
+            <li class="form-infoCommon-item">
+                <h4>Danh mục</h4>
+                <select class="form-infoCommon-item-select">
+                    <option>Cây trong nhà</option>
+                    <option>Cây để bàn</option>
+                    <option>Cây ban công</option>
+                </select>
+            </li>
+        </ul>
+    </li>
+    <li class="form-item">
+        <h2>Ảnh</h2>
+        <div class="form-group">
+            <label for="fileUpload" class="custom-file">Chọn tệp</label>
+            <span class="file-name">Chưa chọn tệp</span>
+            <input id="fileUpload" class="form-item-file" type="file" />
+        </div>
+    </li>
+    <li class="form-item">
+        <h2>Giá</h2>
+        <input class="form-item-input" placeholder="Nhập giá ở đây..." />
+    </li>
+</ul>
+<ul class="form-button-list">
+    <li class="form-button-item form-border-link">
+        <i class="bi bi-x"></i>
+        <a class="form-button-link" href="/Admin/Plant">Hủy</a>
+    </li>
+    <li class="form-button-item form-border-submit">
+        <button class="form-button-submit bi bi-plus" type="submit">Thêm sản phẩm</button>
+    </li>
+</ul>
