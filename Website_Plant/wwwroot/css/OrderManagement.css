@@ -25,20 +25,6 @@
 .title-buttonAdd-item h1 {
     font-size: 34px;
 }
-.search-input {
-    width: 400px;
-}
-.btn-outline-success {
-    background-color: #1F3505; 
-    border: none;
-    color: white;
-    font-size: 14px;
-}
-.btn-outline-success:hover {
-    background-color: #1F3505;
-    opacity: 0.9;
-    color: white;             
-}
 .content-table {
     margin: 25px 0;
     font-size: 14px;
@@ -114,4 +100,20 @@
 }
 .pagination-admin-item-link:hover {
     color: #4F9450;
+}
+.badge-success {
+    background-color: #E7F7EF;
+    padding: 4px 16px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #0CAF60;
+    border-radius: 8px;
+}
+.badge-warning {
+    background-color: #FFF6D3;
+    padding: 4px 16px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #E6BB20;
+    border-radius: 8px;
 }
