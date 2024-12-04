@@ -37,3 +37,80 @@
     max-width: 100%;
     margin: auto;
 }
+.body-admin {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.grid_row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-top: 36px;
+}
+.grid_column-2 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 16.6667%;
+    
+}
+.menu {
+    position: relative;
+}
+.menu::before {
+    content: ""; 
+    position: absolute;
+    top: 50%; 
+    right: 0;
+    width: 1px;
+    height: calc(100% - 50%); 
+    background-color: #EFEFEF;
+    transform: translateY(-50%); 
+}
+.grid_column-10 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 83.3334%;
+}
+.avatar_admin {
+    display: flex;
+    align-items: center;
+    background-color: #EFEFEF;
+    padding: 12px 8px;
+    border-radius: 8px;
+}
+.avatar_admin h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px;
+}
+.avatar_admin-image {
+    border-radius: 100px;
+    margin-right: 8px;
+}
+.menu-list {
+    padding-left: 0px;
+    list-style: none;
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
+.menu-item--active {
+
+}
+.menu-item, .menu-item--active {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+}
+.menu-item_link {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    
+}
+.menu-item--icon {
+    color: black;
+    font-size: 20px;
+    text-shadow: 0.1px 0.1px 0 black, -0.1px -0.1px 0 black, 0.1px -0.1px 0 black, -0.1px 0.1px 0 black;
+}
