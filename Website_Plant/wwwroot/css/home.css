@@ -12,7 +12,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: url(/image/context1.jpeg) no-repeat center center/cover;
+    background: url(/image/context3.png) no-repeat center center/cover;
     height: 90vh;
     display: flex;
     justify-content: center;
@@ -95,7 +95,7 @@ body {
 /* About Us Section */
 section {
     grid-template-columns: 1fr 1fr;
-    min-height: 90vh;
+    min-height: 50vh;
     width: 100%;
     margin: 0 auto;
 }
@@ -121,9 +121,7 @@ section {
         height:2px;
         width: 120px;
         background: #777;
-        margin-bottom:45px;
-        
-        
+        margin-bottom:45px; 
     }
 
     .content p {
@@ -218,6 +216,7 @@ a {
 }
 
     .feature p {
+        font-weight:500;
         font-size: 1.3rem;
         padding: 0.5rem;
         color: #1F3505;
