@@ -41,27 +41,19 @@ body {
 #nav li {
     display: inline-block;
 }
-    #nav a {
-        font-size: 17px;
-        color: #f9f9f9;
-        text-decoration:none;
-        line-height:100px;
-        padding: 0 25px;
-    }
-#nav a:hover {
-    color: #808080;
+#nav a {
+    font-size: 17px;
+    color: #B0B0B0;
+    text-decoration: none;
+    line-height: 100px;
+    padding: 0 25px;
 }
-        #nav a.active {
-            padding: 10px 20px; 
-            border-radius: 30px; 
-            background-color: #ffffff; 
-            color: #1F3505;
-        }
+
+    #nav a.active {
+        color: #ffffff;
+    }
 .header-icons a.active {
-    padding: 5px 10px;
-    border-radius: 30px;
-    background-color: #ffffff;
-    color: #1F3505;
+    color: #ffffff;
 }
 .header-nav {
     display: flex;
@@ -77,13 +69,11 @@ body {
     .header-nav-list a {
         font-size: 22px;
         text-decoration: none;
-        color: #f9f9f9;
+        color: #B0B0B0;
     }
-        .header-nav-list a:hover {
-            color: #808080;
-        }
-        .header-nav_item {
-    color: #f9f9f9;
+
+.header-nav_item {
+    color: ##B0B0B0;
     display: flex;
     align-items: center;
 }
@@ -91,7 +81,7 @@ body {
 .header-nav-item-link {
     font-size: 18px;
     text-decoration: none;
-    color: #f9f9f9;
+    color: ##B0B0B0;
 }
 .header-icons {
     display: flex;
@@ -125,7 +115,7 @@ body {
 
 h {
     padding-left: 40px;
-    color: #f9f9f9;
+    color: #ffffff;
     font-weight: bold;
     font-size: 20px;
 }
@@ -155,7 +145,7 @@ h {
 
     .footer-links a {
         text-decoration: none;
-        color: #f9f9f9;
+        color: #ffffff;
     }
 
 
@@ -167,17 +157,17 @@ h {
     .footer-contact ul {
         list-style: none;
         padding-left: 40px;
-        border-left: 2px solid #f9f9f9;
+        border-left: 2px solid #ffffff;
     }
 
     .footer-contact li {
         margin: 15px 0;
-        color: #f9f9f9;
+        color: #ffffff;
     }
 
     .footer-contact a {
         text-decoration: none;
-        color: #f9f9f9;
+        color: #ffffff;
     }
 
 .social-icons {
@@ -185,16 +175,16 @@ h {
     gap: 30px;
 }
     .social-icons a :hover {
-        color: #808080;
+        color: #B0B0B0;
     }
 
 .footer-bottom {
     text-align: center;
-    color: #f9f9f9;
+    color: #ffffff;
     font-size: 12px;
     border-top: 2px solid #f9f9f9;
     padding-top: 20px;
 }
 .footer-links a:hover {
-    color: #808080; /* Đổi màu liên kết khi hover */
+    color: #B0B0B0; /* Đổi màu liên kết khi hover */
 }
