@@ -4,7 +4,7 @@
     Layout = "_LayoutAdmin";
 }
 @section Styles {
-    <link rel="stylesheet" href="~/css/CreateProduct.css" />
+    <link rel="stylesheet" href="~/css/EditProduct.css" />
 }
 <div class="navbar-con">
     <ul class="navbar-listtext">
@@ -48,11 +48,14 @@
     </li>
     <li class="form-item">
         <h2>Ảnh</h2>
+        <div class="form-item-image-khung">
+             <img class="img-tmp" src="/image/product_tmp.png" width="200px" height="200px"/>
+        </div>            
         <div class="form-group">
-            <label for="fileUpload" class="custom-file">Chọn tệp</label>
-            <span class="file-name">Chưa chọn tệp</span>
-            <input id="fileUpload" class="form-item-file" type="file" />
-        </div>
+             <label for="fileUpload" class="custom-file">Chọn tệp</label>
+             <span class="file-name">Chưa chọn tệp</span>
+             <input id="fileUpload" class="form-item-file" type="file" />
+        </div>      
     </li>
     <li class="form-item">
         <h2>Giá</h2>
@@ -65,6 +68,10 @@
         <a class="form-button-link" href="/Admin/Plant">Hủy</a>
     </li>
     <li class="form-button-item form-border-submit">
-        <button class="form-button-submit bi bi-plus" type="submit">Thêm sản phẩm</button>
+        <button class="form-button-submit" type="submit">
+            <i class="bi bi-pencil-square"></i>
+            Sửa sản phẩm
+        </button>
+    </li>
     </li>
 </ul>

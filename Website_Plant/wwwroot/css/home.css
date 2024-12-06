@@ -24,6 +24,7 @@ body {
 .hero-content h1 { 
     font-size: 4.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
 
 /* Products Section */
@@ -36,6 +37,7 @@ body {
         font-size: 2rem;
         margin-bottom: 2.5rem;
         color: #1F3505;
+        font-weight: bold;
     }
 
 .product-list {
@@ -90,9 +92,13 @@ body {
         font-size: 2rem;
         margin-bottom: 2.5rem;
         color: #1F3505;
+        font-weight: bold
     }
 
 /* About Us Section */
+.aboutus {
+    display: flex;
+}
 section {
     grid-template-columns: 1fr 1fr;
     min-height: 50vh;
@@ -100,7 +106,8 @@ section {
     margin: 0 auto;
 }
 .image {
-    background: url(/image/abt3.jpeg) center/cover no-repeat;
+    width: 50%;
+    background: url(/image/img_home.png) no-repeat center center/cover;
 }
 
 .content {
