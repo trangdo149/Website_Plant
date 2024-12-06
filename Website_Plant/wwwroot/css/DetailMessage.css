@@ -41,29 +41,29 @@
 }
 .table-order {
     width: 100%;
+    border: 1px solid #dee2e6;
+    padding: 24px;
+    border-radius: 8px;
 }
 .table-order h3{
     font-size: 24px;
 }
 
-/*Table Description*/
-.table-headDescrip-other {
-    text-align: center;
-    font-size: 18px;
-    font-weight: 500;
+.textarea-box {
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin: 24px 0;
 }
-.table-headDescrip-mota {
+.textarea-box h3{
     font-size: 24px;
-    font-weight: 500;
 }
-.table-bodyDescrip-other {
-    text-align: center;
+.textarea-box-message {
+    width: 100%;
+    height: 200px;
+    border: none;
 }
-.table-bodyDescrip-name h4{
-    font-size: 18px;
-    font-weight: bold;
+.textarea-box-message:focus {
+    border-color: white;
+    outline: none;
 }
-.table-Descrip {
-    margin-top: 24px;
-}
-/*-------------*/

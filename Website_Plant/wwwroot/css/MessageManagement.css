@@ -25,20 +25,6 @@
 .title-buttonAdd-item h1 {
     font-size: 34px;
 }
-.search-input {
-    width: 400px;
-}
-.btn-outline-success {
-    background-color: #1F3505; 
-    border: none;
-    color: white;
-    font-size: 14px;
-}
-.btn-outline-success:hover {
-    background-color: #1F3505;
-    opacity: 0.9;
-    color: white;             
-}
 .content-table {
     margin: 25px 0;
     font-size: 14px;
@@ -59,9 +45,9 @@
 .content-table th, .content-table td {
     padding: 18px 22px;
 }
-.tbody-td-masp {
-    color: #5C59E8;
-    font-weight: bold !important;
+
+.tbody-td-bold {
+    color: #333843;
     text-align: center;
 }
 .content-table tbody tr {
@@ -72,7 +58,7 @@
     text-align: center !important;
 }
 .thead-th-other {
-    text-align: center;
+    text-align:center;
     font-weight: bold !important;
 }
 .tbody-td-link {
