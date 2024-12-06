@@ -32,6 +32,7 @@ body {
             margin-top: 20px;
             width: 500px;
             text-align: center;
+            font-weight: bold;
         }
 
         .container form input {
@@ -41,7 +42,7 @@ body {
             outline: none;
             border: none;
             font-size: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             background: none;
             border-bottom: 2px solid #1f3506;
             color: #1f3506;
@@ -76,9 +77,12 @@ body {
             padding: 10px;
             outline: none;
             min-height: 90px;
-            max-height: 90px;
+            height: 200px;
             min-width: 620px;
             max-width: 620px;
+        }
+        .container form textarea::placeholder{
+            color: #1f3506;
         }
 
         .container form h4 {
@@ -107,3 +111,6 @@ body {
                 color: #fff;
                 transition: .3s ease-in-out;
             }
+.textarea-message {
+
+}

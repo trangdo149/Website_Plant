@@ -59,6 +59,7 @@
 }
 .thead-th-other {
     text-align:center;
+    font-weight: bold !important;
 }
 .tbody-td-link {
     text-decoration: none;
