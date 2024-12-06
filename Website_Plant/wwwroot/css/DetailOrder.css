@@ -1,0 +1,69 @@
+﻿.title-buttonAdd-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-buttonAdd-item h1 {
+    font-size: 34px;
+}
+
+.navbar-listtext {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+}
+
+.navbar-listtext-item {
+    margin-right: 10px;
+}
+
+.navbar-listtext-item--active {
+    font-weight: bold;
+}
+
+.navbar-listtext-item-link {
+    text-decoration: none;
+    color: #505059;
+}
+
+.navbar-listtext-item-link:hover {
+    color: #505059;
+}
+
+.navbar-listtext-item-icon {
+    font-size: 12px;
+}
+.title-buttonAdd-item h2{
+    font-size: 22px;
+}
+
+/*Table Description*/
+.table-order {
+    width: 100%;
+}
+.table-order h3{
+    font-size: 24px;
+}
+.table-headDescrip-other {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+.table-headDescrip-mota {
+    font-size: 24px;
+    font-weight: 500;
+}
+.table-bodyDescrip-other {
+    text-align: center;
+}
+.table-bodyDescrip-name h4{
+    font-size: 18px;
+    font-weight: bold;
+}
+.table-Descrip {
+    margin-top: 24px;
+}
+/*-------------*/
