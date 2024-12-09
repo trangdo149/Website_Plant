@@ -32,7 +32,7 @@ a {
 
 .detail {
     position: relative;
-    width: 1512px;
+    width: 100%;
     height: 3670px;
     background-color: var(--main);
 }
