@@ -73,7 +73,7 @@ body {
     }
 
 .header-nav_item {
-    color: ##B0B0B0;
+    color: #B0B0B0;
     display: flex;
     align-items: center;
 }
@@ -81,7 +81,7 @@ body {
 .header-nav-item-link {
     font-size: 18px;
     text-decoration: none;
-    color: ##B0B0B0;
+    color: #B0B0B0;
 }
 .header-icons {
     display: flex;
