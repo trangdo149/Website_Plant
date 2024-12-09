@@ -1,0 +1,95 @@
+﻿@page
+@model CartModel
+@section Styles {
+    <link rel="stylesheet" href="~/css/Cart.css" />
+}
+@{
+    ViewData["NoContainer"] = true;
+}
+
+<body>
+    <div class="Tieude">
+    <h1>Giỏ hàng</h1>
+    </div>
+    <div class="cart-container">
+        <div class="cart">
+            <div class="cart-items">
+                <div class="muc">
+                   <p>Sản phẩm</p>
+                   <p> </p>
+                    <p> </p>
+                    <p> </p>
+                   <p>Số lượng</p>              
+                   <p>Tổng</p>
+                </div>
+                <div class="cart-item">
+                    <img src="/image/daynhen2.jpg" alt="Spider Plant">
+                    <div class="item-info">
+                        <h2>Cây dây nhện</h2>
+                        <p>70,000 đ</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <div class="item-total">
+                        <p>70,000 đ</p>
+                    </div>
+                    <i class="bi bi-trash3"></i>
+                </div>
+                <hr>
+                <div class="cart-item">
+                    <img src="/image/kimngan2.jpg" alt="Honeysuckle">
+                    <div class="item-info">
+                        <h2>Kim Ngân</h2>
+                        <p>200,000 đ</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <div class="item-total">
+                        <p>200,000 đ</p>
+                    </div>
+                    <i class="bi bi-trash3"></i>
+                </div>
+                <hr>
+                <div class="cart-item">
+                    <img src="/image/buomdem2.jpg" alt="butterfly">
+                    <div class="item-info">
+                        <h2>Bướm đêm</h2>
+                        <p>180,000 đ</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <div class="item-total">
+                        <p>180,000 đ</p>
+                    </div>
+                    <i class="bi bi-trash3"></i>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <h2>Địa chỉ giao hàng</h2>
+                <input type="text" placeholder="Nhập địa chỉ">
+                <h2>Chọn phương thức thanh toán</h2>
+                <select>
+                    <option value="COD">COD</option>
+                    <option value="VNPAY">VNPAY</option>
+                    
+                </select>
+
+                <div class="summary-details">
+                    <p>Tổng đơn hàng: <span>0</span></p>
+                    <p>Phí vận chuyển: <span>0</span></p>
+                    <p>Tổng thanh toán: <span>0</span></p>
+                </div>
+                <button class="checkout-btn">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+</body>
