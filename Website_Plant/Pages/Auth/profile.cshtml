@@ -15,17 +15,17 @@
 		.page-container {
 			display: flex;
 			width: 100%;
-			max-width: 1000px;
-			background-color: #FDF8F8;
+			background-color: #FEF7EF;
 			border-radius: 10px;
 			overflow: hidden;
 			margin: 0 auto;
+			padding: 30px 200px;
 		}
 
 		.sidebar {
 			width: 300px;
-			background-color: #FDF8F8;
-			padding: 30px;
+			background-color: #FEF7EF;
+			padding: 30px 60px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -40,13 +40,13 @@
 				transform: translateY(-50%);
 				width: 1px;
 				height: 60%;
-				background-color: black;
+				background-color: #BFBFBF;
 			}
 
-		.main-content {
+		.body-content {
 			flex-grow: 1;
-			padding: 30px;
-			background-color: #FDF8F8;
+			padding: 30px 60px;
+			background-color: #FEF7EF;
 		}
 
 		.profile-image-container {
@@ -76,23 +76,26 @@
 			display: flex;
 			align-items: center;
 			width: 100%;
-			padding: 10px 15px;
+			padding: 10px 18px;
 			margin-bottom: 10px;
-			border: none;
+			border: 1px solid #E0E0E0;
 			border-radius: 320px;
 			text-align: left;
 			cursor: pointer;
 			font-size: 16px;
-			transition: background-color 0.3s;
+			font-weight: bold;
+			color: #1F3505 !important;
+			background-color: white;
+			box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+			text-decoration: none;
 		}
 
 			.menu-button svg {
-				margin-right: 10px;
+				margin-right: 8px;
 			}
 
 		.active {
 			background-color: #DEEDCD;
-			color: #2F5741;
 		}
 
 		.form-group {
@@ -103,15 +106,15 @@
 
 			.form-group label {
 				width: 140px;
-				color: #2F5741;
-				font-weight: bold;
+				color: #1F3505;
+				font-weight: 600;
 			}
 
 			.form-group input {
 				flex-grow: 1;
 				padding: 10px;
-				border: none;
-				border-bottom: 1px solid #ddd;
+				border-radius: 10px;
+				border-color: #ddd;
 				font-size: 16px;
 				background-color: transparent;
 				color: #333;
@@ -119,31 +122,34 @@
 
 				.form-group input:focus {
 					outline: none;
-					border-bottom-color: #2F5741;
+					border-color: #ddd;
 				}
 
 				.form-group input[readonly] {
 					cursor: default;
+					
 				}
 
 		.edit-button {
-			background-color: #E5F0E9;
-			color: #2F5741;
+			background-color: #C1CEB2;
+			color: #1F3505;
 			border: none;
 			padding: 8px 20px;
 			border-radius: 20px;
 			cursor: pointer;
-			font-size: 14px;
+			font-size: 16px;
 			margin-top: 20px;
+			font-weight: bold;
 		}
 
 			.edit-button i {
-				padding-right: 1rem;
+				padding-right: 8px;
 			}
 
 		h1 {
 			color: #333;
 			margin-bottom: 30px;
+			font-weight: bold;
 		}
 	</style>
 }
@@ -157,23 +163,20 @@
 					<path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 				</svg>
 			</div>
-			<a class="btn menu-button active" href="#">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="#2F5741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="#2F5741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<a class="menu-button active" href="#">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-person" viewBox="0 0 16 16">
+					<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
 				</svg>
 				Hồ sơ
 			</a>
-			<a class="btn menu-button" href="#">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M21 16V8C20.9996 7.64927 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64927 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M3.27002 6.96L12 12.01L20.73 6.96" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M12 22.08V12" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<a class="menu-button" href="#">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-box-seam" viewBox="0 0 16 16">
+					<path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z" />
 				</svg>
 				Đơn hàng
 			</a>
 		</div>
-		<div class="main-content">
+		<div class="body-content">
 			<h1>Thông tin cá nhân</h1>
 			<form>
 				<div class="form-group">
@@ -202,17 +205,16 @@
 		</div>
 	</div>
 </body>
-
-					@section Scripts{ 
-						<script>
-							function navigate() {
-								let obj = {
-									name: $("#name").val(),
-									email: $("#email").val(),
-									tel: $("#tel").val(),
-									address: $("#address").val(),
-								};
-								console.log(obj);
+@*@section Scripts{ 
+	<script>
+		function navigate() {
+		let obj = {
+		name: $("#name").val(),
+		email: $("#email").val(),
+		tel: $("#tel").val(),
+		address: $("#address").val(),
+		};
+		console.log(obj);
 							}
-						</script>
-					}
+	</script>
+}*@
