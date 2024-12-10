@@ -5,110 +5,62 @@
 
 .cart-container {
     margin-bottom: 100px;
-    padding-left: 150px;
-    padding-right: 100px;
+    padding-left: 130px;
     padding-top: 60px;
 }
-.Tieude {
-    margin-left: 100px;
-    margin-top: 50px;
-}
-h1 {
-    text-align: left;  
-    font-size: 50px; 
-    color: #333;
-}
 
-.muc {
-    border-bottom: 2px solid #000000;
-    display: flex;
-    align-items: center;
-    gap: 97px;
-    font-weight: bold;
+h1 {
+    color: #1F3505;
+    margin: 0px 0px 50px 0px;
+    text-align: left;
+    font-size: 50px;
+    color: #;
 }
-    .cart {
+.cart {
     display: flex;
-    gap: 20px;
+   gap: 120px;
 }
 
 .cart-items {
-    width: 870px;
-    margin-right:60px;
+    width: 850px;
 }
-
-.cart-item {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    padding: 10px 0;
+img {
+    width:100px;
+    height:100px;
 }
-
-    .cart-item img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-.item-info{
-    width: 200px;
+.cart-items p {
+    font-size: 17px;
+    margin: 0px 0px 9px 0px;
+    text-align: left;
+    color: #1F3505;
 }
-.item-info h2 {
-    font-size: 18px;
-    margin: 0 0 5px 0;
-}
-
-.item-info p {
-    margin: 0;
-    color: #555;
-}
-
-.item-quantity {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-    .item-quantity button {
-        background-color: #ddd;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-.item-total {
- width: 100px;
-}
-.item-total p {
-    margin: 0;
-    font-weight: bold;
-}
-
-hr {
-    border-bottom: 2px solid #000000;
-    margin: 10px 0;
-}
-
-.cart-summary {
+    .cart-summary {
     height:400px;
     width:300px;
     background-color: #C1CEb2;
     padding: 20px;
     border-radius: 8px;
+    margin-top:70px;
 }
 
-    .cart-summary h2 {
-        font-size: 16px;
-        margin: 10px 0;
-    }
+        .cart-summary h2 {
+            color: #1F3505;
+            font-size: 16px;
+            margin: 10px 0;
+        }
 
     .cart-summary input,
     .cart-summary select {
+        border: none;
         width: 100%;
         padding: 10px;
         margin-bottom: 20px;
         border-radius: 5px;
+
     }
 
 .summary-details p {
+    color: #1F3505;
     display: flex;
     justify-content: space-between;
     margin: 5px 0;
@@ -123,10 +75,41 @@ hr {
     border-radius: 60px;
 }
 select {
+    color: #1F3505;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background: white url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-down%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708%22/%3E%3C/svg%3E') no-repeat;
-    background-position: calc(100% - 20px) center; /* Dịch mũi tên sang trái */
-    background-size: 15px; /* Kích thước mũi tên */
+    background-position: calc(100% - 20px) center;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    color: #1F3505;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px 8px 20px 8px;
+    border-bottom: 1px solid #1F3505;
+}
+
+td {
+    color: #1F3505;
+    padding: 30px 8px 30px 8px;
+    text-align: center;
+    border-bottom: 1px solid #1F3505;
+}
+.cart-items button {
+    color: #1F3505;
+    border: none;
+    margin: 0px 6px 0px 6px;
+    background-color: #f9f8f5;
+    font-size: 23px;
+}
+p1 {
+    color: #1F3505;
+    text-align: center;
+    font-size: 17px;
 }
