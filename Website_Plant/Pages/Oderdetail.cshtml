@@ -1,6 +1,5 @@
 ﻿@page
 @model Website_Plant.Pages.Oderdetail
-}
 @section Styles {
 
 	<style>
@@ -38,7 +37,7 @@
 				right: 0;
 				transform: translateY(-50%);
 				width: 1px;
-				height: 60%;
+				height: 100%;
 				background-color: #BFBFBF;
 			}
 
@@ -149,6 +148,60 @@
 			margin-bottom: 30px;
 			font-weight: bold;
 		}
+		.Oder{
+			margin: 50px 0px 60px 150px;
+			width: 700px;
+			background-color: #F6F6F6;
+			border-radius: 10px;
+			box-shadow: 10px 0 15px rgba(0, 0, 0, 0.2);
+		}
+
+		.table-order{
+			border-bottom: 1px solid White;
+		}
+		.table-order-total {
+			border-bottom: 1px solid #BFBFBF;
+			text-align: end;
+			font-size: 18px;
+			font-weight: 500;
+			padding: 30px 20px 20px 20px!important;
+		}
+
+		.table-order-item h4 {
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.table-order-item
+		 {
+			border-bottom: 1px solid #BFBFBF;
+			padding: 20px !important; 
+		}
+
+		.mdh p{
+			text-align: end;
+			font-size: 18px;
+			font-weight: bold;
+			padding: 20px 20px 0px 20px;
+			margin: 0px;
+		}
+
+		.status-text {
+			color: #5A901A;
+			font-size: 20px; 
+			
+		}
+
+		.HY h4{
+			font-size: 17px;
+			padding-left: 10px;
+		}
+
+		.HY td, .mdh td{
+			border-bottom: none ;
+			background-color: white;
+			border-radius: 10px 10px 0 0;
+		}
 	</style>
 }
 <body>
@@ -161,19 +214,65 @@
 					<path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 				</svg>
 			</div>
-			<a class="menu-button active" href="#">
+			<a class="menu-button active" href="/oder">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-person" viewBox="0 0 16 16">
 					<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
 				</svg>
 				Hồ sơ
 			</a>
-			<a class="menu-button" href="#">
+			<a class="menu-button active" href="/oderdetail">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-box-seam" viewBox="0 0 16 16">
 					<path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z" />
 				</svg>
 				Đơn hàng
 			</a>
 		</div>
-		
+		<div class="Oder">
+		<table class="table table-order">
+			<thead>
+					<tr class="mdh">
+						<td></td>
+						<td>
+							<p>Mã đơn hàng.12 <span class="status-text">| ĐÃ XÁC NHẬN</span></p>
+						</td>
+						</tr>
+					<tr class="HY">
+						<td>
+						<h4>Địa chỉ nhận hàng: Hưng Yên</h4>
+							<h4>Ngày đặt: 01/01/2025</h4>
+						</td>
+						<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="table-order-item">
+						<h4>Cây huyết dụ</h4>
+						x1
+					</td>
+					<td class="table-order-total">50000 đ</td>
+				</tr>
+					<tr>
+						<td class="table-order-item">
+							<h4>Cây huyết dụ</h4>
+							x1
+						</td>
+						<td class="table-order-total">50000 đ</td>
+					</tr>
+					<tr>
+						<td class="table-order-item">
+							<h4>Cây huyết dụ</h4>
+							x1
+						</td>
+						<td class="table-order-total">50000 đ</td>
+					</tr>
+			</tbody>
+		</table>
+		<div class="order-summary text-end m-3">
+			<strong>Tổng đơn hàng: </strong> 150000 đ<br />
+			<strong>Phí vận chuyển: </strong> 15000 đ<br />
+			<strong>Tổng thanh toán: </strong> 165000 đ<br />
+		</div>
+		</div>
 	</div>
 </body>

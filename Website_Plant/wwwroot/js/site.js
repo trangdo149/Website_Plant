@@ -1,10 +1,14 @@
-﻿const links = document.querySelectorAll('a');
+﻿document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname; // Đường dẫn hiện tại
+    const allLinks = document.querySelectorAll("a"); // Chọn tất cả liên kết
 
-links.forEach(link => {
-    link.addEventListener('click', (event) => {
-        // Xóa class 'active' khỏi tất cả các link
-        links.forEach(l => l.classList.remove('active'));
-        // Gán class 'active' vào link được click
-        link.classList.add('active');
+    // Loại bỏ tất cả class 'active'
+    allLinks.forEach(link => link.classList.remove("active"));
+
+    // Thêm class 'active' cho liên kết phù hợp
+    allLinks.forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+        }
     });
 });
