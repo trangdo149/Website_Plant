@@ -10,6 +10,12 @@
             font-family: Arial, sans-serif;
         }
 
+        .body-content h1 {
+            flex-grow: 1;
+            padding: 0px 60px;
+            background-color: #FEF7EF;
+            margin:0px !important;
+        }
         .page-container {
             display: flex;
             width: 100%;
@@ -148,6 +154,60 @@
             margin-bottom: 30px;
             font-weight: bold;
         }
+
+        .oder {
+            margin: 0px 0px 60px 117px;
+            width: 700px;
+            height:200px;
+            background-color: White;
+            border-radius: 10px;
+            box-shadow: 10px 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .table-order {
+            width: 700px !important;
+            border-top: 1px solid White;
+        }
+
+        .table-order-total {
+            text-align: end;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 30px 20px 20px 20px !important;
+        }
+
+        .table-order-total1 {
+            border-top: 1px solid #BFBFBF;
+            text-align: end;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 30px 20px 20px 20px !important;
+        }
+
+        .table-order-item h4 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .table-order-item {
+            gap: 40px;
+            display:flex;
+            padding: 20px !important;
+        }
+
+        .table-order-item1 {
+            gap: 40px;
+            display: flex;
+            border-top: 1px solid #BFBFBF;
+            padding: 20px !important;
+        }
+        img{
+            width:80px;
+            height:80px;
+        }
+        .md{
+            padding-top: 20px;
+        }
     </style>
 }
 <body>
@@ -173,6 +233,29 @@
                 Đơn hàng
             </a>
         </div>
-
+        <div class=" Tong">
+        <div class="body-content">
+            <h1>Đơn hàng của bạn</h1>
+            </div>
+            <div class=" oder">
+        <table class="table-sm table-order">
+                <tr>
+                    <td class="table-order-item">
+                            <div><img src="/image/hang.png" alt="hang"></div>
+                        <div class="md">
+                                <h4>Mã đơn: #12</h4>
+                                Số lượng: 2
+                        </div>
+                    </td>
+                    <td class="table-order-total">Ngày: 01/01/2025</td>
+                </tr>
+                <tr>
+                    <td class="table-order-item1">
+                        <button>Chi tiết</button>
+                    </td>
+                    <td class="table-order-total1">Tổng tiền: 120.000đ</td>
+                </tr>
+            </table>
+    </div>
     </div>
 </body>
