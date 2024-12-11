@@ -49,10 +49,10 @@ body {
     padding: 0 25px;
 }
 
-    #nav a.active {
+ .active {
         color: #ffffff;
     }
-.header-nav {
+ .header-nav {
     display: flex;
     justify-content: space-between;
 }
