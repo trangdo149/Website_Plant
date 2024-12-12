@@ -50,7 +50,7 @@ body {
 }
 
  .active {
-        color: #ffffff;
+        color: white;
     }
  .header-nav {
     display: flex;
