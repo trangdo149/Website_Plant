@@ -180,6 +180,45 @@
         .md{
             padding-top: 20px;
         }
+
+        .pagination {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            list-style: none;
+            margin-top: 60px;
+        }
+
+        .pagination-trang {
+            background-color: #E5E8E6;
+            border-radius: 15px;
+            margin: 0 3px;
+        }
+
+        .pagination-link {
+            display: block;
+            text-decoration: none;
+            color: #4F9450;
+            min-width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 500;
+        }
+
+        .pagination-trang--active .pagination-link {
+            background-color: #4F9450;
+            color: white;
+            border-radius: 15px;
+        }
+
+            .pagination-trang--active .pagination-link:hover {
+                color: white;
+            }
+
+        .pagination-link:hover {
+            color: #4F9450;
+        }
     </style>
 }
 <body>
@@ -289,6 +328,19 @@
                         <td class="table-order-total1">Tổng tiền: 120.000đ</td>
                     </tr>
                 </table>
+            </div>
+            <div class="trang">
+            <ul class="pagination">
+                    <li class="pagination-trang pagination-trang--active">
+                    <a class="pagination-link" href="#">1</a>
+                </li>
+                    <li class="pagination-trang">
+                    <a class="pagination-link" href="#">2</a>
+                </li>
+                    <li class="pagination-trang">
+                    <a class="pagination-link" href="#">3</a>
+                </li>
+            </ul>
             </div>
     </div>
 </body>
