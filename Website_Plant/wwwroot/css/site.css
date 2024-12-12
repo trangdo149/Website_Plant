@@ -49,8 +49,8 @@ body {
     padding: 0 25px;
 }
 
- .active {
-        color: white;
+    #nav a.active {
+        color: white ;
     }
  .header-nav {
     display: flex;
