@@ -85,7 +85,6 @@
             border: 1px solid #E0E0E0;
             border-radius: 320px;
             text-align: left;
-            cursor: pointer;
             font-size: 16px;
             font-weight: bold;
             color: #1F3505 !important;
@@ -102,49 +101,22 @@
                 background-color: #DEEDCD;
             }
 
-        .form-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
 
-            .form-group label {
-                width: 140px;
-                color: #1F3505;
-                font-weight: 600;
-            }
-
-            .form-group input {
-                flex-grow: 1;
-                padding: 10px;
-                border-radius: 10px;
-                border-color: #ddd;
-                font-size: 16px;
-                background-color: transparent;
-                color: #333;
-            }
-
-                .form-group input:focus {
-                    outline: none;
-                    border-color: #ddd;
-                }
-
-                .form-group input[readonly] {
-                    cursor: default;
-                }
-
-        .edit-button {
+        .chitiet {
             background-color: #C1CEB2;
             color: #1F3505;
             border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            cursor: pointer;
+            padding: 10px 35px;
+            border-radius: 25px;
             font-size: 16px;
-            margin-top: 20px;
             font-weight: bold;
+            text-decoration: none;
         }
 
+            .chitiet:hover {
+                color: inherit; /* Giữ nguyên màu chữ khi hover */
+                text-decoration: none; /* Không có hiệu ứng gạch chân */
+            }
             .edit-button i {
                 padding-right: 8px;
             }
@@ -156,7 +128,7 @@
         }
 
         .oder {
-            margin: 0px 0px 60px 117px;
+            margin: 0px 0px 30px 117px;
             width: 700px;
             height:200px;
             background-color: White;
@@ -179,9 +151,9 @@
         .table-order-total1 {
             border-top: 1px solid #BFBFBF;
             text-align: end;
-            font-size: 18px;
+            font-size: 25px;
             font-weight: 500;
-            padding: 30px 20px 20px 20px !important;
+            padding: 20px !important;
         }
 
         .table-order-item h4 {
@@ -220,13 +192,13 @@
                     <path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
-            <a class="menu-button active" href="/oder">
+            <a class="menu-button active" href="">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-person" viewBox="0 0 16 16">
                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                 </svg>
                 Hồ sơ
             </a>
-            <a class="menu-button active" href="oderdetail">
+            <a class="menu-button active" href="/oder">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-box-seam" viewBox="0 0 16 16">
                     <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z" />
                 </svg>
@@ -251,11 +223,72 @@
                 </tr>
                 <tr>
                     <td class="table-order-item1">
-                        <button>Chi tiết</button>
+                            <a class="chitiet" href="/oderdetail">Chi tiết</a>
                     </td>
                     <td class="table-order-total1">Tổng tiền: 120.000đ</td>
                 </tr>
             </table>
     </div>
+            <div class=" oder">
+                <table class="table-sm table-order">
+                    <tr>
+                        <td class="table-order-item">
+                            <div><img src="/image/hang.png" alt="hang"></div>
+                            <div class="md">
+                                <h4>Mã đơn: #12</h4>
+                                Số lượng: 2
+                            </div>
+                        </td>
+                        <td class="table-order-total">Ngày: 01/01/2025</td>
+                    </tr>
+                    <tr>
+                        <td class="table-order-item1">
+                            <a class="chitiet" href="/oderdetail">Chi tiết</a>
+                        </td>
+                        <td class="table-order-total1">Tổng tiền: 120.000đ</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class=" oder">
+                <table class="table-sm table-order">
+                    <tr>
+                        <td class="table-order-item">
+                            <div><img src="/image/hang.png" alt="hang"></div>
+                            <div class="md">
+                                <h4>Mã đơn: #12</h4>
+                                Số lượng: 2
+                            </div>
+                        </td>
+                        <td class="table-order-total">Ngày: 01/01/2025</td>
+                    </tr>
+                    <tr>
+                        <td class="table-order-item1">
+                            <a class="chitiet" href="/oderdetail">Chi tiết</a>
+                        </td>
+                        <td class="table-order-total1">Tổng tiền: 120.000đ</td>
+                    </tr>
+                </table>
+            </div>
+            <div class=" oder">
+                <table class="table-sm table-order">
+                    <tr>
+                        <td class="table-order-item">
+                            <div><img src="/image/hang.png" alt="hang"></div>
+                            <div class="md">
+                                <h4>Mã đơn: #12</h4>
+                                Số lượng: 2
+                            </div>
+                        </td>
+                        <td class="table-order-total">Ngày: 01/01/2025</td>
+                    </tr>
+                    <tr>
+                        <td class="table-order-item1">
+                            <a class="chitiet" href="/oderdetail">Chi tiết</a>
+                        </td>
+                        <td class="table-order-total1">Tổng tiền: 120.000đ</td>
+                    </tr>
+                </table>
+            </div>
     </div>
 </body>
