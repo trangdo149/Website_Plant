@@ -1,4 +1,4 @@
-﻿body {
+﻿﻿body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -13,8 +13,8 @@
     background-color: #C1CEB2;
     overflow: hidden;
     position: relative;
-    justify-content: end; /* Center form on smaller screens */
-    align-items: center; /* Center vertically */
+    justify-content: end;
+    align-items: center;
 }
 
 .Background {
@@ -38,9 +38,11 @@
     z-index: 2;
     padding: 3rem 2rem;
     background-color: #FEF7EF;
-    border-radius: 4rem 0rem 0rem 4rem;
+    border-radius: 2rem;
     width: 60%;
     height: 100%;
+    border-radius: 4rem 0rem 0rem 4rem;
+    /*max-width: 36rem;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,21 +75,21 @@ input {
     font-size: 16px;
 }
 
-.login-button {
-    width: 50%;
-    margin: 24px auto 0;
+button {
     padding: 15px;
     background-color: rgba(31, 53, 6, 0.6);
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
+    width: 30%;
+    margin: 24px auto 0;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: rgba(31, 53, 6, 0.8);
-}
+    button:hover {
+        background-color: rgba(31, 53, 6, 0.8);
+    }
 
 .signup-link {
     text-align: center;
@@ -111,14 +113,12 @@ button:hover {
     border-radius: 1rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .img-login img {
         /* position: static;
         width: 100%;
         height: auto;
-        margin-bottom: 2rem;*/ /* Add space below image */
-
+        margin-bottom: 2rem; */
         position: absolute;
         top: 40vh;
         left: 0px;
@@ -127,8 +127,8 @@ button:hover {
     }
 
     .form-section {
-        border-radius: 1rem; /* Less border-radius on small screens */
-        padding: 2rem 1rem; /* Reduce padding on smaller screens */
+        border-radius: 1rem;
+        padding: 2rem 1rem;
     }
 
     h1 {
@@ -136,17 +136,17 @@ button:hover {
     }
 
     input {
-        font-size: 14px; /* Smaller font size on smaller screens */
+        font-size: 14px;
     }
 
     button {
-        font-size: 14px; /* Smaller font size for buttons */
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
     .img-login img {
-        display: none; /* Hide image on extra small screens */
+        /*display: none;*/
     }
 
     .form-section {

@@ -1,119 +1,12 @@
 ﻿@page
 @model Website_Plant.Pages.Auth.signupModel
 @{
+	Layout = "_AuthenticationLayout";
+	ViewData["Title"] = "Đăng kí";
 }
+
 @section Styles {
-	<style>
-
-
-		body {
-			margin: 0;
-			padding: 0;
-			height: 100%;
-			font-family: Arial, sans-serif;
-		}
-
-		.login-box {
-			display: flex;
-			width: 100%;
-			height: 100%;
-			margin: auto;
-			background-color: #C1CEB2;
-			overflow: hidden;
-			position: relative;
-			justify-content: flex-end;
-		}
-
-		.Background {
-			background-color: #C1CEB2;
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			z-index: 1;
-		}
-
-		.img-login img {
-			position: absolute;
-			top: 150px;
-			left: 0px;
-			z-index: 3;
-			width: 600px;
-		}
-
-		.form-section {
-			position: relative;
-			z-index: 2;
-			padding: 100px 200px 100px 200px;
-			background-color: #FEF7EF;
-			border-radius: 4rem 0 0 4rem;
-			width: 60rem;
-			height: 36rem;
-		}
-
-			.form-section input {
-				margin-bottom: 1.5rem;
-			}
-
-		h1 {
-			text-align: center;
-			font-weight: bold;
-			color: #1F3506;
-			margin-bottom: 30px;
-		}
-
-		.input-group {
-			margin-bottom: 20px;
-		}
-
-		input {
-			width: 100%;
-			padding: 10px 0;
-			border: none;
-			border-bottom: 1px solid #C1CEB2;
-			background-color: #FEF7EF;
-			outline: none;
-			background-color: none;
-			font-size: 16px;
-		}
-
-		button {
-			width: 100%;
-			padding: 15px;
-			background-color: rgba(31, 53, 6, 0.6);
-			color: white;
-			border: none;
-			border-radius: 5px;
-			font-size: 16px;
-			cursor: pointer;
-		}
-
-			button:hover {
-				background-color: rgba(31, 53, 6, 0.8);
-			}
-
-		.signup-link {
-			text-align: center;
-			margin-top: 20px;
-		}
-
-			.signup-link a {
-				color: #4F9450;
-				text-decoration: none;
-			}
-
-				.signup-link a:hover {
-					text-decoration: underline;
-				}
-
-			.signup-link span {
-				color: #000000;
-			}
-
-		.login-button {
-			border-radius: 1rem;
-		}
-	</style>
-
+	<link href="~/css//signup.css" rel="stylesheet">
 }
 
 <div class="login-box">
@@ -122,17 +15,20 @@
 	</div>
 
 	<form class="form-section">
-		<h1>Đăng ký</h1>
-		<input id="name" type="text" placeholder="Tên"/>
+		<h1>Đăng kí</h1>
+		<input id="name" type="text" placeholder="Tên" />
 		<input id="email" type="text" placeholder="Email" />
 		<input id="password" type="password" placeholder="Mật khẩu" />
 		<input id="passwordagain" type="password" placeholder="Nhập lại mật khẩu" />
 		<button class="login-button" type="button">Đăng ký</button>
 		<div class="signup-link">
-			<span>Bạn đã có tài khoản?</span> <a href="#">Đăng nhập</a>
+			<span>Bạn đã có tài khoản?</span> <a href="signin">Đăng nhập</a>
 		</div>
 	</form>
 
 </div>
+@section Scripts {
+	<script>
 
-
+	</script>
+}
