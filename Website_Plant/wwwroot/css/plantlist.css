@@ -2,7 +2,7 @@
     background-color: #fef7ef;
 }
 
-.container {
+.body-container {
     display: flex;
     align-items: center;
     padding: 22px;
@@ -103,7 +103,7 @@ search {
             }
 
         search .search-bar button {
-            background-color: #2c3e50;
+            background-color: #1F3505;
             color: #fff;
             padding: 10px 20px;
             border: none;
@@ -133,7 +133,7 @@ search {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     max-width: 1000px;
-    margin: 60px;
+    margin: 60px 60px 60px 0;
 }
 
 .plant {
@@ -156,7 +156,6 @@ search {
         margin-top: 1.5rem;
         font-size: 1.15rem;
         font-weight: 530;
-        margin: 10px 0;
         color: #1F3505;
     }
 
@@ -175,7 +174,7 @@ search {
     height:400px;
     width: 100%;
     max-width: 300px;
-    padding: 20px;
+    padding: 26px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -204,7 +203,7 @@ search {
         border: 1px solid #ddd;
         border-radius: 8px;
         background-color: #f9f9f9;
-        margin-bottom: 15px;
+        margin-bottom: 8px;
         outline: none;
     }
 
@@ -222,7 +221,7 @@ search {
     background-color: #1F3505;
     color: white;
     margin-top: 15px;
-    padding: 9px 30px;
+    padding: 10px 40px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -230,14 +229,14 @@ search {
 }
 
     .filter-apply:hover {
-        background-color: #469048;
+        opacity: 0.9;
     }
 
 .filter-reset {
     background-color: white;
     color: #2c3e50;
     margin-top: 15px;
-    padding: 9px 30px;
+    padding: 10px 40px;
     border: 1px solid #2c3e50;
     border-radius: 8px;
     cursor: pointer;
