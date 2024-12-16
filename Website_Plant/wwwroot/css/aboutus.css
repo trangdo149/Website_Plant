@@ -5,6 +5,7 @@
 body {
     font-size: 1.6rem;
     background: #fef7ef;
+    width: 100%;
 }
 
 a {
@@ -35,15 +36,19 @@ img {
 }
 
 .news-above {
-    font-size: 95px;
+    width: 600px;
+    font-size: 120px;
+    font-family: 'Inter';
+    margin-left: 584px;
     font-weight: 700;
     color: #ffffff;
-    margin-left: 550px;
 }
 
 .news-below {
+    font-family: Inter;
     font-size: 95px;
     font-weight: 700;
+    width: 1090px;
     color: #ffffff;
 }
 
