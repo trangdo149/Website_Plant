@@ -16,8 +16,8 @@
         </a>
     </li>   
 </ul>
-<form class="d-flex" role="search">
-    <input class="form-control search-input me-2" type="search" placeholder="Nhập tên sản phẩm" aria-label="Search">
+<form class="d-flex">
+    <input class="form-control search-input me-2" type="search" name="search" value="@Model.search" placeholder="Nhập tên sản phẩm">
     <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
 </form>
 <table class="content-table">
@@ -32,127 +32,36 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                <img src="/image/plant_temp.png" width="80" height="80" />
-                <span>Cây Huyết Dụ</span>
-            </td>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">Cây trong nhà</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-pencil" href="/Admin/Plant/Edit"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="/image/plant_temp.png" width="80" height="80" />
-                <span>Cây Huyết Dụ</span>
-            </td>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">Cây trong nhà</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-pencil" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="/image/plant_temp.png" width="80" height="80" />
-                <span>Cây Huyết Dụ</span>
-            </td>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">Cây trong nhà</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-pencil" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="/image/plant_temp.png" width="80" height="80" />
-                <span>Cây Huyết Dụ</span>
-            </td>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">Cây trong nhà</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-pencil" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="/image/plant_temp.png" width="80" height="80" />
-                <span>Cây Huyết Dụ</span>
-            </td>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">Cây trong nhà</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-pencil" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="/image/plant_temp.png" width="80" height="80" />
-                <span>Cây Huyết Dụ</span>
-            </td>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">Cây trong nhà</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-pencil" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="/image/plant_temp.png" width="80" height="80" />
-                <span>Cây Huyết Dụ</span>
-            </td>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">Cây trong nhà</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-pencil" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
+        @foreach(var item in Model.listPlants)
+        {
+            <tr>
+                <td>
+                    <img src="/image/plants/@item.ImageFileName" width="80" height="100" style="border-radius: 4px"/>
+                    <span>@item.tensp</span>
+                </td>
+                <td class="tbody-td-masp">@item.Id</td>
+                <td class="tbody-td-other">@item.danhmuc</td>
+                <td class="tbody-td-other">@item.gia</td>
+                <td class="tbody-td-other">@item.ngaytao</td>
+                <td class="tbody-td-other">
+                    <a class="tbody-td-link bi bi-pencil" href="/Admin/Plant/Edit?id=@item.Id"></a>
+                    &nbsp;
+                    <a class="tbody-td-link bi bi-trash" href="/Admin/Plant/Delete?id=@item.Id" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')"></a>
+                </td>
+            </tr>
+        }
+        @if (ViewData["ErrorMessage"] != null)
+        {
+            <p class="error-message">@ViewData["ErrorMessage"]</p>
+        }
     </tbody>
 </table>
 <ul class="pagination-admin">
-    <li class="pagination-admin-item pagination-admin-item--active">
-        <a class="pagination-admin-item-link" href="#">1</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">2</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">3</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">4</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">5</a>
-    </li>
+    @for (int i = 1; i <= Model.totalPage; i++)
+    {
+        var activeClass = (i == Model.page) ? "pagination-admin-item--active" : "";
+        <li class="pagination-admin-item @activeClass">
+            <a class="pagination-admin-item-link" href="?page=@(i)&search=@(Model.search)">@i</a>
+        </li>
+    }
 </ul>

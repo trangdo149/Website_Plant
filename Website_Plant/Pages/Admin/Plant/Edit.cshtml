@@ -24,66 +24,93 @@
         <h1>Sửa thông tin sản phẩm</h1>
     </li>
 </ul>
-<ul class="form-list">
-    <li class="form-item">
-        <h2>Thông tin chung</h2>
-        <ul class="form-infoCommon-list">
-            <li class="form-infoCommon-item">
-                <h4>Tên sản phẩm</h4>
-                <input class="form-infoCommon-item-input" placeholder="Nhập tên sản phẩm ở đây..." />
-            </li>
-            <li class="form-infoCommon-item">
-                <h4>Mô tả</h4>
-                <textarea class="form-infoCommon-item-textarea" placeholder="Nhập mô tả sản phẩm ở đây..."></textarea>
-            </li>
-            <li class="form-infoCommon-item">
-                <h4>Ánh sáng</h4>
-                <input class="form-infoCommon-item-input" placeholder="Nhập thông tin ánh sáng phù hợp với cây" />
-            </li>
-            <li class="form-infoCommon-item">
-                <h4>Tưới nước</h4>
-                <input class="form-infoCommon-item-input" placeholder="Nhập thông tin về việc tưới nước cho cây" />
-            </li>
-            <li class="form-infoCommon-item">
-                <h4>Nhiệt độ</h4>
-                <input class="form-infoCommon-item-input" placeholder="Nhập nhiệt độ phù hợp với cây" />
-            </li>
-        </ul>
-    </li>
-    <li class="form-item">
-        <h2>Danh mục</h2>
-        <select class="form-infoCommon-item-select">
-            <option>Cây trong nhà</option>
-            <option>Cây để bàn</option>
-            <option>Cây ban công</option>
-        </select>
-    </li>
-    <li class="form-item">
-        <h2>Ảnh</h2>
-        <div class="form-item-image-khung">
-             <img class="img-tmp" src="/image/product_tmp.png" width="200" height="200"/>
-        </div>            
-        <div class="form-group">
-             <label for="fileUpload" class="custom-file">Chọn tệp</label>
-             <span class="file-name">Chưa chọn tệp</span>
-             <input id="fileUpload" class="form-item-file" type="file" />
-        </div>      
-    </li>
-    <li class="form-item">
-        <h2>Giá</h2>
-        <input class="form-item-input" placeholder="Nhập giá ở đây..." />
-    </li>
-</ul>
-<ul class="form-button-list">
-    <li class="form-button-item form-border-link">
-        <i class="bi bi-x"></i>
-        <a class="form-button-link" href="/Admin/Plant">Hủy</a>
-    </li>
-    <li class="form-button-item form-border-submit">
-        <button class="form-button-submit" type="submit">
-            <i class="bi bi-pencil-square"></i>
-            Sửa sản phẩm
-        </button>
-    </li>
-    </li>
-</ul>
+@if (Model.errorMessage.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>@Model.errorMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+else if (Model.successMessage.Length > 0)
+{
+    <div class='alert alert-success alert-dismissible fade show' role='alert'>
+        <strong>@Model.successMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+<form method="post" enctype="multipart/form-data">
+    <ul class="form-list">
+        <li class="form-item">
+            <h2>Thông tin chung</h2>
+            <ul class="form-infoCommon-list">
+                <li class="form-infoCommon-item">
+                    <h4>Tên sản phẩm</h4>
+                    <input class="form-infoCommon-item-input" asp-for="tensp" placeholder="Nhập tên sản phẩm ở đây..." />
+                    <span asp-validation-for="tensp" class="text-danger"></span>
+                </li>
+                <li class="form-infoCommon-item">
+                    <h4>Mô tả</h4>
+                    <textarea class="form-infoCommon-item-textarea" asp-for="mota" placeholder="Nhập mô tả sản phẩm ở đây..."></textarea>
+                    <span asp-validation-for="mota" class="text-danger"></span>
+                </li>
+                <li class="form-infoCommon-item">
+                    <h4>Ánh sáng</h4>
+                    <select class="form-infoCommon-item-select" asp-for="anhsang">
+                        <option value="Ánh sáng trực tiếp">Ánh sáng trực tiếp</option>
+                        <option value="Ánh sáng gián tiếp">Ánh sáng gián tiếp</option>
+                    </select>
+                    <span asp-validation-for="anhsang" class="text-danger"></span>
+                </li>
+                <li class="form-infoCommon-item">
+                    <h4>Tưới nước</h4>
+                    <input class="form-infoCommon-item-input" asp-for="tuoinuoc" placeholder="Nhập thông tin về việc tưới nước cho cây" />
+                    <span asp-validation-for="tuoinuoc" class="text-danger"></span>
+                </li>
+                <li class="form-infoCommon-item">
+                    <h4>Nhiệt độ</h4>
+                    <input class="form-infoCommon-item-input" asp-for="nhietdo" placeholder="Nhập nhiệt độ phù hợp với cây" />
+                    <span asp-validation-for="nhietdo" class="text-danger"></span>
+                </li>
+            </ul>
+        </li>
+        <li class="form-item">
+            <h2>Danh mục</h2>
+            <select class="form-infoCommon-item-select" asp-for="danhmuc">
+                <option value="Cây trong nhà">Cây trong nhà</option>
+                <option value="Cây để bàn">Cây để bàn</option>
+                <option value="Cây ban công">Cây ban công</option>
+            </select>
+            <span asp-validation-for="danhmuc" class="text-danger"></span>
+        </li>
+        <li class="form-item">
+            <h2>Ảnh</h2>
+            <div class="form-item-image-khung">
+                <img class="img-tmp" src="/image/plants/@Model.ImageFileName" width="200" height="200" />
+                <input type="hidden" asp-for="ImageFileName"/>
+            </div>
+            <div class="form-group">
+                <label for="fileUpload" class="custom-file">Chọn tệp</label>
+                <span class="file-name">Chưa chọn tệp</span>
+                <input id="fileUpload" asp-for="ImageFile" class="form-item-file" type="file" />
+            </div>
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+        </li>
+        <li class="form-item">
+            <h2>Giá</h2>
+            <input class="form-item-input" asp-for="gia" placeholder="Nhập giá ở đây..." />
+            <span asp-validation-for="gia" class="text-danger"></span>
+        </li>
+    </ul>
+    <ul class="form-button-list">
+        <li class="form-button-item form-border-link">
+            <i class="bi bi-x"></i>
+            <a class="form-button-link" href="/Admin/Plant" role="button">Hủy</a>
+        </li>
+        <li class="form-button-item form-border-submit">
+            <button class="form-button-submit" type="submit">
+                <i class="bi bi-pencil-square"></i>
+                Sửa sản phẩm
+            </button>
+        </li>
+    </ul>
+</form>
