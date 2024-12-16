@@ -116,3 +116,86 @@
 .pagination-admin-item-link:hover {
     color: #4F9450;
 }
+
+/* Overlay mờ phía sau popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Container của popup */
+.popup-container {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    font-family: Arial, sans-serif;
+}
+
+/* Tiêu đề của popup */
+.popup-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 15px;
+}
+
+/* Thông báo */
+.popup-message {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Nút đóng (X) ở góc trên */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Nút xác nhận và hủy */
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.popup-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Nút Không */
+.popup-button.cancel {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+/* Nút Có */
+.popup-button.confirm {
+    background-color: #34A853; /* Màu xanh lá */
+    color: white;
+}
+
+.popup-button:hover {
+    opacity: 0.9;
+}
