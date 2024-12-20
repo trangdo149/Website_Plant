@@ -60,7 +60,7 @@ body {
         }
 
             .container form input::placeholder {
-                color: #1f3506;
+                color: #859078;
             }
 
         .container form #email {
@@ -92,9 +92,9 @@ body {
             min-width: 620px;
             max-width: 620px;
         }
-        .container form textarea::placeholder{
-            color: #1f3506;
-        }
+            .container form textarea::placeholder {
+                color: #859078;
+            }
 
         .container form h4 {
             font-size: 20px;

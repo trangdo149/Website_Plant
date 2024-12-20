@@ -27,10 +27,16 @@
         <form method="post">
             <h1>Liên hệ với chúng tôi</h1>
             <input type="text" name="fullname" id="fullname" placeholder="Họ & Tên" value="@Model.FullName" />
+            
+
             <input type="text" name="phone" id="phone" placeholder="SĐT" value="@Model.PhoneNumber" />
+            
+
             <input type="email" name="email" id="email" placeholder="Email" value="@Model.Email" />
-            @*<h4>Hãy viết lời nhắn ở đây nhé ❤️</h4>*@
+            
+
             <textarea name="message" placeholder="Hãy viết lời nhắn ở đây nhé ❤️" value="@Model.Message"></textarea>
+
             <a href ="index"><input type="button" value="Trở lại" id="button" /></a>
             <input type="submit" value="Gửi đi" id="button" />
         </form>

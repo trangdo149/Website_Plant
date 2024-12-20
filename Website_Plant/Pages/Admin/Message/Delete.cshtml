@@ -1,0 +1,25 @@
+﻿@page
+@using Microsoft.Data.SqlClient
+@{
+    string id = Request.Query["id"];
+    try
+    {
+        string connectionString = "Data Source=Localhost\\sqlexpress;Initial Catalog=WebPlant;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            string sql = "delete from Contact where id=@id";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
+
+    Response.Redirect("/Admin/Message");
+}
