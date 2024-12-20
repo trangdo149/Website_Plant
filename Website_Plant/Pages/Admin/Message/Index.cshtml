@@ -16,79 +16,27 @@
         <tr>
             <th class="thead-th-other">ID</th>
             <th class="thead-th-other">Họ và Tên</th>
-            <th class="thead-th-other">Email</th>
             <th class="thead-th-other">Số điện thoại</th>
-            <th class="thead-th-other">Ngày gửi</th>
+            <th class="thead-th-other">Email</th>
+            <th class="thead-th-other">Xem</th>
             <th class="thead-th-other"> </th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td class="tbody-td-bold">20</td>
-            <td class="tbody-td-bold">Nguyễn Văn A</td>
-            <td class="tbody-td-other">laura_prichet@mail.com</td>
-            <td class="tbody-td-other">078 5054 8877</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="/Admin/Message/Detail"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-bold">20</td>
-            <td class="tbody-td-bold">Nguyễn Văn A</td>
-            <td class="tbody-td-other">laura_prichet@mail.com</td>
-            <td class="tbody-td-other">078 5054 8877</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-bold">20</td>
-            <td class="tbody-td-bold">Nguyễn Văn A</td>
-            <td class="tbody-td-other">laura_prichet@mail.com</td>
-            <td class="tbody-td-other">078 5054 8877</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-bold">20</td>
-            <td class="tbody-td-bold">Nguyễn Văn A</td>
-            <td class="tbody-td-other">laura_prichet@mail.com</td>
-            <td class="tbody-td-other">078 5054 8877</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-bold">20</td>
-            <td class="tbody-td-bold">Nguyễn Văn A</td>
-            <td class="tbody-td-other">laura_prichet@mail.com</td>
-            <td class="tbody-td-other">078 5054 8877</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-bold">20</td>
-            <td class="tbody-td-bold">Nguyễn Văn A</td>
-            <td class="tbody-td-other">laura_prichet@mail.com</td>
-            <td class="tbody-td-other">078 5054 8877</td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-                &nbsp;
-                <a class="tbody-td-link bi bi-trash" href="#"></a>
-            </td>
-        </tr>
+        @foreach (var contact in Model.Contacts)
+        {
+            <tr>
+                <td class="tbody-td-bold">@contact.ID</td>
+                <td class="tbody-td-bold">@contact.FullName</td>
+                <td class="tbody-td-other">@contact.Email</td>
+                <td class="tbody-td-other">@contact.PhoneNumber</td>
+                <td class="tbody-td-other">
+                    <a class="tbody-td-link bi bi-eye" href="/Admin/Message/Detail?contactId=@contact.ID"></a>
+                    &nbsp;
+                    <a class="tbody-td-link bi bi-trash" href="#"></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 <ul class="pagination-admin">
