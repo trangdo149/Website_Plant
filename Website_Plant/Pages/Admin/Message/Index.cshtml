@@ -31,28 +31,20 @@
                 <td class="tbody-td-other">@contact.Email</td>
                 <td class="tbody-td-other">@contact.PhoneNumber</td>
                 <td class="tbody-td-other">
-                    <a class="tbody-td-link bi bi-eye" href="/Admin/Message/Detail?contactId=@contact.ID"></a>
+                    <a class="tbody-td-link bi bi-eye" href="/Admin/Message/Detail?id=@contact.ID"></a>
                     &nbsp;
-                    <a class="tbody-td-link bi bi-trash" href="#"></a>
+                    <a class="tbody-td-link bi bi-trash" href="/Admin/Message/Delete?id=@contact.ID" onclick="return confirm('Bạn có chắc chắn muốn xóa thư này?')"></a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 <ul class="pagination-admin">
-    <li class="pagination-admin-item pagination-admin-item--active">
-        <a class="pagination-admin-item-link" href="#">1</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">2</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">3</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">4</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">5</a>
-    </li>
+    @for (int i = 1; i <= Model.totalPage; i++)
+    {
+        var activeClass = (i == Model.page) ? "pagination-admin-item--active" : "";
+        <li class="pagination-admin-item @activeClass">
+            <a class="pagination-admin-item-link" href="?page=@(i)">@i</a>
+        </li>
+    }
 </ul>

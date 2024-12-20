@@ -8,32 +8,56 @@ namespace Website_Plant.Pages.Admin.Message
 {
     public class IndexModel : PageModel
     {
-        public List<Contact> Contacts { get; private set; } = new List<Contact>();
-        public string ErrorMessage { get; private set; } = "";
+        public List<Contact> Contacts = new List<Contact>();
+        public int page = 1;
+        public int totalPage = 0;
+        private readonly int pageSize = 6;
 
         public void OnGet()
         {
-            string connectionString = "Data Source=LAPTOP-H0QVT377\\SQLEXPRESS07;Initial Catalog=ContactDB;Integrated Security=True;Trust Server Certificate=True";
+            page = 1;
+            string requestPage = Request.Query["page"];
+            if (requestPage != null)
+            {
+                try
+                {
+                    page = int.Parse(requestPage);
+                }
+                catch (Exception ex)
+                {
+                    page = 1;
+                }
+            }
+
             try
             {
+                string connectionString = "Data Source=Localhost\\sqlexpress;Initial Catalog=WebPlant;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string sql = "SELECT * FROM Contact";
+                    string sqlCount = "select count(*) from Contact";
+                    using (SqlCommand command = new SqlCommand(sqlCount, connection))
+                    {
+                        decimal count = (int)command.ExecuteScalar();
+                        totalPage = (int)Math.Ceiling(count / pageSize);
+                    }
+                    string sql = "SELECT * FROM Contact order by id desc";
+                    sql += " offset @skip ROWS FETCH NEXT @pageSize ROWS ONLY";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
+                        command.Parameters.AddWithValue("@skip", (page - 1) * pageSize);
+                        command.Parameters.AddWithValue("@pageSize", pageSize);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                Contact contact = new Contact
-                                {
-                                    ID = reader.GetInt32(0), // Lấy ID từ cột đầu tiên
-                                    FullName = reader.GetString(1), // Lấy Họ và Tên từ cột thứ hai
-                                    Email = reader.GetString(2), // Lấy Email từ cột thứ ba
-                                    PhoneNumber = reader.GetString(3) // Lấy Số điện thoại từ cột thứ tư
-                                };
-
+                                Contact contact = new Contact();
+                                contact.ID = reader.GetInt32(0); 
+                                contact.FullName = reader.GetString(1);
+                                contact.Email = reader.GetString(2);
+                                contact.PhoneNumber = reader.GetString(3);
+                                contact.Message = reader.GetString(4);
+                                contact.CreatedAt = reader.GetDateTime(5).ToString("dd/MM/yyyy");
                                 Contacts.Add(contact);
                             }
                         }
@@ -42,7 +66,7 @@ namespace Website_Plant.Pages.Admin.Message
             }
             catch (Exception ex)
             {
-                ErrorMessage = ex.Message;
+                Console.WriteLine(ex.Message);
             }
         }
     }
@@ -50,8 +74,10 @@ namespace Website_Plant.Pages.Admin.Message
     public class Contact
     {
         public int ID { get; set; }
-        public string FullName { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+        public string FullName { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string PhoneNumber { get; set; } = "";
+        public string Message { get; set; } = "";
+        public string CreatedAt { get; set; } = "";
     }
 }

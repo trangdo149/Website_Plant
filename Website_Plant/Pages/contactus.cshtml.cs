@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using System.ComponentModel.DataAnnotations;
 
 namespace Website_Plant.Pages
 {
@@ -14,6 +15,7 @@ namespace Website_Plant.Pages
         [BindProperty]
         public string PhoneNumber { get; set; } = "";
         [BindProperty]
+        [EmailAddress]
         public string Email { get; set; } = "";
         [BindProperty]
         public string Message { get; set; } = "";
@@ -40,7 +42,7 @@ namespace Website_Plant.Pages
             }
             try
             {
-                string connectionString = "Data Source=LAPTOP-H0QVT377\\SQLEXPRESS07;Initial Catalog=ContactDB;Integrated Security=True;Trust Server Certificate=True";
+                string connectionString = "Data Source=Localhost\\sqlexpress;Initial Catalog=WebPlant;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
