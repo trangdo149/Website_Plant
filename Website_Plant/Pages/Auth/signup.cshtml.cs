@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
-using System.Net;
-using System.Numerics;
+using Website_Plant.MyHelpers;
 
 namespace Website_Plant.Pages.Auth
 {
+    [RequireNoAuth]
     [BindProperties]
     public class signupModel : PageModel
     {
@@ -30,14 +29,6 @@ namespace Website_Plant.Pages.Auth
 		public string errorMessage = "";
 		public string successMessage = "";
 
-		public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
-		{
-			base.OnPageHandlerExecuting(context);
-			if(HttpContext.Session.GetString("role") == "client")
-			{
-				context.Result = new RedirectResult("/");
-			}
-		}
 		public void OnGet()
         {
         }

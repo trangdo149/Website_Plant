@@ -1,6 +1,8 @@
 ﻿@page
 @using Microsoft.Data.SqlClient
+@using Website_Plant.MyHelpers
 @inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment webHostEnviroment
+@attribute [RequireAuth(RequiredRole = "admin")]
 @{
     string id = Request.Query["id"];
     try

@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using Website_Plant.MyHelpers;
 
 namespace Website_Plant.Pages.Admin.Message
 {
+    [RequireAuth(RequiredRole = "admin")]
     public class IndexModel : PageModel
     {
         public List<Contact> Contacts = new List<Contact>();

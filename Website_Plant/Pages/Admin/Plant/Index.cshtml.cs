@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
-using System.Security.Cryptography.X509Certificates;
+using Website_Plant.MyHelpers;
 
 namespace Website_Plant.Pages.Admin.Plant
 {
+    [RequireAuth(RequiredRole = "admin")]
     public class IndexModel : PageModel
     {
         public List<PlantInfo> listPlants = new List<PlantInfo>();
