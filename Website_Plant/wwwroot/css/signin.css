@@ -33,6 +33,25 @@
     width: 44%;
 }
 
+.form-section-input {
+    margin-bottom: 1rem;
+    margin: 8px auto;
+    width: 80%;
+}
+
+.text-danger {
+    font-size: 14px;
+}
+
+.btn-close {
+    margin: 0;
+}
+
+.alert {
+    width: 80%;
+    margin: 8px auto;
+}
+
 .form-section {
     position: relative;
     z-index: 2;
@@ -45,12 +64,6 @@
     flex-direction: column;
     justify-content: center;
 }
-
-    .form-section input {
-        margin-bottom: 1rem;
-        margin: 1rem auto;
-        width: 80%;
-    }
 
 h1 {
     text-align: center;
