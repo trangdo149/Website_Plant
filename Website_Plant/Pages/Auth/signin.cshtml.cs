@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
+using Website_Plant.MyHelpers;
 
 namespace Website_Plant.Pages.Auth
 {
-	[BindProperties]
+    [RequireNoAuth]
+    [BindProperties]
 	public class signinModel : PageModel
     {
 		[Required(ErrorMessage = "Email không được để trống")]
@@ -19,14 +20,6 @@ namespace Website_Plant.Pages.Auth
 		public string errorMessage = "";
 		public string successMessage = "";
 
-        public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
-        {
-            base.OnPageHandlerExecuting(context);
-            if (HttpContext.Session.GetString("role") != null)
-            {
-                context.Result = new RedirectResult("/");
-            }
-        }
         public void OnGet()
         {
         }

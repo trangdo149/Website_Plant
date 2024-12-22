@@ -1,5 +1,7 @@
 ﻿@page
 @using Microsoft.Data.SqlClient
+@using Website_Plant.MyHelpers
+@attribute [RequireAuth(RequiredRole = "admin")]
 @{
     string id = Request.Query["id"];
     try

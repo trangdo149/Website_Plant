@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
+using Website_Plant.MyHelpers;
 
 namespace Website_Plant.Pages.Admin.Plant
 {
+    [RequireAuth(RequiredRole = "admin")]
     public class CreateModel : PageModel
     {
         [BindProperty]
