@@ -20,7 +20,7 @@
             <nav class="header-nav">
                 <ul class="header-nav-list">
                     <li class="header-nav_item">
-                        <img src="/image/logo.png" alt="Logo Home Sweet Garden" width="100" height="100" />
+                        <img src="/image/logo.png" alt="Logo Home Sweet Garden" width="80" height="80" />
                     </li>
                 </ul>
                <ul id="nav">
@@ -30,9 +30,37 @@
                </ul>
                 <ul class="header-nav-list">
                     <li class="header-icons">
-                        <a class="active" href="/cart"><i class="bi bi-bag"></i></a>
-                        <a href="/profile"><i class="bi bi-person-circle"></i></a>
+                        <a class="header-icon-link" href="/cart"><i class="bi bi-bag"></i></a>
+                        
                     </li>
+                    @if (Context.Session.GetString("role") == null)
+                    {
+                        <li class="">
+                            <a class="button-signinup btn-signup" asp-area="" asp-page="/Auth/signin">Đăng nhập</a>
+                        </li>
+                        <li class="">
+                            <a class="button-signinup" asp-area="" asp-page="/Auth/signup">Đăng ký</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="header-icons-person">
+                            <a class="header-icon-link"><i class="bi bi-person-circle"></i></a>
+                            <div class="header-person-menu">
+                                <ul class="header-person-list">
+                                    <li class="header-person-item">
+                                        <a class="header-person-link" href="#">Hồ sơ cá nhân</a>
+                                    </li>
+                                    <li class="header-person-item">
+                                        <a class="header-person-link" asp-page="/Index">Trang chủ</a>
+                                    </li>
+                                    <li class="header-person-item">
+                                        <a class="header-person-link" asp-page="/Auth/Logout">Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    }                   
                 </ul>
             </nav>
         </div>

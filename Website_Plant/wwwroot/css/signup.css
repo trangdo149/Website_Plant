@@ -48,11 +48,14 @@
     justify-content: center;
 }
 
-    .form-section input {
-        margin-bottom: 1rem;
-        margin: 1rem auto;
-        width: 80%;
-    }
+.form-section-input {
+    margin-bottom: 1rem;
+    margin: 8px auto;
+    width: 80%;
+}
+.text-danger {
+    font-size: 14px;
+}
 
 h1 {
     text-align: center;
@@ -86,10 +89,16 @@ button {
     margin: 24px auto 0;
     cursor: pointer;
 }
-
-    button:hover {
-        background-color: rgba(31, 53, 6, 0.8);
-    }
+.btn-close {
+    margin: 0;
+}
+.alert{
+    width: 80%;
+    margin: 8px auto;
+}
+button:hover {
+    background-color: rgba(31, 53, 6, 0.8);
+}
 
 .signup-link {
     text-align: center;
