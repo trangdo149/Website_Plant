@@ -17,62 +17,28 @@
     <section class="products">
         <h2>Sản phẩm mới</h2>
         <div class="product-list">
-            <div class="product-card">
-                <a href="#"><img src="/image/buomdem2.jpg" alt=""></a>
-                <h3>Cây bướm đêm</h3>
-                <p>80.000 VND</p>
-            </div>
-            <div class="product-card">
-                <a href="#"><img src="/image/conhat2.jpg" alt=""></a>
-                <h3>Cây cọ Nhật</h3>
-                <p>350.000 VND</p>
-            </div>
-            <div class="product-card">
-                <a href="#"><img src="/image/thailaitia1.jpg" alt=""></a>
-                <h3>Thài lài tía</h3>
-                <p>95.000 VND</p>
-            </div>
-            <div class="product-card">
-                <a href="#"><img src="~/image/traubanammy2.jpg" alt=""></a>
-                <h3>Trầu bà Nam Mỹ</h3>
-                <p>150.000 VND</p>
-            </div>
-            <div class="product-card">
-                <a href="#"><img src="~/image/kimngan2.jpg" alt=""></a>
-                <h3>Cây kim ngân</h3>
-                <p>180.000 VND</p>
-            </div>
+            @foreach(var item in Model.listNewestPlants)
+            {
+                <div class="product-card">
+                    <a href="#"><img src="/image/plants/@item.ImageFileName" alt="Ảnh cây cảnh"></a>
+                    <h3>@item.tensp</h3>
+                    <p>@item.gia VND</p>
+                </div>
+            }           
         </div>
     </section>
 
     <section class="best-sellers">
         <h2>Sản phẩm bán chạy</h2>
         <div class="product-list">
-            <div class="product-card">
-                <a href="#"><img src="/image/lany2.jpg" alt=""></a>
-                <h3>Lan ý</h3>
-                <p>200.000 VND</p>
-            </div>
-            <div class="product-card">
-                <a href="#"><img src="/image/xuongrong1.jpg" alt=""></a>
-                <h3>Cây xương rồng</h3>
-                <p>40.000 VND</p>
-            </div>
-            <div class="product-card">
-                <a href="#"><img src="/image/daynhen2.jpg" alt=""></a>
-                <h3>Cây dây nhện</h3>
-                <p>100.000VND</p>
-            </div>
-            <div class="product-card">
-                <a href="#"><img src="~/image/senda2.jpg" alt=""></a>
-                <h3>Sen đá</h3>
-                <p>30.000 VND</p>
-            </div>
-            <div class="product-card">
-                <a href="#"><img src="~/image/dayenthao.jpg" alt=""></a>
-                <h3>Dạ yến thảo</h3>
-                <p>50.000VND</p>
-            </div>
+            @foreach (var item in Model.listTopSales)
+            {
+                <div class="product-card">
+                    <a href="#"><img src="/image/plants/@item.ImageFileName" alt="Ảnh cây cảnh"></a>
+                    <h3>@item.tensp</h3>
+                    <p>@item.gia VND</p>
+                </div>
+            }
         </div>
     </section>
 
