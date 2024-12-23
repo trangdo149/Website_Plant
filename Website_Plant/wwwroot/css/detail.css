@@ -57,10 +57,9 @@ img {
 .products_container {
     display: flex;
     margin-left: 180px;
-}
-
-.products_container--right {
-    margin-left: 270px;
+    align-items: center;
+    gap: 270px;
+    justify-content: flex-start;
 }
 
 .products_container--title {
@@ -69,7 +68,6 @@ img {
     font-weight: 400;
     line-height: 22px;
     letter-spacing: -0.40799999237060547px;
-    text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     color: #757575;
@@ -84,8 +82,7 @@ img {
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color: linear-gradient(0deg, #1f3505, #1f3505),
-        linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    color: linear-gradient(0deg, #1f3505, #1f3505), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 }
 
 .products_container--1 {
@@ -236,10 +233,9 @@ img {
     font-family: Inter;
     font-size: 40px;
     font-weight: 600;
-    margin-left: 160px;
     margin-top: 50px;
     line-height: 60px;
-    text-align: left;
+    text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
@@ -247,17 +243,18 @@ img {
 .review-container {
     margin-top: 50px;
     display: flex;
-    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
 }
 
 .review-container1 {
     display: flex;
 }
+
 .review-container__right {
     width: 300px;
 }
-
-
 
 .review-stat {
     margin-left: 30px;
@@ -265,7 +262,6 @@ img {
 
 .review-container__left {
     display: flex;
-    margin-left: 300px;
 }
 
 .review-statcontainer {
@@ -317,6 +313,8 @@ img {
     margin-top: 100px;
 }
 
-.imgflower {
-    margin-left: 200px;
+.containerflower {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

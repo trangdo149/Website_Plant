@@ -6,6 +6,7 @@ body {
     font-size: 1.6rem;
     background: #fef7ef;
     width: 100%;
+    font-family: "Inter";
 }
 
 a {
@@ -174,7 +175,8 @@ img {
 .member-items {
     margin-top: 50px;
     display: flex;
-    margin-left: 400px;
+    justify-content: center;
+    align-items: centerf;
 }
 
 .member-image {
@@ -244,13 +246,15 @@ img {
     text-decoration-skip-ink: none;
 }
 
+.haha221 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .review-box {
     width: 921px;
     height: 200px;
-    top: 329px;
-    left: 243px;
-    margin-left: 550px;
-    gap: 0px;
     border-radius: 25px 25px 25px 25px;
     opacity: 0px;
     box-shadow: 23px 24px 24px -4px #00000040;
