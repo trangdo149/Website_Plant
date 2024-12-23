@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .login-box {
@@ -36,7 +36,7 @@
 .form-section-input {
     margin-bottom: 1rem;
     margin: 8px auto;
-    width: 80%;
+    width: 70%;
 }
 
 .text-danger {
@@ -48,7 +48,7 @@
 }
 
 .alert {
-    width: 80%;
+    width: 70%;
     margin: 8px auto;
 }
 
@@ -87,7 +87,7 @@ input {
 }
 
 .login-button {
-    width: 50%;
+    width: 30%;
     margin: 24px auto 0;
     padding: 15px;
     background-color: rgba(31, 53, 6, 0.6);

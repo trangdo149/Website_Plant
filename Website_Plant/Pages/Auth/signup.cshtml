@@ -16,20 +16,6 @@
 
 	<form method="post" class="form-section">
 		<h1>Đăng ký</h1>
-		@if (Model.errorMessage.Length > 0)
-		{
-			<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-				<strong>@Model.errorMessage</strong>
-				<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-			</div>
-		}
-		else if (Model.successMessage.Length > 0)
-		{
-			<div class='alert alert-success alert-dismissible fade show' role='alert'>
-				<strong>@Model.successMessage</strong>
-				<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-			</div>
-		}
 		<div class="form-section-input">
 			<input id="name" type="text" asp-for="fullName" placeholder="Tên" />
 			<span asp-validation-for="fullName" class="text-danger"></span>
