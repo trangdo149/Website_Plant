@@ -47,6 +47,7 @@ body {
     text-decoration: none;
     line-height: 100px;
     padding: 0 25px;
+    font-family: 'Inter'
 }
 
     #nav a.active {
