@@ -29,17 +29,17 @@ img {
 }
 
 .news-container {
-    width: 929px;
-    height: 262px;
-    margin-left: 930px;
     margin-top: -500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .news-above {
     width: 600px;
     font-size: 120px;
-    font-family: 'Inter';
-    margin-left: 584px;
+    font-family: "Inter";
+    margin-left: 485px;
     font-weight: 700;
     color: #ffffff;
 }
@@ -56,9 +56,9 @@ img {
 
 .story {
     display: flex;
-    margin-top: 50px;
-    margin-top: 300px;
+    margin-top: 350px;
     margin-left: 300px;
+    justify-content: space-between;
 }
 
 .story-title {
@@ -85,11 +85,11 @@ img {
 }
 
 .story-left {
-    width: 600;
+    width: 600px;
 }
 
 .story-right {
-    margin-left: 180px;
+    margin-right: 360px;
 }
 
 .story-desc1 {
