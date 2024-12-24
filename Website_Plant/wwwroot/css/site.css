@@ -87,7 +87,7 @@ body {
     font-size: 22px;
     display: flex;
     align-items: center;
-    padding: 0 12px;
+    padding: 0;
 }
 .header-icons-person {
     font-size: 22px;
@@ -95,6 +95,7 @@ body {
     align-items: center;
     padding: 0 12px;
     height: 80px;
+    position: relative;
 }
 .header-icon-link {
     color: white;
@@ -106,7 +107,7 @@ body {
 .header-person-menu{
     position: absolute;
     top: 100%;
-    right: 61px;
+    right: 5px;
     width: 180px;
     background-color: #fef7ef;
     border-radius: 4px;
@@ -137,7 +138,7 @@ body {
     content: "";
     position: absolute;
     right: 10px;
-    top: -18px;
+    top: -17px;
     border-width: 9px;
     border-style: solid;
     border-color: transparent transparent #fef7ef transparent;

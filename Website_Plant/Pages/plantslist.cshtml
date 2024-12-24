@@ -21,159 +21,72 @@
         </div>
     </div>
 
-    <search>
-        <div class="search-bar">
-            <input type="text" placeholder="Nhập tên sản phẩm">
-            <button>
-                <i class="bi bi-search"></i>
-            </button>
-        </div>
-    </search>
+    <form method="get">
+        <search>
+            <div class="search-bar">
+                <input type="text" asp-for="Search" placeholder="Nhập tên sản phẩm">
+                <button type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </search>
+    </form>
 
     <div class="main">
         <!-- Product Grid on the Left -->
         <div class="catalog"> 
-                <div class="plant"> 
-                    <a href="#"><img src="/image/buomdem2.jpg" ></a> 
-                    <h5>Cây bướm đêm</h5> 
-                    <h6>150.000 VND</h6> 
-                 </div> 
-
-                <div class="plant"> 
-                    <img src="/image/camnhung1.jpeg" > 
-                    <h5>Cây cẩm nhung</h5> 
-                    <h6>70.000 VND</h6> 
-                </div> 
-
-                <div class="plant"> 
-                    <img src="/image/trucphatloc1.jpg" > 
-                    <h5>Trúc phát lộc</h5> 
-                    <h6>150.000 VND</h6> 
-                </div> 
-
-                <div class="plant"> 
-                    <img src="/image/tungthom1.jpeg"> 
-                    <h5>Cây tùng thơm</h5>
-                    <h6>165.000 VND</h6> 
-                </div> 
-
-                <div class="plant"> 
-                    <img src="/image/dayenthao2.jpg"> 
-                    <h5>Dạ yến thảo</h5>
-                    <h6>50.000 VND</h6> 
-                </div> 
-                
-                <div class="plant"> 
-                    <img src="/image/huyetdu1.jpg"> 
-                    <h5>Cây huyết dụ</h5> 
-                    <h6>350.000 VND</h6> 
-                </div> 
-                
-                <div class="plant"> 
-                    <img src="/image/truchawaii1.jpg"> 
-                    <h5>Trúc Hawaii</h5> 
-                    <h6>400.000 VND</h6> 
-                </div> 
-                
-                <div class="plant"> 
-                    <img src="/image/thuhaiduong.jpeg"> 
-                    <h5>Thu hải đường</h5> 
-                    <h6>120.000 VND</h6> 
-                </div>
-
+            @foreach (var item in Model.listPlants)
+            {
                 <div class="plant">
-                    <img src="/image/xuongrong2.jpg">
-                    <h5>Cây xương rồng</h5>
-                    <h6>60.000 VND</h6>
+                    <a href="#"><img src="/image/plants/@item.ImageFileName"></a>
+                    <h5>@item.tensp</h5>
+                    <h6>@item.gia VND</h6>
                 </div>
-
-                <div class="plant">
-                    <img src="/image/duongxi1.jpg">
-                    <h5>Dương xỉ tóc thần</h5>
-                    <h6>50.000 VND</h6>
-                </div>
-
-                <div class="plant">
-                    <img src="/image/senda2.jpg">
-                    <h5>Cây sen đá</h5>
-                    <h6>35.000 VND</h6>
-                </div>
-
-                <div class="plant">
-                    <img src="/image/lany2.jpg">
-                    <h5>Cây lan ý</h5>
-                    <h6>200.000 VND</h6>
-                </div>
-
-                <div class="plant">
-                    <img src="/image/lansonmoi.jpg">
-                    <h5>Lan son môi</h5>
-                    <h6>75.000 VND</h6>
-                </div>
-
-                <div class="plant">
-                    <img src="/image/traubacot.jpg">
-                    <h5>Trầu bà cột</h5>
-                    <h6>215.000 VND</h6>
-                </div>
-
-                <div class="plant">
-                    <img src="/image/thailaitia1.jpg">
-                    <h5>Thài lài tía</h5>
-                    <h6>95.000 VND</h6>
-                </div>
-
-                <div class="plant">
-                    <img src="/image/luoiho1.jpg">
-                    <h5>Cây lưỡi hổ</h5>
-                    <h6>85.000 VND</h6>
-                </div>
-
-                <div class="button-container"> 
-                    <a href="plantslist"><div class="button active" onclick="activateButton(this)">1</div> </a>
-                    <a href="#"><div class="button inactive" onclick="activateButton(this)">2</div> </a>
-                    <a href="#"><div class="button inactive" onclick="activateButton(this)">3</div> </a>
-                </div>
-
+            }               
         </div>
 
         <!-- Filter Panel on the Right -->
-        <div class="filter-panel">
-            <h3>Bộ lọc</h3>
-            <label for="category">Danh mục</label>
-            <select id="category">
-                <option value="">Chọn loại cây</option>
-                <option value="indoor">Cây ban công</option>
-                <option value="outdoor">Cây ngoài trời</option>
-                <option value="outdoor">Cây trong nhà</option>
-            </select>
+        <form method="get">
+            <div class="filter-panel">
+                <h3>Bộ lọc</h3>
+                <label for="category">Danh mục</label>
+                <select id="category" asp-for="Category">
+                    <option value="AnyCategory">Chọn loại cây</option>
+                    <option value="Cây ban công">Cây ban công</option>
+                    <option value="Cây để bàn">Cây để bàn</option>
+                    <option value="Cây trong nhà">Cây trong nhà</option>
+                </select>
 
-            <label for="price">Giá tiền</label>
-            <select id="price">
-                <option value="">Chọn giá tiền</option>
-                <option value="low">Dưới 100,000 đ</option>
-                <option value="medium">100,000 - 200,000 đ</option>
-                <option value="high">Trên 200,000 đ</option>
-            </select>
+                <label for="price">Giá tiền</label>
+                <select id="price" asp-for="Price">
+                    <option value="AnyPrice">Chọn giá tiền</option>
+                    <option value="low">Dưới 100,000 đ</option>
+                    <option value="medium">100,000 - 200,000 đ</option>
+                    <option value="high">Trên 200,000 đ</option>
+                </select>
 
-            <div class="filter-buttons">
-                <button class="filter-apply">Lọc</button>
-                <button class="filter-reset">Xóa</button>
+                <ul class="filter-buttons">
+                    <li class="filter-item">
+                        <button type="submit" class="filter-apply">Lọc</button>
+                    </li>
+                    <li class="filter-reset">
+                        <a class="" href="/plantslist">Xóa</a>
+                    </li>                   
+                </ul>
             </div>
-        </div>
+        </form>
+    </div>
+    <div class="trang">
+        <ul class="pagination">
+            <li class="pagination-trang pagination-trang--active">
+                <a class="pagination-link" href="#">1</a>
+            </li>
+            <li class="pagination-trang">
+                <a class="pagination-link" href="#">2</a>
+            </li>
+            <li class="pagination-trang">
+                <a class="pagination-link" href="#">3</a>
+            </li>
+        </ul>
     </div>
 </body>
-
-<script>
-    function activateButton(button) { 
-        // Xóa lớp 'active' khỏi tất cả các nút 
-        var buttons = document.querySelectorAll('.button'); 
-        buttons.forEach(function(btn) { 
-            btn.classList.remove('active'); 
-            btn.classList.add('inactive'); 
-        }); 
-        // Thêm lớp 'active' vào nút được bấm 
-        button.classList.remove('inactive'); 
-        button.classList.add('active'); 
-    } 
-</script>
