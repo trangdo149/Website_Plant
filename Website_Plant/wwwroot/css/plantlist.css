@@ -122,18 +122,35 @@ search {
             }
 
 /* Product Grid */
-.main {
+/*.main {
     display: flex;
     justify-content: center;
     width: 100%;
-}
+}*/
 
 .catalog {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1000px;
-    margin: 60px 60px 60px 0;
+    gap: 24px;
+/*    max-width: 1000px;*/
+    
+}
+.grid{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.main_row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+.main_col-9{
+    width: 75%;
+}
+.main_col-3{
+    width: 25%;
+    padding-left: 32px;
 }
 
 .plant {
@@ -170,10 +187,8 @@ search {
 
 /* Filter Panel */
 .filter-panel {
-    margin-top:55px;
     height:400px;
     width: 100%;
-    max-width: 300px;
     padding: 26px;
     background-color: #fff;
     border-radius: 12px;
