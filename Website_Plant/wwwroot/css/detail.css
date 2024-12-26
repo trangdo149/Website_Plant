@@ -1,9 +1,4 @@
-﻿html {
-    font-size: 62.5%;
-}
-
-body {
-    font-size: 1.6rem;
+﻿body {
     background: #fef7ef;
 }
 
@@ -11,16 +6,6 @@ a {
     text-decoration: none;
     color: black;
 }
-
-img {
-    cursor: pointer;
-}
-
-.container {
-    display: flex;
-}
-
-/* smile */
 
 .smile-container {
     display: flex;
@@ -48,51 +33,52 @@ img {
     text-decoration-skip-ink: none;
 }
 
-/* product */
+
 .products {
     margin-top: 50px;
 }
-
+.product_img {
+    height: 400px;
+    width: 300px;
+}
+.sanpham {
+    height: 400px;
+    width: 300px;
+}
 .products_container {
     display: flex;
     margin-left: 180px;
-}
-
-.products_container--right {
-    margin-left: 270px;
+    align-items: center;
+    gap: 150px;
 }
 
 .products_container--title {
     font-family: Inter;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: -0.40799999237060547px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    font-size: 25px;
+    font-weight: 200;
+    line-height: 20px;
+    margin-top: 20px;
     color: #757575;
 }
 
 .products_container--price {
-    margin-top: 90px;
+    margin-top: 40px;
     font-family: Inter;
-    font-size: 60px;
-    font-weight: 500;
-    line-height: 72.61px;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 65px;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color: linear-gradient(0deg, #1f3505, #1f3505),
-        linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    color: linear-gradient(0deg, #1f3505, #1f3505), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 }
 
 .products_container--1 {
-    margin-top: 30px;
+    margin-top: 20px;
     font-family: Inter;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 22px;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 15px;
     letter-spacing: -0.40799999237060547px;
     text-align: left;
     text-underline-position: from-font;
@@ -101,99 +87,91 @@ img {
 }
 
 .products_container--name {
-    width: 240px;
+    width: 200px;
     margin-top: 20px;
-    border: 1px solid;
+    border: 2px solid;
     border-radius: 99px;
-    padding: 8px 10px 8px 17px;
+    padding: 8px 13px 8px 13px;
     font-family: Inter;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 36.31px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    margin-bottom: 150px;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align:center;
+    margin-bottom: 100px;
 }
 
 .products_container--cart {
-    display: flex;
-    margin-top: 30px;
-    border: 1px solid;
     border-radius: 99px;
-    border-color: #1f350580;
-    padding: 8px 30px 8px 40px;
-    background: #1f350580;
+    background: #5b6b48;
+    width: 250px;
 }
 
-/*.svg {
-    margin-top: 8px;
-    margin-right: 20px;
-}*/
 
 .products_cartTitle {
     font-family: Inter;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 45px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    font-size: 22px;
+    text-align: center;
     color: #ffffff;
+    padding: 10px 15px 10px 15px;
 }
-
-/* tapa */
+.products_cartTitle i {
+        padding-right: 20px;
+}
+   
 
 .tapa {
-    margin-top: 50px;
-    margin-left: 180px;
-}
+        margin-top: 50px;
+        margin-left: 180px;
+    }
 
 .tapa-container {
     display: flex;
+    gap: 50px;
+    margin-top: 100px;
 }
-
+.note {
+    display: flex;
+    gap: 50px;
+    margin-left: 52px;
+}
 .tapa-contain {
     display: flex;
-    gap: 80px;
+    gap: 100px;
     margin-left: 50px;
 }
 
-.tapa-container-left {
-    width: 700px;
-}
 
 .img-icon {
-    padding: 20px 25px 20px 25px;
-    border: 1px solid #c1ceb2;
+    padding: 10px 10px 10px 10px;
     border-radius: 999px;
     background: #c1ceb2;
 }
 
 .tapa_test--desc {
-    font-family: Nunito;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 34.1px;
+    line-height: 30px;
     text-align: left;
-    margin-left: 30px;
+    margin-left: 13px;
     margin-top: 10px;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
 
 .tapa_test--desc1 {
-    margin-left: -5px;
+    margin-left: 45px;
 }
 
 .tapa_test--desc2 {
-    margin-left: 8px;
+    margin-left: 15spx;
 }
 
 .tapa-img2 {
-    margin-left: 600px;
+    margin-left: 470px;
 }
-
+.tapa-right{
+    width:650px;
+}
 .tapa_right--title {
     margin-left: 30px;
     font-family: Inter;
@@ -208,55 +186,51 @@ img {
 
 .tapa_right--desc {
     margin-left: 30px;
-    width: 500px;
+    width: 600px;
     margin-top: 50px;
-    font-family: Inter;
     font-size: 28px;
     font-weight: 400;
     line-height: 50px;
-    text-align: justified;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    justify-content: space-between;
+    text-align: justify;
 }
 
 .seprate {
-    margin-top: 300px;
-    margin-left: 650px;
+    margin-left: 450px;
+    margin-top: 200px;
+    justify-content: center;
 }
 
 .seprate1 {
+    margin-left: 450px;
     margin-top: 100px;
-    margin-left: 650px;
+    justify-content: center;
 }
 
-/* review */
-
 .review-title {
-    font-family: Inter;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 600;
-    margin-left: 160px;
-    margin-top: 50px;
     line-height: 60px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    margin-top: 100px;
+    margin-left:170px;
 }
 
 .review-container {
     margin-top: 50px;
     display: flex;
-    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
 }
 
 .review-container1 {
     display: flex;
 }
+
 .review-container__right {
     width: 300px;
 }
-
-
 
 .review-stat {
     margin-left: 30px;
@@ -264,7 +238,6 @@ img {
 
 .review-container__left {
     display: flex;
-    margin-left: 300px;
 }
 
 .review-statcontainer {
@@ -273,8 +246,8 @@ img {
 
 .review-like {
     margin-left: 50px;
-    width: 80px;
-    height: 90px;
+    width: 70px;
+    height: 60px;
     margin-top: 60px;
 }
 
@@ -284,8 +257,7 @@ img {
     font-weight: 400;
     line-height: 52.5px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    margin-right: 30px;
 }
 
 .review-encourge {
@@ -295,14 +267,12 @@ img {
     font-weight: 400;
     line-height: 42px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
 }
 
 .review-like-zzz {
     margin-left: 115px;
 }
-/* favorite */
+
 
 .favorite_title {
     text-align: center;
@@ -311,11 +281,12 @@ img {
     font-weight: 500;
     line-height: 72.61px;
     text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     margin-top: 100px;
 }
 
-.imgflower {
-    margin-left: 200px;
+.containerflower {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 150px;
 }

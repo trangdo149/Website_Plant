@@ -4,11 +4,10 @@
 }
 @section Styles {
     <link rel="stylesheet" href="~/css/detail.css" />
-    <link rel="stylesheet" href="~/css/reset.css" />
 }
 
 <body>
-        <main>
+    <main>
             <section class="smile">
                 <div class="smile-container">
                     <div class="div1">Plants ></div>
@@ -19,13 +18,12 @@
             <section class="products">
                 <div class="products_container">
                     <div class="products_container--left">
-                        <img
-                            src="~/img/product.png"
+                        <img src="~/img/product.png"
                             alt=""
                             class="product_img"
                         />
                     </div>
-                    <div class="products_container--right">
+                    <div class="sanpham">
                         <div class="products_container--title">Sản phẩm</div>
                         <div class="products_container--price">70.000 ₫</div>
                         <div class="products_container--1">Danh mục</div>
@@ -33,7 +31,7 @@
                             Cây trong nhà
                         </div>
                         <div class="products_container--cart">
-                            <div class="products_cartTitle">Thêm vào giỏ</div>
+                            <div class="products_cartTitle"><i class="bi bi-cart3"></i>Thêm vào giỏ</div>
                         </div>
                     </div>
                 </div>
@@ -49,39 +47,38 @@
                         />
                         <div class="tapa-container-left">
                             <div class="tapa-contain">
+
                                 <div class="test-tapa">
                                     <img
                                         src="~/img/sun.png"
                                         alt=""
                                         class="img-icon"
                                     />
-                                    <div class="tapa_test--desc">High</div>
                                 </div>
                                 <div class="test-tapa">
-                                    <img
-                                        src="~/img/water.png"
+                                    <img src="~/img/water.png"
                                         alt=""
                                         class="img-icon"
                                     />
-                                    <div
-                                        class="tapa_test--desc tapa_test--desc1"
-                                    >
-                                        200 - 350 ml
-                                    </div>
+                                   
                                 </div>
                                 <div class="test-tapa">
                                     <img
                                         src="~/img/taoa.png"
                                         alt=""
                                         class="img-icon"
-                                    />
-                                    <div
-                                        class="tapa_test--desc tapa_test--desc2"
-                                    >
-                                        22 - 28 C
-                                    </div>
+                                    />      
                                 </div>
                             </div>
+                        <div class="note">
+                            <div class="tapa_test--desc">High</div>
+                            <div class="tapa_test--desc tapa_test--desc1">
+                                200 - 350 ml
+                            </div>
+                            <div class="tapa_test--desc tapa_test--desc2">
+                                22 - 28 C
+                            </div>
+                        </div>
                         </div>
                         <img
                             src="~/img/2.png"
@@ -103,7 +100,7 @@
                 </div>
             </section>
 
-            <img src="./assets/img/Line 25.png" alt="" class="seprate" />
+            <img src="~/img/Line 25.png" alt="" class="seprate" />
 
             <div class="review">
                 <div class="review-title">Đánh giá sản phẩm</div>
@@ -123,7 +120,7 @@
                                             Aron Paul
                                         </div>
                                         <img
-                                            src="./assets/img/star.png"
+                                            src="~/img/star.png"
                                             alt=""
                                             class="review-star"
                                         />
@@ -133,7 +130,7 @@
                                 <img
                                     src="~/img/like.png"
                                     alt=""
-                                    class="review-like review-like-zzz"
+                                    class="review-like"
                                 />
                             </div>
                         </div>
@@ -191,8 +188,7 @@
                                     </div>
                                     <div class="review-encourge">Very good</div>
                                 </div>
-                                <img
-                                    src="~/img/like.png"
+                                <img src="~/img/like.png"
                                     alt=""
                                     class="review-like"
                                 />
@@ -296,8 +292,12 @@
 
             <div class="favorite">
                 <div class="favorite_title">Có thể bạn sẽ thích</div>
-
-                <img src="~/img/Frame 40.png" alt="" class="imgflower" />
+                <div class="containerflower">
+                    <img src="~/img/Frame 40.png"
+                        alt=""
+                        class="imgflower"
+                    />
+                </div>
             </div>
         </main>
     </body>

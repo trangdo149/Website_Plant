@@ -1,75 +1,57 @@
-﻿html {
-    font-size: 62.5%;
-}
-
-body {
-    font-size: 1.6rem;
+﻿body {
     background: #fef7ef;
 }
 
-a {
-    text-decoration: none;
-    color: black;
-}
-
-img {
-    cursor: pointer;
-}
-
-.container {
-    display: flex;
-}
 /* Header */
 
 .bg {
     width: 100%;
-    height: 845px;
+    height: 700px;
     object-fit: cover;
 }
 
 .news-container {
-    width: 929px;
-    height: 262px;
-    margin-left: 930px;
     margin-top: -500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .news-above {
-    font-size: 95px;
+    width: 600px;
+    font-size: 100px;
+    margin-left: 485px;
     font-weight: 700;
     color: #ffffff;
-    margin-left: 550px;
 }
 
 .news-below {
     font-size: 95px;
     font-weight: 700;
+    width: 1090px;
     color: #ffffff;
 }
 
 /* story */
-
 .story {
     display: flex;
-    margin-top: 50px;
-    margin-top: 300px;
-    margin-left: 300px;
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    padding-top:320px;
 }
 
 .story-title {
-    width: Fixed (556px) px;
-    height: Hug (120px) px;
-    top: 111px;
-    font-size: 60px;
+    font-size: 55px;
     font-weight: 600;
     left: 155px;
     gap: 18px;
-    opacity: 0px;
 }
 
 .story-4year {
     margin-top: 30px;
-    font-family: Inter;
     font-size: 30px;
     font-weight: 700;
     line-height: 36.31px;
@@ -80,15 +62,16 @@ img {
 }
 
 .story-left {
-    width: 600;
+    width: 50%;
 }
 
 .story-right {
-    margin-left: 180px;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .story-desc1 {
-    font-family: Inter;
     font-size: 30px;
     margin-top: 30px;
     font-weight: 400;
@@ -101,7 +84,6 @@ img {
 
 .story-desc2 {
     margin-top: 30px;
-    font-family: Inter;
     font-size: 28px;
     font-weight: 400;
     width: 500px;
@@ -119,34 +101,34 @@ img {
 /* stat */
 
 .stat {
-    margin-top: 50px;
+    margin-top: 100px;
     height: 200px;
     background-color: #c1ceb2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .stat-container {
     display: flex;
     gap: 300px;
-    margin-left: 300px;
+    justify-content: center;
+    align-items: center;
 }
 
 .stat-item1 {
-    margin-top: 50px;
-    font-family: Rufina;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 700;
-    margin-left: 40px;
-    text-align: left;
+    text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
 
 .stat-item2 {
-    font-family: Inter;
-    font-size: 45px;
+    font-size: 30px;
     font-weight: 400;
     line-height: 54.46px;
-    text-align: left;
+    text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
@@ -154,10 +136,9 @@ img {
 /* Member */
 
 .members-title {
-    margin-top: 60px;
+    margin-top: 110px;
     text-align: center;
-    font-family: Inter;
-    font-size: 80px;
+    font-size: 50px;
     font-weight: 600;
     line-height: 84px;
     text-underline-position: from-font;
@@ -167,36 +148,38 @@ img {
 /* member */
 
 .member-items {
-    margin-top: 50px;
+    margin-top: 100px;
     display: flex;
-    margin-left: 400px;
+    justify-content: center;
+    align-items: centerf;
 }
 
 .member-image {
-    width: 443px;
-    height: 484px;
+    width: 420px;
+    height: 450px;
 }
 
 .member-items--right {
-    width: 469px;
-    margin-left: 130px;
+    width: 473px;
+    margin-left: 110px;
+}
+
+.member-items--left {
+    width: 473px;
 }
 
 .member_left--title {
     margin-top: 20px;
-    font-family: Inter;
-    font-size: 55px;
-    font-weight: 400;
+    font-size: 48px;
+    font-weight: 450;
     line-height: 77px;
-    letter-spacing: 0.02em;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
 
 .member_left--desc {
-    margin-top: 150px;
-    font-family: Inter;
+    margin-top: 70px;
     font-size: 27px;
     font-weight: 400;
     line-height: 37.8px;
@@ -204,6 +187,13 @@ img {
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+}
+
+.member_right--desc {
+    margin-top: 70px;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 37.8px;
 }
 
 .member-add1 {
@@ -230,25 +220,25 @@ img {
 
 .review-title123 {
     text-align: center;
-    font-family: Inter;
     font-size: 50px;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     line-height: 84px;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
 
+.haha221 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .review-box {
     width: 921px;
     height: 200px;
-    top: 329px;
-    left: 243px;
-    margin-left: 550px;
-    gap: 0px;
     border-radius: 25px 25px 25px 25px;
-    opacity: 0px;
-    box-shadow: 23px 24px 24px -4px #00000040;
+    box-shadow: 25px 15px 30px -10px #00000040;
     background-color: #ffffff;
 }
 
@@ -265,7 +255,6 @@ img {
 }
 
 .review-title {
-    font-family: Rufina;
     font-size: 35px;
     font-weight: 400;
     line-height: 43.23px;
@@ -278,28 +267,23 @@ img {
 .review-paah {
     margin-top: 70px;
     margin-right: 10px;
-    font-family: Rufina;
     font-size: 55px;
     font-weight: 700;
     line-height: 120px;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color: #e23fdb;
+    color: #1bb957;
 }
 
 .review-desc {
-    width: 560px;
+    width:600px;
     margin-top: -10px;
     margin-left: 80px;
-    font-family: Rufina;
     font-size: 32px;
     font-weight: 400;
     line-height: 39.52px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    margin-left: 350px;
+    margin-left: 200px;
 }
 
 .review-box-1 {
@@ -308,7 +292,7 @@ img {
 
 .review-box-2 {
     margin-top: 30px;
-    margin-left: 680px;
+    margin-left: 300px;
 }
 
 .review-title1 {
@@ -316,7 +300,7 @@ img {
 }
 
 .review-desc1 {
-    margin-left: 300px;
+    margin-left: 120px;
 }
 
 .review-desc3 {
@@ -330,4 +314,8 @@ img {
 
 .review-paah1 {
     margin-left: -50px;
+}
+
+footer {
+    margin-top: 200px;
 }
