@@ -61,6 +61,7 @@
 
     .description h2 {
         font-size: 30px;
+        font-weight: 500;
         margin-bottom: 10px;
     }
 
@@ -135,7 +136,7 @@ search {
 /*    max-width: 1000px;*/
     
 }
-.grid{
+.main_grid{
     width: 1200px;
     max-width: 100%;
     margin: 0 auto;

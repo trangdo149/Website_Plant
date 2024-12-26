@@ -14,6 +14,45 @@
     @RenderSection("Styles", required: false)
 
 </head>
+<script>
+    function addToCart(button, plantId){
+        let oldCartValue = getCookieValue("shopping_cart");
+        if (oldCartValue) oldCartValue += "-"; //nếu có giá trị cũ của cookie thì thêm gạch nối
+        let newCartValue = oldCartValue + plantId;
+
+        let d = new Date();
+        d.setDate(d.getDate() + 365); //giả sử cookie hết hạn sau 1 năm
+        let expires = d.toUTCString();
+        document.cookie = "shopping_cart=" + newCartValue + ";expires=" + expires + ";path=/";//path  ở đây nghĩa là cookie sẽ đc gửi tới bất kì url nào trong web
+
+        //update số sp trong giỏ hàng
+        let plantsArray = newCartValue.split("-");
+        let count = plantsArray.length; // đếm số sp trong cart
+        document.getElementById("PlantCountBadge").innerHTML = count;
+
+        button.innerHTML = "<i class='bi bi-check-lg'></i><span>Đã thêm vào giỏ</span>";
+        button.classList.add('added');
+    }
+    function getCookieValue(cookieName) { //function này yêu cầu tên cookie
+        //để  đọc đc giá trị cookie cần gọi 1 biến toàn cục:
+        //document.cookie chứa toàn bộ cookie của website này theo format
+        //cookie1=value1; cookie2=value2; cookie3=value3;
+
+        //lưu các cookie thành 1 mảng
+        let cookiesArray = document.cookie.split(';');
+        //tạo 1 vòng for để tìm cookie trong mảng
+        for (let i = 0; i < cookiesArray.length; i++) {
+            let cookie = cookiesArray[i];
+            if (cookie.includes(cookieName)) {
+                let name_value = cookie.split('=');
+                // if (name_value[1]) return name_value[1];
+                // else return "";
+                return name_value[1];
+            }
+        }
+        return "";
+    }
+</script>
 <body>
     <header class="header">
         <div class="grid">
@@ -29,10 +68,21 @@
                     <li><a href="/aboutus">Về chúng tôi</a></li>
                </ul>
                 <ul class="header-nav-list">
+                    @{
+                        //đọc cookie trên server
+                        string cookieValue = Context.Request.Cookies["shopping_cart"] ?? ""; //tạo biến bằng giá trị của cookie, sd context.request để đọc giá trị của shopping_cart cookie, dấu ?? "" để sửa lỗi null của cookieValue
+                        int cartSize = 0;
+                        if (cookieValue.Length > 0)
+                        {
+                            cartSize = cookieValue.Split('-').Length;
+                        }
+                    }
                     <li class="header-icons">
                         <a class="header-icon-link me-2" style="position: relative;" asp-area="" asp-page="/cart">
                             <i class="bi bi-bag"></i>
-                            <span class="badge rounded-pill bg-danger" style="vertical-align: top; font-size: 10px; position: absolute; top:2px; right: -11px;">0</span>
+                            <span id="PlantCountBadge" class="badge rounded-pill bg-danger" style="vertical-align: top; font-size: 10px; position: absolute; top:2px; right: -11px;">
+                                @cartSize
+                            </span>
                         </a>                       
                     </li>
                     @if (Context.Session.GetString("role") == null)
