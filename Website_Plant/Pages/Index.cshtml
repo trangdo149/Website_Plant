@@ -20,7 +20,7 @@
             @foreach(var item in Model.listNewestPlants)
             {
                 <div class="product-card">
-                    <a href="#"><img src="/image/plants/@item.ImageFileName" alt="Ảnh cây cảnh"></a>
+                    <a href="/detail?id=@(item.Id)" role="button"><img src="/image/plants/@item.ImageFileName" alt="Ảnh cây cảnh"></a>
                     <h3>@item.tensp</h3>
                     <p>@item.gia VND</p>
                 </div>
@@ -34,7 +34,7 @@
             @foreach (var item in Model.listTopSales)
             {
                 <div class="product-card">
-                    <a href="#"><img src="/image/plants/@item.ImageFileName" alt="Ảnh cây cảnh"></a>
+                    <a href="/detail?id=@(item.Id)" role="button"><img src="/image/plants/@item.ImageFileName" alt="Ảnh cây cảnh"></a>
                     <h3>@item.tensp</h3>
                     <p>@item.gia VND</p>
                 </div>

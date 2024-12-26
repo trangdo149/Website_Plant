@@ -39,7 +39,7 @@
                     @foreach (var item in Model.listPlants)
                     {
                         <div class="plant">
-                            <a href="#"><img src="/image/plants/@item.ImageFileName"></a>
+                            <a href="/detail?id=@(item.Id)"><img src="/image/plants/@item.ImageFileName"></a>
                             <h5>@item.tensp</h5>
                             <h6>@item.gia VND</h6>
                         </div>
