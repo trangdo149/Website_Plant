@@ -39,7 +39,7 @@
                 <h3>Danh mục</h3>
                 <span class="category-card">@Model.plantInfo.danhmuc</span>
             </div>
-            <button class="button-addtocart">
+            <button type="button" class="button-addtocart" onclick="addToCart(this, @Model.plantInfo.Id)">
                 <i class="bi bi-bag"></i>
                 <span>Thêm vào giỏ hàng</span>
             </button>

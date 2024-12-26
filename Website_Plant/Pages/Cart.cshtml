@@ -22,70 +22,60 @@
                         <th>Tổng</th>
                         <th></th>
                     </tr>
-                    <tr>
-                        <td><img src="/image/avatar.png" alt="Day nhen"></td>
-                        <td>
-                            <p style="font-weight:bold;  font-size:20px;">Cây dây nhện</p>
-                            <p>100.000đ</p>
-                        </td>
-                        <td>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </td>
-                        <td><p1>100.000đ</p1></td>
-                        <td><button><i class="bi bi-trash"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td><img src="/image/avatar.png" alt="Day nhen"></td>
-                        <td>
-                            <p style="font-weight:bold;  font-size:20px;">Cây dây nhện</p>
-                            <p>100.000đ</p>
-                        </td>
-                        <td>
-                            <button> - </button>
-                            <span>1</span>
-                            <button> + </button>
-                        </td>
-                        <td><p1>100.000đ</p1></td>
-                        <td><button><i class="bi bi-trash"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td><img src="/image/avatar.png" alt="Day nhen"></td>
-                        <td>
-                            <p style="font-weight:bold;  font-size:20px;">Cây dây nhện</p>
-                            <p>100.000đ</p>
-                        </td>
-                        <td>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </td>
-                        <td><p1>100.000đ</p1></td>
-                        <td><button><i class="bi bi-trash"></i></button></td>
-                    </tr>
-
-
+                    @foreach(var item in Model.listOrderItem)
+                    {
+                        <tr>
+                            <td><img src="/image/plants/@item.plantInfo.ImageFileName" alt="Ảnh sản phẩm"></td>
+                            <td>
+                                <p style="font-weight:bold;  font-size:20px;">@item.plantInfo.tensp</p>
+                                <p>@(item.plantInfo.gia) đ</p>
+                            </td>
+                            <td>
+                                <a role="button" class="table-link" href="/cart?action=sub&id=@(item.plantInfo.Id)">-</a>
+                                <span>@item.numCopies</span>
+                                <a role="button" class="table-link" href="/cart?action=add&id=@(item.plantInfo.Id)">+</a>
+                            </td>
+                            <td><p1>@(item.totalPrice) đ</p1></td>
+                            <td><a class="table-link" href="/cart?action=delete&id=@(item.plantInfo.Id)"><i class="bi bi-trash"></i></a></td>
+                        </tr>
+                    }                   
                 </table>
               </div>
             <div class="cart-summary">
-                <h2>Địa chỉ giao hàng</h2>
-                <input type="text" placeholder="Nhập địa chỉ">
-                <h2>Chọn phương thức thanh toán</h2>
-                <select>
-                    <option value="COD">COD</option>
-                    <option value="VNPAY">VNPAY</option>
-                    
-                </select>
+                @if (HttpContext.Session.GetString("role") == null)
+                {
+                    <div class="summary-details">
+                        <p>Tổng đơn hàng: <span>0</span></p>
+                    </div>
+                    <hr style="color: white;" />
+                    <div class="text-notify">
+                        <p>Hãy đăng nhập để đặt hàng. Nếu chưa có tài khoản hãy đăng ký.</p>
+                    </div>
+                    <div class="auth-signinup">
+                        <a class="link-btn-signin" href="/Auth/signin" role="button">Đăng nhập</a>
+                        <a class="link-btn-signin" href="/Auth/signin" role="button">Đăng nhập</a>
+                    </div>
+                }
+                else
+                {
+                    <form method="post">
+                        <h2>Địa chỉ giao hàng</h2>
+                        <input type="text" placeholder="Nhập địa chỉ">
+                        <h2>Chọn phương thức thanh toán</h2>
+                        <select>
+                            <option value="cod">COD</option>
+                            <option value="vnpay">VnPay</option>
 
-                <div class="summary-details">
-                    <p>Tổng đơn hàng: <span>0</span></p>
-                    <p>Phí vận chuyển: <span>0</span></p>
-                    <p>Tổng thanh toán: <span>0</span></p>
-                </div>
-                <button class="checkout-btn">Thanh toán</button>
+                        </select>
+
+                        <div class="summary-details">
+                            <p>Tổng đơn hàng: <span>0</span></p>
+                            <p>Phí vận chuyển: <span>0</span></p>
+                            <p>Tổng thanh toán: <span>0</span></p>
+                        </div>
+                        <button class="checkout-btn" type="submit">Thanh toán</button>
+                    </form>
+                }               
             </div>
         </div>
     </div>

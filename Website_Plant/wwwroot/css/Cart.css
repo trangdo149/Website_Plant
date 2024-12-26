@@ -1,20 +1,20 @@
 ﻿body {
-   
-    background-color: #f9f8f5;
+    background-color: #fef7ef;
 }
 
 .cart-container {
-    margin-bottom: 100px;
-    padding-left: 130px;
-    padding-top: 60px;
+    width: 1200px;
+    max-width: 100%;
+    margin: 32px auto 120px auto;
 }
 
 h1 {
     color: #1F3505;
-    margin: 0px 0px 30px 0px;
+    margin: 0px 0px 20px 0px;
     text-align: left;
     font-size: 50px;
-    color: #;
+    font-weight: 500;
+    color: #1F3505;
 }
 .cart {
     display: flex;
@@ -24,13 +24,15 @@ h1 {
 .cart-items {
     width: 850px;
 }
-img {
+.cart-items img {
     width:100px;
     height:100px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0,0,0, 0.2)
 }
 .cart-items p {
     font-size: 17px;
-    margin: 0px 0px 9px 0px;
+    margin: 0px 0px 4px 0px;
     text-align: left;
     color: #1F3505;
 }
@@ -40,12 +42,13 @@ img {
     background-color: #C1CEb2;
     padding: 20px;
     border-radius: 8px;
-    margin-top:70px;
+    margin-top:55px;
 }
 
         .cart-summary h2 {
             color: #1F3505;
             font-size: 16px;
+            font-weight: bold;
             margin: 10px 0;
         }
 
@@ -91,25 +94,27 @@ th {
     color: #1F3505;
     font-size: 20px;
     text-align: center;
-    padding: 20px 8px 20px 8px;
+    padding: 12px 8px 12px 8px;
     border-bottom: 1px solid #1F3505;
 }
 
 td {
     color: #1F3505;
-    padding: 30px 8px 30px 8px;
+    padding: 24px 8px 24px 8px;
     text-align: center;
     border-bottom: 1px solid #1F3505;
 }
-.cart-items button {
+.table-link {
     color: #1F3505;
-    border: none;
+    text-decoration: none;
     margin: 0px 6px 0px 6px;
-    background-color: #f9f8f5;
-    font-size: 23px;
+    font-size: 20px;
+}
+.table-link:hover{
+    color: #1F3505;
 }
 p1 {
     color: #1F3505;
     text-align: center;
-    font-size: 17px;
+    font-size: 16px;
 }

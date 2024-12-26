@@ -103,8 +103,27 @@ body {
 .header-icon-link:hover {
     color: white;
 }
+/**/
+.button-addtocart.added i {
+    color: #1F3505;
+    font-size: 20px;
+    transition: color 0.2s ease;
+}
+.button-addtocart.added span {
+    font-weight: bold;
+    color: #1F3505;
+    margin-left: 8px;
+    transition: color 0.2s ease;
+}
+.button-addtocart.added:hover {
+    background-color: #1F3505;
+}
+.button-addtocart.added:hover i,
+.button-addtocart.added:hover span{
+    color: white;
+}
 /*Hover icon person*/
-.header-person-menu{
+.header-person-menu {
     position: absolute;
     top: 100%;
     right: 5px;
