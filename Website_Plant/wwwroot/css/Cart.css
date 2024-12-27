@@ -52,7 +52,16 @@ h1 {
             margin: 10px 0;
         }
 
-    .cart-summary input,
+    .cart-summary input{
+        border: none;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 8px;
+        border-radius: 5px;
+    }
+    .cart-summary span{
+        font-size: 14px;
+    }
     .cart-summary select {
         border: none;
         width: 100%;
@@ -75,7 +84,7 @@ h1 {
     padding: 5px;
     background-color: #355014;
     color: white;
-    border-radius: 60px;
+    border-radius: 8px;
 }
 select {
     color: #1F3505;
@@ -117,4 +126,41 @@ p1 {
     color: #1F3505;
     text-align: center;
     font-size: 16px;
+}
+
+/**/
+.text-notify p {
+    text-align: center;
+    color: #1F3505;
+}
+.auth-signinup{
+    display: flex;
+    justify-content: space-between;
+}
+.link-btn-signup {
+    text-decoration: none;
+    color: #1F3505;
+    background-color: #C1CEb2;
+    border: 2px solid #1F3505;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 47%;
+    text-align:center;
+}
+.link-btn-signup:hover{
+    color: #1F3505;
+    opacity: 0.8;
+}
+.link-btn-signin {
+    text-decoration: none;
+    color: white;
+    background-color: #1F3505;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 47%;
+    text-align: center;
+}
+.link-btn-signin:hover{
+    color: white;
+    opacity: 0.8;
 }

@@ -11,6 +11,20 @@
     <div class="cart-container">
         <div class="Tieude">
             <h1>Giỏ hàng</h1>
+            @if (Model.errorMessage.Length > 0)
+            {
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>@Model.errorMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            else if (Model.successMessage.Length > 0)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
         </div>
         <div class="cart">
             <div class="cart-items">
@@ -45,33 +59,34 @@
                 @if (HttpContext.Session.GetString("role") == null)
                 {
                     <div class="summary-details">
-                        <p>Tổng đơn hàng: <span>0</span></p>
+                        <p>Tổng đơn hàng: <span>@(Model.totalproduct) đ</span></p>
                     </div>
-                    <hr style="color: white;" />
+                    <hr style="color: #1F3505;" />
                     <div class="text-notify">
                         <p>Hãy đăng nhập để đặt hàng. Nếu chưa có tài khoản hãy đăng ký.</p>
                     </div>
                     <div class="auth-signinup">
                         <a class="link-btn-signin" href="/Auth/signin" role="button">Đăng nhập</a>
-                        <a class="link-btn-signin" href="/Auth/signin" role="button">Đăng nhập</a>
+                        <a class="link-btn-signup" href="/Auth/signup" role="button">Đăng ký</a>
                     </div>
                 }
                 else
                 {
                     <form method="post">
                         <h2>Địa chỉ giao hàng</h2>
-                        <input type="text" placeholder="Nhập địa chỉ">
+                        <input type="text" asp-for="Address">
+                        <span class="text-danger" asp-validation-for="Address"></span>
                         <h2>Chọn phương thức thanh toán</h2>
-                        <select>
+                        <select asp-for="PaymentMethod">
                             <option value="cod">COD</option>
                             <option value="vnpay">VnPay</option>
 
                         </select>
 
                         <div class="summary-details">
-                            <p>Tổng đơn hàng: <span>0</span></p>
-                            <p>Phí vận chuyển: <span>0</span></p>
-                            <p>Tổng thanh toán: <span>0</span></p>
+                            <p>Tổng đơn hàng: <span>@(Model.totalproduct) đ</span></p>
+                            <p>Phí vận chuyển: <span>@(Model.shippingfee) đ</span></p>
+                            <p>Tổng thanh toán: <span>@(Model.total) đ</span></p>
                         </div>
                         <button class="checkout-btn" type="submit">Thanh toán</button>
                     </form>
