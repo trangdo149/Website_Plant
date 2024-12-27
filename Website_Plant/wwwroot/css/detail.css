@@ -7,103 +7,69 @@ a {
     color: black;
 }
 
-.smile-container {
-    display: flex;
-    margin-top: 30px;
-    margin-left: 100px;
+.product-table {
+    margin: 60px  0px 0px 130px;
+    width:85%;
 }
-
-.div1 {
-    font-family: Inter;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 38.73px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-}
-
-.div2 {
-    font-family: Inter;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 38.73px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-}
-
-
-.products {
-    margin-top: 50px;
-}
-.product_img {
-    height: 400px;
-    width: 300px;
-}
-.sanpham {
-    height: 400px;
-    width: 300px;
-}
-.products_container {
-    display: flex;
-    margin-left: 180px;
+.products_container--left {
+    display: flex; 
+    justify-content: center;
     align-items: center;
-    gap: 150px;
+    height: 616px;
 }
 
+.product_img {
+    width: 616px; 
+    max-height: 100%; 
+}
+
+.sanpham {
+   vertical-align: top;
+   padding-left: 80px;
+}
+.tapa-right{
+    margin-top: 100px;
+}
 .products_container--title {
     font-family: Inter;
-    font-size: 25px;
-    font-weight: 200;
-    line-height: 20px;
-    margin-top: 20px;
-    color: #757575;
+    font-size: 40px;
+    font-weight: 600;
 }
 
 .products_container--price {
-    margin-top: 40px;
+    margin-top: 10px;
     font-family: Inter;
     font-size: 40px;
     font-weight: 300;
-    line-height: 65px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     color: linear-gradient(0deg, #1f3505, #1f3505), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 }
 
 .products_container--1 {
-    margin-top: 20px;
+    margin-top: 10px;
     font-family: Inter;
     font-size: 25px;
     font-weight: 300;
     line-height: 15px;
-    letter-spacing: -0.40799999237060547px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     color: #757575;
 }
 
 .products_container--name {
-    width: 200px;
+    width: 160px;
+    padding: 5px 8px 5px 8px;
     margin-top: 20px;
-    border: 2px solid;
-    border-radius: 99px;
-    padding: 8px 13px 8px 13px;
+    border-radius: 10px;
     font-family: Inter;
-    font-size: 25px;
-    font-weight: 300;
-    line-height: 20px;
+    font-size: 20px;
     text-align:center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    background: #c1ceb2;
 }
 
 .products_container--cart {
-    border-radius: 99px;
-    background: #5b6b48;
-    width: 250px;
+    border-radius: 10px;
+    border: 4px solid #2d47b0;
 }
 
 
@@ -111,13 +77,11 @@ a {
     font-family: Inter;
     font-size: 22px;
     text-align: center;
-    color: #ffffff;
     padding: 10px 15px 10px 15px;
 }
 .products_cartTitle i {
         padding-right: 20px;
 }
-   
 
 .tapa {
         margin-top: 50px;
@@ -130,9 +94,20 @@ a {
     margin-top: 100px;
 }
 .note {
-    display: flex;
-    gap: 50px;
-    margin-left: 52px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.table1 {
+    padding-top: 80px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.note td {
+    width: 190px;
+    text-align: center;
+    padding: 0px 20px 30px 20px;
 }
 .tapa-contain {
     display: flex;
@@ -148,9 +123,8 @@ a {
 }
 
 .tapa_test--desc {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 30px;
     text-align: left;
     margin-left: 13px;
     margin-top: 10px;
@@ -160,6 +134,13 @@ a {
 
 .tapa_test--desc1 {
     margin-left: 45px;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+    margin-left: 13px;
+    margin-top: 10px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;1
 }
 
 .tapa_test--desc2 {
@@ -169,35 +150,25 @@ a {
 .tapa-img2 {
     margin-left: 470px;
 }
-.tapa-right{
-    width:650px;
-}
-.tapa_right--title {
-    margin-left: 30px;
-    font-family: Inter;
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 22px;
-    letter-spacing: -0.40799999237060547px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-}
 
 .tapa_right--desc {
-    margin-left: 30px;
-    width: 600px;
-    margin-top: 50px;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 50px;
+    line-height: 35px;
     justify-content: space-between;
     text-align: justify;
 }
-
+.tapa_right--desc1 {
+    margin-top:50px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 35px;
+    justify-content: space-between;
+    text-align: justify;
+}
 .seprate {
     margin-left: 450px;
-    margin-top: 200px;
+    margin-top: 100px;
     justify-content: center;
 }
 
@@ -206,7 +177,9 @@ a {
     margin-top: 100px;
     justify-content: center;
 }
-
+.review{
+    margin-bottom: 200px;
+}
 .review-title {
     font-size: 35px;
     font-weight: 600;
@@ -271,22 +244,4 @@ a {
 
 .review-like-zzz {
     margin-left: 115px;
-}
-
-
-.favorite_title {
-    text-align: center;
-    font-family: Inter;
-    font-size: 60px;
-    font-weight: 500;
-    line-height: 72.61px;
-    text-align: center;
-    margin-top: 100px;
-}
-
-.containerflower {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 150px;
 }
