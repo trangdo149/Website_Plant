@@ -1,12 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using System.ComponentModel.DataAnnotations;
 using Website_Plant.Pages.Admin.Plant;
 
 namespace Website_Plant.Pages
 {
+    [BindProperties]
     public class CartModel : PageModel
     {
+        [Required(ErrorMessage = "Hãy nhập địa chỉ giao hàng")]
+        public string Address { get; set; } = "";
+        [Required]
+        public string PaymentMethod { get; set; } = "";
         public class OrderItem
         {
             public PlantInfo plantInfo = new PlantInfo();
@@ -14,6 +20,9 @@ namespace Website_Plant.Pages
             public decimal totalPrice = 0;
         }
         public List<OrderItem> listOrderItem = new List<OrderItem>();
+        public decimal totalproduct = 0;
+        public decimal shippingfee = 15000;
+        public decimal total = 0;
         private Dictionary<String, int> getPlantDictionary()
         {
             var plantDictionary = new Dictionary<String, int>();
@@ -115,8 +124,8 @@ namespace Website_Plant.Pages
 
                                     listOrderItem.Add(item);
 
-                                    //totalproduct += item.totalPrice;
-                                    //total = totalproduct + shippingfee;
+                                    totalproduct += item.totalPrice;
+                                    total = totalproduct + shippingfee;
                                 }
                             }
                         }
@@ -127,6 +136,107 @@ namespace Website_Plant.Pages
             {
                 Console.WriteLine(ex.Message);
             }
+            Address = HttpContext.Session.GetString("address") ?? "";
+        }
+        public string errorMessage = "";
+        public string successMessage = "";
+        public void OnPost()
+        {
+            int client_id = HttpContext.Session.GetInt32("id") ?? 0;
+            if (client_id < 1)
+            {
+                Response.Redirect("/Auth/signin");
+                return;
+            }
+            if (!ModelState.IsValid)
+            {
+                errorMessage = "*Lỗi";
+                return;
+            }           
+            var plantDictionary = getPlantDictionary();//đọc sp trong giỏ hàng từ cookie
+            if (plantDictionary.Count < 1)
+            {
+                errorMessage = "Giỏ hàng trống";
+                return;
+            }
+            try
+            {
+                string connectionString = "Data Source=Localhost\\sqlexpress;Initial Catalog=WebPlant;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    int newOrderId = 0;
+                    string sqlOrder = "insert into orders (client_id, order_date, shipping_fee, delivery_address, payment_method, order_status) " +
+                        "output inserted.id " +
+                        "values (@client_id, current_timestamp, @shipping_fee, @delivery_address, @payment_method, N'đã xác nhận')";
+                    using (SqlCommand command = new SqlCommand(sqlOrder, connection))
+                    {
+                        command.Parameters.AddWithValue("@client_id", client_id);
+                        command.Parameters.AddWithValue("@shipping_fee", shippingfee);
+                        command.Parameters.AddWithValue("@delivery_address", Address);
+                        command.Parameters.AddWithValue("@payment_method", PaymentMethod);
+
+                        newOrderId = (int)command.ExecuteScalar();
+
+                    }
+                    string sqlItem = "insert into order_items (order_id, plant_id, quantity, unit_price) " +
+                        "values (@order_id, @plant_id, @quantity, @unit_price)";
+                    foreach (var keyValuePair in plantDictionary)
+                    {
+                        string plantId = keyValuePair.Key;
+                        int quantity = keyValuePair.Value;
+                        decimal unitPrice = getPlantPrice(plantId);
+
+                        using (SqlCommand command = new SqlCommand(sqlItem, connection))
+                        {
+                            command.Parameters.AddWithValue("@order_id", newOrderId);
+                            command.Parameters.AddWithValue("@plant_id", plantId);
+                            command.Parameters.AddWithValue("@quantity", quantity);
+                            command.Parameters.AddWithValue("@unit_price", unitPrice);
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+                return;
+            }
+            //xóa cookie khỏi trình duyệt
+            Response.Cookies.Delete("shopping_cart");
+
+            successMessage = "Đơn hàng được tạo thành công";
+        }
+        private decimal getPlantPrice(string plantId)
+        {
+            decimal price = 0;
+            try
+            {
+                string connectionString = "Data Source=Localhost\\sqlexpress;Initial Catalog=WebPlant;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sql = "select gia from plants where id=@id";
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", plantId);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                price = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return price;
         }
     }
 }
