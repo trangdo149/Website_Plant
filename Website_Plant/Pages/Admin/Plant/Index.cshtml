@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Globalization
 @model Website_Plant.Pages.Admin.Plant.IndexModel
 @{
     Layout = "_LayoutAdmin";
@@ -41,7 +42,7 @@
                 </td>
                 <td class="tbody-td-masp">@item.Id</td>
                 <td class="tbody-td-other">@item.danhmuc</td>
-                <td class="tbody-td-other">@item.gia</td>
+                <td class="tbody-td-other">@item.gia.ToString("N0", new CultureInfo("vi-VN"))</td>
                 <td class="tbody-td-other">@item.ngaytao</td>
                 <td class="tbody-td-other">
                     <a class="tbody-td-link bi bi-pencil" href="/Admin/Plant/Edit?id=@item.Id"></a>

@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Globalization
 @model IndexModel
 @section Styles {
     <link rel="stylesheet" href="~/css/home.css" />
@@ -22,7 +23,7 @@
                 <div class="product-card">
                     <a href="/detail?id=@(item.Id)" role="button"><img src="/image/plants/@item.ImageFileName" alt="Ảnh cây cảnh"></a>
                     <h3>@item.tensp</h3>
-                    <p>@item.gia VND</p>
+                    <p>@item.gia.ToString("N0", new CultureInfo("vi-VN")) VND</p>
                 </div>
             }           
         </div>
@@ -36,7 +37,7 @@
                 <div class="product-card">
                     <a href="/detail?id=@(item.Id)" role="button"><img src="/image/plants/@item.ImageFileName" alt="Ảnh cây cảnh"></a>
                     <h3>@item.tensp</h3>
-                    <p>@item.gia VND</p>
+                    <p>@item.gia.ToString("N0", new CultureInfo("vi-VN")) VND</p>
                 </div>
             }
         </div>

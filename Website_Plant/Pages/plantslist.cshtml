@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Globalization
 @model Website_Plant.Pages.plantslistModel
 @section Styles {
     <link rel="stylesheet" href="~/css/plantlist.css" />
@@ -41,7 +42,7 @@
                         <div class="plant">
                             <a href="/detail?id=@(item.Id)"><img src="/image/plants/@item.ImageFileName"></a>
                             <h5>@item.tensp</h5>
-                            <h6>@item.gia VND</h6>
+                            <h6>@item.gia.ToString("N0", new CultureInfo("vi-VN")) VND</h6>
                         </div>
                     }
                 </div>               
