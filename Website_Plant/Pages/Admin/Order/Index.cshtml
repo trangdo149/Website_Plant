@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Globalization
 @model Website_Plant.Pages.Admin.Order.IndexModel
 @{
     Layout = "_LayoutAdmin";
@@ -24,100 +25,44 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">10</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">Thanh toán khi nhận hàng</td>
-            <td class="tbody-td-other">
-                <span class="badge-success">Đã xác nhận</span>
-            </td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="/Admin/Order/Detail"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">10</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">Thanh toán khi nhận hàng</td>
-            <td class="tbody-td-other">
-                <span class="badge-warning">Chờ xác nhận</span>
-            </td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">10</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">Thanh toán khi nhận hàng</td>
-            <td class="tbody-td-other">
-                <span class="badge-success">Đã xác nhận</span>
-            </td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">10</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">Thanh toán khi nhận hàng</td>
-            <td class="tbody-td-other">
-                <span class="badge-warning">Chờ xác nhận</span>
-            </td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">10</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">Thanh toán khi nhận hàng</td>
-            <td class="tbody-td-other">
-                <span class="badge-success">Đã xác nhận</span>
-            </td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="tbody-td-masp">12</td>
-            <td class="tbody-td-other">10</td>
-            <td class="tbody-td-other">01/01/2025</td>
-            <td class="tbody-td-other">120000</td>
-            <td class="tbody-td-other">Thanh toán khi nhận hàng</td>
-            <td class="tbody-td-other">
-                <span class="badge-warning">Chờ xác nhận</span>
-            </td>
-            <td class="tbody-td-other">
-                <a class="tbody-td-link bi bi-eye" href="#"></a>
-            </td>
-        </tr>
+        @foreach(var order in Model.listOrders)
+        {
+            int count = 0;
+            decimal total = order.shippingFee;
+            for (int i = 0; i < order.items.Count; i++)
+            {
+                count += order.items[i].quantity;
+                total += order.items[i].quantity * order.items[i].unitPrice;
+            }
+            <tr>
+                <td class="tbody-td-masp">@order.id</td>
+                <td class="tbody-td-other">@count</td>
+                <td class="tbody-td-other">@order.orderDate</td>
+                <td class="tbody-td-other">@(total.ToString("N0", new CultureInfo("vi-VN"))) đ</td>
+                <td class="tbody-td-other">@order.paymentMethod</td>
+                <td class="tbody-td-other">
+                    @if (order.orderStatus.Equals("Đã xác nhận"))
+                    {
+                        <span class="badge-success">@order.orderStatus</span>
+                    }
+                    else
+                    {
+                        <span class="badge-warning">@order.orderStatus</span>
+                    }
+                </td>
+                <td class="tbody-td-other">
+                    <a class="tbody-td-link bi bi-eye" href="/Admin/Order/Detail?id=@order.id"></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 <ul class="pagination-admin">
-    <li class="pagination-admin-item pagination-admin-item--active">
-        <a class="pagination-admin-item-link" href="#">1</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">2</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">3</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">4</a>
-    </li>
-    <li class="pagination-admin-item">
-        <a class="pagination-admin-item-link" href="#">5</a>
-    </li>
+    @for (int i = 1; i <= Model.totalPages; i++)
+    {
+        var activeClass = (i == Model.page) ? "pagination-admin-item--active" : "";
+        <li class="pagination-admin-item @activeClass">
+            <a class="pagination-admin-item-link" href="?page=@(i)">@i</a>
+        </li>
+    }
 </ul>

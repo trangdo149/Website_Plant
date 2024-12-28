@@ -169,7 +169,7 @@ namespace Website_Plant.Pages
                     int newOrderId = 0;
                     string sqlOrder = "insert into orders (client_id, order_date, shipping_fee, delivery_address, payment_method, order_status) " +
                         "output inserted.id " +
-                        "values (@client_id, current_timestamp, @shipping_fee, @delivery_address, @payment_method, N'đã xác nhận')";
+                        "values (@client_id, current_timestamp, @shipping_fee, @delivery_address, @payment_method, N'Chờ xác nhận')";
                     using (SqlCommand command = new SqlCommand(sqlOrder, connection))
                     {
                         command.Parameters.AddWithValue("@client_id", client_id);

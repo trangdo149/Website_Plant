@@ -110,7 +110,7 @@ body {
     transition: color 0.2s ease;
 }
 .button-addtocart.added span {
-    font-weight: bold;
+    font-weight: 600;
     color: #1F3505;
     margin-left: 8px;
     transition: color 0.2s ease;

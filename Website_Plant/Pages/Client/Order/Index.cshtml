@@ -1,8 +1,7 @@
 ﻿@page
+@using System.Globalization
 @model Website_Plant.Pages.Client.Order.IndexModel
-@section Styles {
-
-    <style>
+<style>
         body {
             margin: 0;
             padding: 0;
@@ -13,7 +12,7 @@
             background-color: #FEF7EF;
             color: #333;
             margin-bottom: 24px;
-            font-weight: bold;
+            font-weight: 600;
         }
         .page-container {
             display: flex;
@@ -146,7 +145,7 @@
             border-top: 1px solid #BFBFBF;
             text-align: end;
             font-size: 25px;
-            font-weight: 500;
+            font-weight: 400;
             padding: 20px !important;
         }
 
@@ -161,7 +160,7 @@
         }
         .table-order-item h3 {
             font-size: 18px;
-
+            font-weight: 500;
         }
 
         .table-order-item {
@@ -217,7 +216,6 @@
             color: #1F3505;
         }
     </style>
-}
 <body>
     <div class="page-container">
         <div class="sidebar">
@@ -243,78 +241,46 @@
         </div>
         <div class="body-content">
             <h1>Đơn hàng của bạn</h1>
-            <div class=" oder">
-                <table class="table-sm table-order">
-                    <tr>
-                        <td class="table-order-item">
-                            <div><img src="/image/hang.png" alt="hang" width="80" height="80"></div>
-                            <div class="md">
-                                <h4>Mã đơn: #12</h4>
-                                <h3>Số lượng: 2</h3>
-                            </div>
-                        </td>
-                        <td class="table-order-total">Ngày: 01/01/2025</td>
-                    </tr>
-                    <tr>
-                        <td class="table-order-item1">
-                            <a class="chitiet" href="/Client/Order/Detail">Chi tiết</a>
-                        </td>
-                        <td class="table-order-total1">Tổng tiền: 120.000đ</td>
-                    </tr>
-                </table>
-            </div>
-            <div class=" oder">
-                <table class="table-sm table-order">
-                    <tr>
-                        <td class="table-order-item">
-                            <div><img src="/image/hang.png" alt="hang" width="80" height="80"></div>
-                            <div class="md">
-                                <h4>Mã đơn: #12</h4>
-                                <h3>Số lượng: 2</h3>
-                            </div>
-                        </td>
-                        <td class="table-order-total">Ngày: 01/01/2025</td>
-                    </tr>
-                    <tr>
-                        <td class="table-order-item1">
-                            <a class="chitiet" href="/Client/Detail">Chi tiết</a>
-                        </td>
-                        <td class="table-order-total1">Tổng tiền: 120.000đ</td>
-                    </tr>
-                </table>
-            </div>
-            <div class=" oder">
-                <table class="table-sm table-order">
-                    <tr>
-                        <td class="table-order-item">
-                            <div><img src="/image/hang.png" alt="hang" width="80" height="80"></div>
-                            <div class="md">
-                                <h4>Mã đơn: #12</h4>
-                                <h3>Số lượng: 2</h3>
-                            </div>
-                        </td>
-                        <td class="table-order-total">Ngày: 01/01/2025</td>
-                    </tr>
-                    <tr>
-                        <td class="table-order-item1">
-                            <a class="chitiet" href="/Client/Detail">Chi tiết</a>
-                        </td>
-                        <td class="table-order-total1">Tổng tiền: 120.000đ</td>
-                    </tr>
-                </table>
-            </div>
-
+            @foreach (var order in Model.listOrders)
+            {
+                int count = 0;
+                decimal total = order.shippingFee;
+                for (int i = 0; i < order.items.Count; i++)
+                {
+                    count += order.items[i].quantity;
+                    total += order.items[i].quantity * order.items[i].unitPrice;
+                }
+                <div class="oder">
+                    <table class="table-sm table-order">
+                        <tr>
+                            <td class="table-order-item">
+                                <div><img src="/image/hang.png" alt="hang" width="80" height="80"></div>
+                                <div class="md">
+                                    <h4>Mã đơn: #@order.id</h4>
+                                    <h3>Số lượng: @count</h3>
+                                </div>
+                            </td>
+                            <td class="table-order-total">Ngày: @order.orderDate</td>
+                        </tr>
+                        <tr>
+                            <td class="table-order-item1">
+                                <a class="chitiet" href="/Client/Order/Detail?id=@order.id">Chi tiết</a>
+                            </td>
+                            <td class="table-order-total1">Tổng tiền: @(total.ToString("N0", new CultureInfo("vi-VN"))) đ</td>
+                        </tr>
+                    </table>
+                </div>
+            }
+            
             <div class="trang">
                 <ul class="pagination">
-                    <li class="pagination-trang pagination-trang--active">
-                        <a class="pagination-link" href="#">1</a>
-                    </li>
-                    <li class="pagination-trang">
-                        <a class="pagination-link" href="#">2</a>
-                    </li>
-                    <li class="pagination-trang">
-                        <a class="pagination-link" href="#">3</a>
-                    </li>
+                    @for (int i = 1; i <= Model.totalPages; i++)
+                    {
+                        var activeClass = (i == Model.page) ? "pagination-trang--active" : "";
+                        <li class="pagination-trang @activeClass">
+                            <a class="pagination-link" href="?page=@(i)">@i</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
