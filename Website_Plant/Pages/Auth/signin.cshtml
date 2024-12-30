@@ -1,20 +1,41 @@
 ﻿@page
 @model Website_Plant.Pages.Auth.signinModel
+@inject IConfiguration configuration
 @{
 	Layout = "_AuthenticationLayout";
 	ViewData["Title"] = "Đăng nhập";
 }
+@{
+	var siteKey = configuration["ReCapchaSettings:SiteKey"];
+}
 @section Styles {
 	<link href="~/css/signin.css" rel="stylesheet">
 }
-
+<script type="text/javascript">
+	var onloadCallback = function() {
+		grecaptcha.render('html_element', {
+			'sitekey': '@siteKey'
+		});
+	};
+	function onSubmit(event) {
+		var token = grecaptcha.getResponse();
+		if (!token) {
+			console.error("Không tạo được token Recaptcha.");
+		}
+		document.getElementById("recaptchaTokenInputId").value = token;
+	}
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+		async defer>
+</script>
 
 <div class="login-box">
 	<div class="img-login">
 		<img src="~/image/caydn.png" alt="Ảnh đăng nhập" class="" />
 	</div>
 
-	<form method="post" class="form-section">
+	<form method="post" onsubmit="onSubmit(event)" class="form-section">
+		<input type="hidden" id="recaptchaTokenInputId" asp-for="RecapchaToken"/>
 		<h1>Đăng nhập</h1>
 		@if (Model.errorMessage.Length > 0)
 		{
@@ -35,8 +56,11 @@
 			<span asp-validation-for="email" class="text-danger"></span>
 		</div>
 		<div class="form-section-input">
-			<input id="email" type="password" asp-for="password" placeholder="Mật khẩu" />
+			<input id="password" type="password" asp-for="password" placeholder="Mật khẩu" />
 			<span asp-validation-for="password" class="text-danger"></span>
+		</div>
+		<div class="form-section-input">
+			<div id="html_element"></div>
 		</div>
 		<button class="login-button" type="submit">Đăng nhập</button>
 		<div class="signup-link">

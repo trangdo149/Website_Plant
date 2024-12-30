@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
 using Website_Plant.MyHelpers;
+using Website_Plant.Services;
 
 namespace Website_Plant.Pages.Auth
 {
@@ -11,23 +12,45 @@ namespace Website_Plant.Pages.Auth
     [BindProperties]
 	public class signinModel : PageModel
     {
+		private readonly IConfiguration configuration;
+
 		[Required(ErrorMessage = "Email không được để trống")]
 		[EmailAddress]
 		public string email { get; set; } = "";
 		[Required(ErrorMessage = "Mật khẩu không được để trống")]
 		public string password { get; set; } = "";
+		public string? RecapchaToken { get; set; }
 
 		public string errorMessage = "";
 		public string successMessage = "";
 
+		public signinModel(IConfiguration configuration)
+		{
+			this.configuration = configuration;
+		}
+
         public void OnGet()
         {
         }
-		public void OnPost()
+		public async Task OnPost()
 		{
 			if (!ModelState.IsValid)
 			{
 				errorMessage = "Dữ liệu không hợp lệ";
+				return;
+			}
+			if(RecapchaToken == null)
+			{
+				errorMessage = "Recapcha Token is missing";
+				return;
+			}
+			Console.WriteLine("We got the token: " + RecapchaToken);
+
+			string secretKey = configuration["ReCapchaSettings:SecretKey"];
+			bool success = await ReCaptchaService.verifyReCaptchaV2(RecapchaToken, secretKey);
+			if (!success)
+			{
+				errorMessage = "Recaptcha không hợp lệ";
 				return;
 			}
 

@@ -1,0 +1,26 @@
+﻿@page
+@using System.Globalization
+@model Website_Plant.Pages.CheckoutVnpayModel
+@{
+}
+<div class="p-5" style="background-color: #fef7ef;">
+    <div class="mx-auto p-3 bg-light rounded border" style="width: 420px;">
+        <h2 class="text-center mb-5">Hoàn thành thanh toán</h2>
+        <div class="row mb-3">
+            <div class="col-5">Địa chỉ giao hàng</div>
+            <div class="col-7">@Model.DeliveryAddress</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-5">Tổng thanh toán</div>
+            <div class="col-7">@Model.Total VND</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-5">Số lượng</div>
+            <div class="col-7">@(Model.ProductIdentifiers.Split("-").Length)</div>
+        </div>
+        <br />
+        <form method="post" asp-page-handler="RedirectToVnpay">
+            <button type="submit" class="btn btn-primary">Thanh Toán VNPay</button>
+        </form>
+    </div>
+</div>
