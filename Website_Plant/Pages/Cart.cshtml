@@ -81,13 +81,14 @@
                         <select asp-for="PaymentMethod">
                             <option value="cod">COD</option>
                             <option value="vnpay">VnPay</option>
+                            <option value="paypal">Paypal</option>
 
                         </select>
 
                         <div class="summary-details">
-                            <p>Tổng đơn hàng: <span style="font-weight:400;">@(Model.totalproduct) đ</span></p>
-                            <p>Phí vận chuyển: <span style="font-weight:400;">@(Model.shippingfee) đ</span></p>
-                            <p>Tổng thanh toán: <span style="font-weight:400;">@(Model.total) đ</span></p>
+                            <p>Tổng đơn hàng: <span style="font-weight:400;">@(Model.totalproduct.ToString("N0", new CultureInfo("vi-VN"))) đ</span></p>
+                            <p>Phí vận chuyển: <span style="font-weight:400;">@(Model.shippingfee.ToString("N0", new CultureInfo("vi-VN"))) đ</span></p>
+                            <p>Tổng thanh toán: <span style="font-weight:400;">@(Model.total.ToString("N0", new CultureInfo("vi-VN"))) đ</span></p>
                         </div>
                         <button class="checkout-btn" type="submit">Thanh toán</button>
                     </form>

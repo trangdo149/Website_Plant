@@ -23,6 +23,7 @@ namespace Website_Plant.Pages
         public decimal totalproduct = 0;
         public decimal shippingfee = 15000;
         public decimal total = 0;
+        public decimal totalUsd = 0;
         private Dictionary<String, int> getPlantDictionary()
         {
             var plantDictionary = new Dictionary<String, int>();
@@ -126,6 +127,7 @@ namespace Website_Plant.Pages
 
                                     totalproduct += item.totalPrice;
                                     total = totalproduct + shippingfee;
+                                    totalUsd = total / 23500;
                                 }
                             }
                         }
@@ -137,6 +139,11 @@ namespace Website_Plant.Pages
                 Console.WriteLine(ex.Message);
             }
             Address = HttpContext.Session.GetString("address") ?? "";
+            TempData["TotalUsd"] = "" + totalUsd;
+            TempData["Total"] = "" + total;
+            TempData["ProductIdentifiers"] = "";
+            TempData["DeliveryAddress"] = "";
+            
         }
         public string errorMessage = "";
         public string successMessage = "";
@@ -157,6 +164,19 @@ namespace Website_Plant.Pages
             if (plantDictionary.Count < 1)
             {
                 errorMessage = "Giỏ hàng trống";
+                return;
+            }
+            string productIdentifiers = Request.Cookies["shopping_cart"] ?? "";
+            TempData["ProductIdentifiers"] = productIdentifiers;
+            TempData["DeliveryAddress"] = Address;
+            if(PaymentMethod == "paypal")
+            {
+                Response.Redirect("/CheckoutPaypal");
+                return;
+            }
+            if (PaymentMethod == "vnpay")
+            {
+                Response.Redirect("/CheckoutVnpay");
                 return;
             }
             try
