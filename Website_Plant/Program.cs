@@ -5,12 +5,12 @@ namespace Website_Plant
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-			builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-								  .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
-								  .AddEnvironmentVariables();
+            builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                                  .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+                                  .AddEnvironmentVariables();
 
-			// Add services to the container.
-			builder.Services.AddRazorPages();
+            // Add services to the container.
+            builder.Services.AddRazorPages();
             builder.Services.AddDistributedMemoryCache();
 
             builder.Services.AddSession(options =>
