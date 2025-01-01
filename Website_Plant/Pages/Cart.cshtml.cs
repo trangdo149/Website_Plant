@@ -32,16 +32,16 @@ namespace Website_Plant.Pages
             if (cookieValue.Length > 0)
             {
                 string[] plantIdArray = cookieValue.Split('-');
-                for (int i = 0; i < plantIdArray.Length; i++) // tìm numCopies
+                for (int i = 0; i < plantIdArray.Length; i++)
                 {
                     string plantId = plantIdArray[i];
-                    if (plantDictionary.ContainsKey(plantId))//nếu id sp đã có trong dictionary thì tăng prdictionary thêm 1
+                    if (plantDictionary.ContainsKey(plantId))
                     {
                         plantDictionary[plantId] += 1;
                     }
                     else
                     {
-                        plantDictionary.Add(plantId, 1); //nếu ko có thì thêm id sp và numCopies vào
+                        plantDictionary.Add(plantId, 1);
                     }
                 }
             }
@@ -227,7 +227,7 @@ namespace Website_Plant.Pages
             //xóa cookie khỏi trình duyệt
             Response.Cookies.Delete("shopping_cart");
 
-            successMessage = "Đơn hàng được tạo thành công";
+            Response.Redirect("/thankyou");
         }
         private decimal getPlantPrice(string plantId)
         {

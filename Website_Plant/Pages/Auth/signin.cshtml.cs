@@ -41,7 +41,7 @@ namespace Website_Plant.Pages.Auth
 			}
 			if(RecapchaToken == null)
 			{
-				errorMessage = "Recapcha Token is missing";
+				errorMessage = "Hãy xác minh không phải robot";
 				return;
 			}
 			Console.WriteLine("We got the token: " + RecapchaToken);
