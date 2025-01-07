@@ -14,22 +14,37 @@
 		<img src="~/image/caydk.png" alt="Ảnh đăng ký" class="" />
 	</div>
 
-	<form class="form-section">
-		<h1>Đăng kí</h1>
-		<input id="name" type="text" placeholder="Tên"/>
-		<input id="email" type="text" placeholder="Email" />
-		<input id="password" type="password" placeholder="Mật khẩu" />
-		<input id="passwordagain" type="password" placeholder="Nhập lại mật khẩu" />
-		<button class="login-button" type="button">Đăng ký</button>
+	<form method="post" class="form-section">
+		<h1>Đăng ký</h1>
+		<div class="form-section-input">
+			<input id="name" type="text" asp-for="fullName" placeholder="Tên" />
+			<span asp-validation-for="fullName" class="text-danger"></span>
+		</div>
+		<div class="form-section-input">
+			<input id="email" type="text" asp-for="email" placeholder="Email" />
+			<span asp-validation-for="email" class="text-danger"></span>
+		</div>
+		<div class="form-section-input">
+			<input id="phone" type="text" asp-for="phone" placeholder="Số điện thoại" />
+			<span asp-validation-for="phone" class="text-danger"></span>
+		</div>
+		<div class="form-section-input">
+			<input id="adress" type="text" asp-for="address" placeholder="Địa chỉ" />
+			<span asp-validation-for="address" class="text-danger"></span>
+		</div>
+		<div class="form-section-input">
+			<input id="password" type="password" asp-for="password" placeholder="Mật khẩu" />
+			<span asp-validation-for="password" class="text-danger"></span>
+		</div>
+		<div class="form-section-input">
+			<input id="passwordagain" type="password" asp-for="ConfirmPassword" placeholder="Nhập lại mật khẩu" />
+			<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+		</div>
+	
+		<button class="login-button" type="submit">Đăng ký</button>
 		<div class="signup-link">
 			<span>Bạn đã có tài khoản?</span> <a href="signin">Đăng nhập</a>
 		</div>
 	</form>
 
 </div>
-@section Scripts {
-	<script>
-
-	</script>
-}
-

@@ -1,3 +1,20 @@
 ﻿@{
-    Layout = "_Layout";
+    var role = Context.Session.GetString("role");
+    var path = Context.Request.Path.Value;
+
+    // Layout cho admin
+    if (role == "admin")
+    {
+        Layout = "_LayoutAdmin";
+    }
+    // Layout cho trang đăng nhập và đăng ký
+    else if (path.Contains("/Auth/"))
+    {
+        Layout = "_AuthenticationLayout";
+    }
+    // Layout chung
+    else
+    {
+        Layout = "_Layout";
+    }
 }

@@ -1,8 +1,8 @@
-﻿body {
+﻿﻿body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .login-box {
@@ -43,17 +43,19 @@
     height: 100%;
     border-radius: 4rem 0rem 0rem 4rem;
     /*max-width: 36rem;*/
-
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-    .form-section input {
-        margin-bottom: 1rem;
-        margin: 1rem auto;
-        width: 80%;
-    }
+.form-section-input {
+    margin-bottom: 1rem;
+    margin: 8px auto;
+    width: 70%;
+}
+.text-danger {
+    font-size: 14px;
+}
 
 h1 {
     text-align: center;
@@ -84,13 +86,19 @@ button {
     border-radius: 5px;
     font-size: 16px;
     width: 30%;
-    margin: 0 auto;
+    margin: 24px auto 0;
     cursor: pointer;
 }
-
-    button:hover {
-        background-color: rgba(31, 53, 6, 0.8);
-    }
+.btn-close {
+    margin: 0;
+}
+.alert{
+    width: 70%;
+    margin: 8px auto;
+}
+button:hover {
+    background-color: rgba(31, 53, 6, 0.8);
+}
 
 .signup-link {
     text-align: center;
@@ -120,7 +128,6 @@ button {
         width: 100%;
         height: auto;
         margin-bottom: 2rem; */
-
         position: absolute;
         top: 40vh;
         left: 0px;

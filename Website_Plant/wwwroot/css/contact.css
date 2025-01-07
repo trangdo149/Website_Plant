@@ -7,7 +7,18 @@
 body {
     background-color: #fef7ef;
 }
-
+.alert-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alert-padding {
+    padding: 16px 200px 16px 200px;
+}
+.alert-no-margin {
+    margin: 0;
+}
 .container {
     min-height: 90vh;
     display: flex;
@@ -15,15 +26,15 @@ body {
     align-items: center;
 }
 
-    .container form {
-        width: 700px;
-        height: 550px;
-        display: flex;
-        justify-content: center;
-        border-radius: 15px;
-        background: #c1ceb2;
-        flex-wrap: wrap;
-    }
+.container form {
+    width: 700px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    background: #c1ceb2;
+    flex-wrap: wrap;
+}
 
         .container form h1 {
             color: #1f3506;
@@ -49,7 +60,7 @@ body {
         }
 
             .container form input::placeholder {
-                color: #1f3506;
+                color: #859078;
             }
 
         .container form #email {
@@ -81,9 +92,9 @@ body {
             min-width: 620px;
             max-width: 620px;
         }
-        .container form textarea::placeholder{
-            color: #1f3506;
-        }
+            .container form textarea::placeholder {
+                color: #859078;
+            }
 
         .container form h4 {
             font-size: 20px;

@@ -1,31 +1,71 @@
 ﻿@page
 @model Website_Plant.Pages.Auth.signinModel
+@inject IConfiguration configuration
 @{
 	Layout = "_AuthenticationLayout";
 	ViewData["Title"] = "Đăng nhập";
 }
-
-
+@{
+	var siteKey = configuration["ReCapchaSettings:SiteKey"];
+}
 @section Styles {
 	<link href="~/css/signin.css" rel="stylesheet">
 }
-
+<script type="text/javascript">
+	var onloadCallback = function() {
+		grecaptcha.render('html_element', {
+			'sitekey': '@siteKey'
+		});
+	};
+	function onSubmit(event) {
+		var token = grecaptcha.getResponse();
+		if (!token) {
+			console.error("Không tạo được token Recaptcha.");
+		}
+		document.getElementById("recaptchaTokenInputId").value = token;
+	}
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+		async defer>
+</script>
 
 <div class="login-box">
 	<div class="img-login">
 		<img src="~/image/caydn.png" alt="Ảnh đăng nhập" class="" />
 	</div>
 
-	<form class="form-section">
+	<form method="post" onsubmit="onSubmit(event)" class="form-section">
+		<input type="hidden" id="recaptchaTokenInputId" asp-for="RecapchaToken"/>
 		<h1>Đăng nhập</h1>
-		<input id="email" type="text" placeholder="Email" />
-		<input id="password" type="password" placeholder="Mật khẩu" />
-		<button class="login-button" type="button">Đăng nhập</button>
+		@if (Model.errorMessage.Length > 0)
+		{
+			<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+				<strong>@Model.errorMessage</strong>
+				<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+			</div>
+		}
+		else if (Model.successMessage.Length > 0)
+		{
+			<div class='alert alert-success alert-dismissible fade show' role='alert'>
+				<strong>@Model.successMessage</strong>
+				<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+			</div>
+		}
+		<div class="form-section-input">
+			<input id="email" type="text" asp-for="email" placeholder="Tên" />
+			<span asp-validation-for="email" class="text-danger"></span>
+		</div>
+		<div class="form-section-input">
+			<input id="password" type="password" asp-for="password" placeholder="Mật khẩu" />
+			<span asp-validation-for="password" class="text-danger"></span>
+		</div>
+		<div class="form-section-input">
+			<div id="html_element"></div>
+		</div>
+		<button class="login-button" type="submit">Đăng nhập</button>
 		<div class="signup-link">
 			<span>Bạn chưa có tài khoản?</span> <a href="signup">Đăng ký</a>
 		</div>
 	</form>
 
 </div>
-
-
