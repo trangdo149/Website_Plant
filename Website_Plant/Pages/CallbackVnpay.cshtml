@@ -1,0 +1,45 @@
+﻿@page
+@using System.Globalization
+@model CallbackVnpayModel
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+}
+
+@{
+    bool success = (bool)ViewData["status"];
+}
+
+<div style="width:100vw;height:100vw;">
+</div>
+
+@section Scripts {
+    <script>
+        let isSuccess = @success.ToString().ToLower();
+
+        if (!isSuccess) {
+            Swal.fire({
+                title: 'Thanh toán thất bại!',
+                text: 'Vui lòng thanh toán lại!',
+                icon: 'error',
+                confirmButtonText: 'Đóng'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/Cart";
+                }
+            });
+        } else {
+            Swal.fire({
+                title: 'Thanh toán đã được xác nhận!',
+                text: 'Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!',
+                icon: 'success',
+                confirmButtonText: 'Đóng'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/Cart";
+                }
+            });
+        }
+
+    </script>
+}
