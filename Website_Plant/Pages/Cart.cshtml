@@ -1,0 +1,99 @@
+﻿@page
+@using System.Globalization
+@model CartModel
+@section Styles {
+    <link rel="stylesheet" href="~/css/Cart.css" />
+}
+@{
+    ViewData["NoContainer"] = true;
+}
+
+<body>
+    <div class="cart-container">
+        <div class="Tieude">
+            <h1>Giỏ hàng</h1>
+            @if (Model.errorMessage.Length > 0)
+            {
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>@Model.errorMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            else if (Model.successMessage.Length > 0)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+        </div>
+        <div class="cart">
+            <div class="cart-items">
+                <table>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th></th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
+                        <th></th>
+                    </tr>
+                    @foreach(var item in Model.listOrderItem)
+                    {
+                        <tr>
+                            <td><img src="/image/plants/@item.plantInfo.ImageFileName" alt="Ảnh sản phẩm"></td>
+                            <td>
+                                <p style="font-weight:500;  font-size:20px;">@item.plantInfo.tensp</p>
+                                <p style="color: #757575;">@(item.plantInfo.gia.ToString("N0", new CultureInfo("vi-VN"))) đ</p>
+                            </td>
+                            <td>
+                                <a role="button" class="table-link" href="/cart?action=sub&id=@(item.plantInfo.Id)">-</a>
+                                <span style="font-weight: 500;">@item.numCopies</span>
+                                <a role="button" class="table-link" href="/cart?action=add&id=@(item.plantInfo.Id)">+</a>
+                            </td>
+                            <td><p1>@(item.totalPrice.ToString("N0", new CultureInfo("vi-VN"))) đ</p1></td>
+                            <td><a class="table-link" href="/cart?action=delete&id=@(item.plantInfo.Id)"><i class="bi bi-trash"></i></a></td>
+                        </tr>
+                    }                   
+                </table>
+              </div>
+            <div class="cart-summary">
+                @if (HttpContext.Session.GetString("role") == null)
+                {
+                    <div class="summary-details">
+                        <p>Tổng đơn hàng: <span style="font-weight:400;">@(Model.totalproduct.ToString("N0", new CultureInfo("vi-VN"))) đ</span></p>
+                    </div>
+                    <hr style="color: #1F3505;" />
+                    <div class="text-notify">
+                        <p>Hãy đăng nhập để đặt hàng. Nếu chưa có tài khoản hãy đăng ký.</p>
+                    </div>
+                    <div class="auth-signinup">
+                        <a class="link-btn-signin" href="/Auth/signin" role="button">Đăng nhập</a>
+                        <a class="link-btn-signup" href="/Auth/signup" role="button">Đăng ký</a>
+                    </div>
+                }
+                else
+                {
+                    <form method="post">
+                        <h2>Địa chỉ giao hàng</h2>
+                        <input type="text" asp-for="Address">
+                        <span class="text-danger" asp-validation-for="Address"></span>
+                        <h2>Chọn phương thức thanh toán</h2>
+                        <select asp-for="PaymentMethod">
+                            <option value="cod">COD</option>
+                            <option value="vnpay">VnPay</option>
+                            <option value="paypal">Paypal</option>
+
+                        </select>
+
+                        <div class="summary-details">
+                            <p>Tổng đơn hàng: <span style="font-weight:400;">@(Model.totalproduct.ToString("N0", new CultureInfo("vi-VN"))) đ</span></p>
+                            <p>Phí vận chuyển: <span style="font-weight:400;">@(Model.shippingfee.ToString("N0", new CultureInfo("vi-VN"))) đ</span></p>
+                            <p>Tổng thanh toán: <span style="font-weight:400;">@(Model.total.ToString("N0", new CultureInfo("vi-VN"))) đ</span></p>
+                        </div>
+                        <button class="checkout-btn" type="submit">Thanh toán</button>
+                    </form>
+                }               
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,168 @@
+﻿body {
+    background-color: #fef7ef;
+}
+
+.cart-container {
+    width: 1200px;
+    max-width: 100%;
+    margin: 32px auto 120px auto;
+}
+
+h1 {
+    color: #1F3505;
+    margin: 0px 0px 20px 0px;
+    text-align: left;
+    font-size: 50px;
+    font-weight: 500;
+    color: #1F3505;
+}
+.cart {
+    display: flex;
+   gap: 120px;
+}
+
+.cart-items {
+    width: 850px;
+}
+.cart-items img {
+    width:100px;
+    height:100px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0,0,0, 0.2)
+}
+.cart-items p {
+    font-size: 17px;
+    margin: 0px 0px 4px 0px;
+    text-align: left;
+    color: #1F3505;
+}
+    .cart-summary {
+    height:400px;
+    width:300px;
+    background-color: #C1CEb2;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top:55px;
+}
+
+        .cart-summary h2 {
+            color: #1F3505;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+    .cart-summary input{
+        border: none;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 8px;
+        border-radius: 5px;
+    }
+    .cart-summary span{
+        font-size: 14px;
+    }
+    .cart-summary select {
+        border: none;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+
+    }
+
+.summary-details p {
+    color: #1F3505;
+    display: flex;
+    font-weight: 500;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.checkout-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 5px;
+    background-color: #355014;
+    color: white;
+    border-radius: 8px;
+}
+select {
+    color: #1F3505;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: white url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-down%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708%22/%3E%3C/svg%3E') no-repeat;
+    background-position: calc(100% - 20px) center;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    color: #1F3505;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    padding: 12px 8px 12px 8px;
+    border-bottom: 1px solid #1F3505;
+}
+
+td {
+    color: #1F3505;
+    padding: 24px 8px 24px 8px;
+    text-align: center;
+    border-bottom: 1px solid #1F3505;
+}
+.table-link {
+    color: #1F3505;
+    text-decoration: none;
+    margin: 0px 6px 0px 6px;
+    font-size: 20px;
+}
+.table-link:hover{
+    color: #1F3505;
+}
+p1 {
+    color: #1F3505;
+    text-align: center;
+    font-size: 16px;
+}
+
+/**/
+.text-notify p {
+    text-align: center;
+    color: #1F3505;
+}
+.auth-signinup{
+    display: flex;
+    justify-content: space-between;
+}
+.link-btn-signup {
+    text-decoration: none;
+    color: #1F3505;
+    background-color: #C1CEb2;
+    border: 2px solid #1F3505;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 47%;
+    text-align:center;
+}
+.link-btn-signup:hover{
+    color: #1F3505;
+    opacity: 0.8;
+}
+.link-btn-signin {
+    text-decoration: none;
+    color: white;
+    background-color: #1F3505;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 47%;
+    text-align: center;
+}
+.link-btn-signin:hover{
+    color: white;
+    opacity: 0.8;
+}

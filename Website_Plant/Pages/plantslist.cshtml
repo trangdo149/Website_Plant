@@ -1,0 +1,97 @@
+﻿@page
+@using System.Globalization
+@model Website_Plant.Pages.plantslistModel
+@section Styles {
+    <link rel="stylesheet" href="~/css/plantlist.css" />
+}
+
+<body>
+    <div class="body-container">
+        <div class="left-panel">
+            <h1>Potted<br>Plant Shop</h1>
+        </div>
+        <div class="center-panel">
+            <div class=" plant-bg"></div>
+            <img src="/image/center-plant.png" alt="Monstera Deliciosa" class="plant-image">
+        </div>
+        <div class="right-panel">
+            <div class="description">
+                <h2>Monstera Deliciosa</h2>
+                <p>Còn được gọi là cây "Swiss cheese" (phô mai Thụy Sĩ), đây là một loại cây nhiệt đới được ưa chuộng trong nhà, có nguồn gốc từ Trung Mỹ. Loài cây này được yêu thích nhờ những chiếc lá to, bóng mượt màu xanh lục với các lỗ tự nhiên.</p>
+            </div>
+        </div>
+    </div>
+
+    <form method="get">
+        <search>
+            <div class="search-bar">
+                <input type="text" asp-for="Search" placeholder="Nhập tên sản phẩm">
+                <button type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </search>
+    </form>
+    <div class="main_grid">
+        <div class="main_row">
+            <!-- Product Grid on the Left -->
+            <div class="main_col-9">
+                <div class="catalog">
+                    @foreach (var item in Model.listPlants)
+                    {
+                        <div class="plant">
+                            <a href="/detail?id=@(item.Id)"><img src="/image/plants/@item.ImageFileName"></a>
+                            <h5>@item.tensp</h5>
+                            <h6>@item.gia.ToString("N0", new CultureInfo("vi-VN")) VND</h6>
+                        </div>
+                    }
+                </div>               
+            </div>
+
+            <!-- Filter Panel on the Right -->
+            <div class="main_col-3">
+                <form method="get">
+                    <div class="filter-panel">
+                        <h3>Bộ lọc</h3>
+                        <label for="category">Danh mục</label>
+                        <select id="category" asp-for="Category">
+                            <option value="AnyCategory">Chọn loại cây</option>
+                            <option value="Cây ban công">Cây ban công</option>
+                            <option value="Cây để bàn">Cây để bàn</option>
+                            <option value="Cây trong nhà">Cây trong nhà</option>
+                        </select>
+
+                        <label for="price">Giá tiền</label>
+                        <select id="price" asp-for="Price">
+                            <option value="AnyPrice">Chọn giá tiền</option>
+                            <option value="low">Dưới 100,000 đ</option>
+                            <option value="medium">100,000 - 200,000 đ</option>
+                            <option value="high">Trên 200,000 đ</option>
+                        </select>
+
+                        <ul class="filter-buttons">
+                            <li class="filter-item">
+                                <button type="submit" class="filter-apply">Lọc</button>
+                            </li>
+                            <li class="filter-reset">
+                                <a class="" href="/plantslist">Xóa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="trang">
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.totalPage; i++)
+            {
+                var activeClass = (i == Model.page) ? "pagination-trang--active" : "";
+                <li class="pagination-trang @activeClass">
+                    <a class="pagination-link" href="?page=@(i)&Search=@(Model.Search)&Price=@(Model.Price)&Category=@(Model.Category)">@i</a>
+                </li>
+            }
+        </ul>
+    </div>
+</body>

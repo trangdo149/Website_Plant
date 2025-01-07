@@ -31,7 +31,6 @@ body {
 }
 
 .header {
-    height: 100px;
     background-color: #1F3505;
     position: sticky;
     top: 0;
@@ -50,14 +49,13 @@ body {
 }
 
     #nav a.active {
-        color: #ffffff;
+        color: white ;
     }
-.header-icons a.active {
-    color: #ffffff;
-}
 .header-nav {
     display: flex;
     justify-content: space-between;
+    height: 80px;
+    align-items: center;
 }
 
 .header-nav-list {
@@ -67,13 +65,15 @@ body {
     align-items: center;
 }
     .header-nav-list a {
-        font-size: 22px;
+        
         text-decoration: none;
-        color: #B0B0B0;
+        
     }
-
+.header-nav ul{
+    margin-bottom: 0;
+}
 .header-nav_item {
-    color: ##B0B0B0;
+    color: #B0B0B0;
     display: flex;
     align-items: center;
 }
@@ -81,12 +81,102 @@ body {
 .header-nav-item-link {
     font-size: 18px;
     text-decoration: none;
-    color: ##B0B0B0;
+    color: #B0B0B0;
 }
 .header-icons {
+    font-size: 22px;
     display: flex;
-    gap: 30px;
     align-items: center;
+    padding: 0;
+}
+.header-icons-person {
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    height: 80px;
+    position: relative;
+}
+.header-icon-link {
+    color: white;
+}
+.header-icon-link:hover {
+    color: white;
+}
+/**/
+.button-addtocart.added i {
+    color: #1F3505;
+    font-size: 20px;
+    transition: color 0.2s ease;
+}
+.button-addtocart.added span {
+    font-weight: 600;
+    color: #1F3505;
+    margin-left: 8px;
+    transition: color 0.2s ease;
+}
+.button-addtocart.added:hover {
+    background-color: #1F3505;
+}
+.button-addtocart.added:hover i,
+.button-addtocart.added:hover span{
+    color: white;
+}
+/*Hover icon person*/
+.header-person-menu {
+    position: absolute;
+    top: 100%;
+    right: 5px;
+    width: 180px;
+    background-color: #fef7ef;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0, 0.2);
+    display: none;
+}
+.header-icons-person:hover .header-person-menu {
+    display: block;
+}
+.header-person-list {
+    list-style: none;
+    padding: .5rem 0;
+}
+.header-person-item {
+    padding: 4px 24px;
+    font-size: 16px;
+}
+.header-person-item:hover{
+    background-color: #EDE8E3;
+}
+.header-person-link {
+    color: #1F3505;
+}
+.header-person-link:hover{
+    color: #1F3505;
+}
+.header-person-menu::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: -17px;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent transparent #fef7ef transparent;
+}
+
+.button-signinup {
+    border: 1px solid #B0B0B0;
+    font-size: 17px !important;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-left: 8px;
+    color: #B0B0B0 !important;
+}
+.button-signinup:hover {
+    border: 1px solid white;
+    color: white!important;
+}
+.btn-signup{
+    margin-left: 12px;
 }
 .grid {
     width: 1400px;

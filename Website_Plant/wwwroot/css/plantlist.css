@@ -1,0 +1,332 @@
+﻿body {
+    background-color: #fef7ef;
+}
+
+.body-container {
+    display: flex;
+    align-items: center;
+    padding: 22px;
+    background-color: #d9ecd0;
+    height: 650px;
+}
+
+.left-panel {
+    display: flex;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+    .left-panel h1 {
+        font-size: 50px;
+        font-weight: bold;
+        color: #000;
+    }
+
+.center-panel {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.plant-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 730px;
+    background-color: #fff;
+}
+
+.plant-image {
+    z-index: 1;
+    margin-top: 180px;
+    height: 500px;
+    width: 500px;
+    object-fit: contain;
+}
+
+.right-panel {
+    width: 30%;
+    padding: 20px;
+}
+
+.description {
+    margin-top:120px;
+    padding: 15px;
+}
+
+    .description h2 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .description p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+search {
+    margin-top: 2.5rem;
+    background-color: #fef7ef;
+    padding: 20px;
+    text-align: center;
+}
+
+    search .search-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 400px;
+        margin: 0 auto;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        search .search-bar input[type="text"] {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: #666;
+            background-color: #fff;
+        }
+
+           search .search-bar input[type="text"]::placeholder {
+                color: #aaa;
+            }
+
+        search .search-bar button {
+            background-color: #1F3505;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+            search .search-bar button:hover {
+                background-color: #1a252f;
+            }
+
+            search .search-bar button i {
+                font-size: 18px;
+            }
+
+/* Product Grid */
+/*.main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}*/
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+/*    max-width: 1000px;*/
+    
+}
+.main_grid{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.main_row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+.main_col-9{
+    width: 75%;
+}
+.main_col-3{
+    width: 25%;
+    padding-left: 32px;
+}
+
+.plant {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 330px;
+    width: 205px;
+    transition: transform 0.3s;
+}
+
+    .plant img {
+        width: 100%;
+        border-radius: 8px;
+        height:65%;
+    }
+
+    .plant h5 {
+        margin-top: 1.5rem;
+        font-size: 1.15rem;
+        font-weight: bold;
+        color: #1F3505;
+    }
+
+    .plant h6 {
+        font-size:1rem;
+        color: #555;
+    }
+
+        .plant:hover {
+            transform: scale(1.05);
+        }
+
+/* Filter Panel */
+.filter-panel {
+    height:400px;
+    width: 100%;
+    padding: 26px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .filter-panel h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+        color: #1F3505;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .filter-panel label {
+        display: block;
+        margin: 25px 0 5px;
+        font-size: 1rem;
+        color: #333;
+        text-align:left:
+    }
+
+    .filter-panel select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        margin-bottom: 8px;
+        outline: none;
+    }
+
+        .filter-panel select:focus {
+            border-color: #4CAF50;
+        }
+
+.filter-buttons {
+    margin-top:30px;
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    justify-content: space-between;
+}
+.filter-item {
+    background-color: #1F3505;
+    border-radius: 8px;
+}
+.filter-apply {
+    background-color: #1F3505;
+    color: white;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .filter-apply:hover {
+        opacity: 0.9;
+    }
+
+.filter-reset a{
+    text-decoration: none;   
+    color: #1F3505;    
+}
+.filter-reset {
+    border: 1px solid #1F3505;
+    border-radius: 8px;
+    padding: 8px 30px;
+}
+
+.filter-reset:hover {
+    background-color: #f5f5f5;
+    color: #2c3e50;
+}
+
+ /* Pagination */
+/*.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+    .button.active {
+        background-color: #d9ecd0;
+    }
+
+    .button.inactive {
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 30px 0 60px;
+}
+
+.pagination-trang {
+    background-color: white;
+    border-radius: 15px;
+    margin: 0 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.pagination-link {
+    display: block;
+    text-decoration: none;
+    color: #1F3505;
+    min-width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    font-weight: bold;
+}
+
+.pagination-trang--active {
+    background-color: #C1CEB2;
+    border-radius: 15px;
+}
+
+
+.pagination-link:hover {
+    color: #1F3505;
+}

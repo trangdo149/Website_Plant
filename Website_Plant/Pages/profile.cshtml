@@ -1,0 +1,266 @@
+﻿@page
+@model Website_Plant.Pages.profileModel
+@{
+	string? currentfullName = HttpContext.Session.GetString("fullName");
+	string? currentemail = HttpContext.Session.GetString("email");
+	string? currentphone = HttpContext.Session.GetString("phone");
+	string? currentaddress = HttpContext.Session.GetString("address");
+}
+
+
+<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+
+		.page-container {
+			display: flex;
+			width: 100%;
+			background-color: #FEF7EF;
+			border-radius: 10px;
+			overflow: hidden;
+			margin: 0 auto;
+			padding: 30px 200px;
+		}
+
+		.sidebar {
+			width: 300px;
+			background-color: #FEF7EF;
+			padding: 30px 60px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: relative;
+		}
+
+			.sidebar::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+				width: 1px;
+				height: 100%;
+				background-color: #BFBFBF;
+			}
+
+		.body-content {
+			flex-grow: 1;
+			padding: 30px 60px;
+			background-color: #FEF7EF;
+		}
+
+		.profile-image-container {
+			position: relative;
+			width: 180px;
+			height: 180px;
+			margin-bottom: 30px;
+		}
+
+		.profile-image {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		.camera-icon {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			background-color: white;
+			border-radius: 50%;
+			padding: 5px;
+		}
+
+		.menu-button {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			padding: 10px 18px;
+			margin-bottom: 10px;
+			border: 1px solid #E0E0E0;
+			border-radius: 320px;
+			text-align: left;
+			cursor: pointer;
+			font-size: 16px;
+			font-weight: 600;
+			color: #1F3505 !important;
+			background-color: white;
+			box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+			text-decoration: none;
+		}
+
+			.menu-button svg {
+				margin-right: 8px;
+			}
+
+		.menu-button-active {
+			background-color: #DEEDCD;
+		}
+
+		.form-group {
+			display: flex;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+			.form-group label {
+				width: 140px;
+				color: #1F3505;
+				font-weight: 500;
+			}
+
+			.form-group input {
+				flex-grow: 1;
+				padding: 10px;
+				border-radius: 10px;
+				border-color: #ddd;
+				font-size: 16px;
+				background-color: transparent;
+				color: #333;
+			}
+
+				.form-group input:focus {
+					outline: none;
+					border-color: #ddd;
+				}
+
+				.form-group input[readonly] {
+					cursor: default;
+					
+				}
+
+		.edit-button {
+			background-color: #C1CEB2;
+			color: #1F3505;
+			border: none;
+			padding: 8px 20px;
+			border-radius: 20px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-top: 20px;
+			font-weight: 600;
+		}
+
+			.edit-button i {
+				padding-right: 8px;
+			}
+
+		h1 {
+			color: #333;
+			margin-bottom: 24px;
+			font-weight: 600;
+		}
+	.button-edit-profile{
+		background-color: #1F3505;
+		color: white;
+		border: none;
+		border-radius: 4px;
+		padding: 6px 12px;
+	}
+	.button-edit-profile:hover {
+		opacity: 0.8;
+	}
+</style>
+<body>
+	<div class="page-container">
+		<div class="sidebar">
+			<div class="profile-image-container">
+				<img src="~/image/avatar.png" alt="Ảnh đại diện" class="profile-image">
+				<svg class="camera-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+					<path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</div>
+			<a class="menu-button menu-button-active" href="/profile">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-person" viewBox="0 0 16 16">
+					<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+				</svg>
+				Hồ sơ
+			</a>
+			<a class="menu-button" href="/Client/Order">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-box-seam" viewBox="0 0 16 16">
+					<path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z" />
+				</svg>
+				Đơn hàng
+			</a>
+		</div>
+		<div class="body-content">
+			<h1>Thông tin cá nhân</h1>
+				<div class="form-group">
+					<label for="name">Tên người dùng</label>
+					<input type="text" readonly id="name" value="@currentfullName" />
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" readonly id="email" value="@currentemail" />
+				</div>
+				<div class="form-group">
+					<label for="phone">Số điện thoại</label>
+					<input type="text" readonly id="phone" value="@currentphone" />
+				</div>
+				<div class="form-group">
+					<label for="address">Địa chỉ</label>
+					<input type="text" readonly id="address" value="@currentaddress" />
+				</div>
+				<div class="form-group" style="justify-content: flex-end">
+					<button type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#EditModal">
+						<i class="bi bi-pencil-square"></i>Sửa
+					</button>
+				</div>
+		</div>
+	</div>
+</body>
+
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Sửa thông tin cá nhân</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form method="post">
+					<div class="row mb-2">
+						<label class="col-sm-4 col-form-label">Họ tên</label>
+						<div class="col-sm-8">
+							<input class="form-control" asp-for="fullName"/>
+							<span asp-validation-for="fullName" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="row mb-2">
+						<label class="col-sm-4 col-form-label">Email</label>
+						<div class="col-sm-8">
+							<input class="form-control" asp-for="email" />
+							<span asp-validation-for="email" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="row mb-2">
+						<label class="col-sm-4 col-form-label">Số điện thoại</label>
+						<div class="col-sm-8">
+							<input class="form-control" asp-for="phone" />
+							<span asp-validation-for="phone" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="row mb-2">
+						<label class="col-sm-4 col-form-label">Địa chỉ</label>
+						<div class="col-sm-8">
+							<input class="form-control" asp-for="address" />
+							<span asp-validation-for="address" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="offset-sm-4">
+							<button type="submit" class="button-edit-profile" name="action" value="profile">Sửa</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">				
+			</div>
+		</div>
+	</div>
+</div>

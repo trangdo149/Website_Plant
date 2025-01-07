@@ -1,0 +1,45 @@
+﻿@page
+@using Microsoft.Data.SqlClient
+@using Website_Plant.MyHelpers
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment webHostEnviroment
+@attribute [RequireAuth(RequiredRole = "admin")]
+@{
+    string id = Request.Query["id"];
+    try
+    {
+        string connectionString = "Data Source=Localhost\\sqlexpress;Initial Catalog=WebPlant;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string sqlSelect = "select image_filename from plants where id=@id";
+            using (SqlCommand command = new SqlCommand(sqlSelect, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string imageFileName = reader.GetString(0);
+                        string imageFolder = webHostEnviroment.WebRootPath + "/image/plants";
+                        string imageFullPath = System.IO.Path.Combine(imageFolder, imageFileName);
+                        System.IO.File.Delete(imageFullPath);
+                        Console.WriteLine("Delete Image" + imageFullPath);
+                    }
+                }
+            }
+            string sql = "delete from plants where id=@id";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
+
+    Response.Redirect("/Admin/Plant");
+}

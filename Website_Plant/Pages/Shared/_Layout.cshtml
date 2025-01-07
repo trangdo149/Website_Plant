@@ -9,30 +9,110 @@
     <link rel="stylesheet" href="~/Website_Plant.styles.css" asp-append-version="true" />
     <link rel="icon" href="~/image/shop logo.png" type="logo">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     @RenderSection("Styles", required: false)
 
 </head>
+<script>
+    function addToCart(button, plantId){
+        let oldCartValue = getCookieValue("shopping_cart");
+        if (oldCartValue) oldCartValue += "-"; //nếu có giá trị cũ của cookie thì thêm gạch nối
+        let newCartValue = oldCartValue + plantId;
+
+        let d = new Date();
+        d.setDate(d.getDate() + 365); //giả sử cookie hết hạn sau 1 năm
+        let expires = d.toUTCString();
+        document.cookie = "shopping_cart=" + newCartValue + ";expires=" + expires + ";path=/";//path  ở đây nghĩa là cookie sẽ đc gửi tới bất kì url nào trong web
+
+        //update số sp trong giỏ hàng
+        let plantsArray = newCartValue.split("-");
+        let count = plantsArray.length; // đếm số sp trong cart
+        document.getElementById("PlantCountBadge").innerHTML = count;
+
+        button.innerHTML = "<i class='bi bi-check-lg'></i><span>Đã thêm vào giỏ</span>";
+        button.classList.add('added');
+    }
+    function getCookieValue(cookieName) { //function này yêu cầu tên cookie
+        //để  đọc đc giá trị cookie cần gọi 1 biến toàn cục:
+        //document.cookie chứa toàn bộ cookie của website này theo format
+        //cookie1=value1; cookie2=value2; cookie3=value3;
+
+        //lưu các cookie thành 1 mảng
+        let cookiesArray = document.cookie.split(';');
+        //tạo 1 vòng for để tìm cookie trong mảng
+        for (let i = 0; i < cookiesArray.length; i++) {
+            let cookie = cookiesArray[i];
+            if (cookie.includes(cookieName)) {
+                let name_value = cookie.split('=');
+                // if (name_value[1]) return name_value[1];
+                // else return "";
+                return name_value[1];
+            }
+        }
+        return "";
+    }
+</script>
 <body>
     <header class="header">
         <div class="grid">
             <nav class="header-nav">
                 <ul class="header-nav-list">
                     <li class="header-nav_item">
-                        <img src="/image/logo.png" alt="Logo Home Sweet Garden" width="100" height="100" />
+                        <img src="/image/logo.png" alt="Logo Home Sweet Garden" width="80" height="80" />
                     </li>
                 </ul>
                <ul id="nav">
-                    <li><a class="active" href="">Trang chủ</a></li>
-                    <li><a href="">Sản phẩm</a></li>
-                    <li><a href="">Về chúng tôi</a></li>
+                    <li><a class="active" href="/">Trang chủ</a></li>
+                    <li><a href="/plantslist">Sản phẩm</a></li>
+                    <li><a href="/aboutus">Về chúng tôi</a></li>
                </ul>
                 <ul class="header-nav-list">
+                    @{
+                        //đọc cookie trên server
+                        string cookieValue = Context.Request.Cookies["shopping_cart"] ?? ""; //tạo biến bằng giá trị của cookie, sd context.request để đọc giá trị của shopping_cart cookie, dấu ?? "" để sửa lỗi null của cookieValue
+                        int cartSize = 0;
+                        if (cookieValue.Length > 0)
+                        {
+                            cartSize = cookieValue.Split('-').Length;
+                        }
+                    }
                     <li class="header-icons">
-                        <a class="active" href="/"><i class="bi bi-bag"></i></a>
-                        <a href="/error"><i class="bi bi-person-circle"></i></a>
+                        <a class="header-icon-link me-2" style="position: relative;" asp-area="" asp-page="/cart">
+                            <i class="bi bi-bag"></i>
+                            <span id="PlantCountBadge" class="badge rounded-pill bg-danger" style="vertical-align: top; font-size: 10px; position: absolute; top:2px; right: -11px;">
+                                @cartSize
+                            </span>
+                        </a>                       
                     </li>
+                    @if (Context.Session.GetString("role") == null)
+                    {
+                        <li class="">
+                            <a class="button-signinup btn-signup" asp-area="" asp-page="/Auth/signin">Đăng nhập</a>
+                        </li>
+                        <li class="">
+                            <a class="button-signinup" asp-area="" asp-page="/Auth/signup">Đăng ký</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="header-icons-person">
+                            <a class="header-icon-link"><i class="bi bi-person-circle"></i></a>
+                            <div class="header-person-menu">
+                                <ul class="header-person-list">
+                                    <li class="header-person-item">
+                                        <a class="header-person-link" asp-page="/profile">Hồ sơ cá nhân</a>
+                                    </li>
+                                    <li class="header-person-item">
+                                        <a class="header-person-link" asp-page="/Index">Trang chủ</a>
+                                    </li>
+                                    <li class="header-person-item">
+                                        <a class="header-person-link" asp-page="/Auth/Logout">Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    }                   
                 </ul>
             </nav>
         </div>
@@ -54,7 +134,7 @@
             <div class="grid-row">
                 <div class="grid-row-2-4">
             <div class="footerlogo">
-                        <a href="#">
+                        <a href="/">
                             <img src="/image/logo.png" alt="Home Sweet Garden Logo">
                         </a>
             </div>
@@ -63,13 +143,13 @@
             <div class="footer-links">
                 <h>Danh sách</h>
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="/">Trang chủ</a></li>
                     <li><a href="#">Cây cối</a></li>
                     <li><a href="#">Về chúng tôi</a></li>
                 </ul>
             </div>
                 </div>
-                    <div class="grid-row-2-4">
+            <div class="grid-row-2-4">
             <div class="footer-contact">
                 <h>Liên hệ</h>
                 <ul class="contact-info">
@@ -95,6 +175,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-    <script src="js/site.js"></script>
 </body>
 </html>

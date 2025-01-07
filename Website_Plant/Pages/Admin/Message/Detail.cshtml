@@ -24,7 +24,7 @@
         <h1>Chi tiết thư liên hệ</h1>
     </li>
     <li class="title-buttonAdd-item">
-        <h2>ID: 20</h2>
+        <h2>ID: @Model.contact.ID</h2>
     </li>
 </ul>
 <div class="col-lg-6 table-order">
@@ -32,24 +32,23 @@
         <table class="table">
             <tr>
                 <td>Người gửi</td>
-                <td>Nguyễn Văn A</td>
+                <td>@Model.contact.FullName</td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td>laura_prichet@mail.com</td>
+            <td>@Model.contact.Email</td>
             </tr>
             <tr>
                 <td>Số điện thoại</td>
-                <td>078 5054 8877</td>
+                <td>@Model.contact.PhoneNumber</td>
             </tr>
             <tr>
                 <td>Ngày gửi</td>
-                <td>01/01/2025</td>
+                <td>@Model.contact.CreatedAt</td>
             </tr>
         </table>
 </div>
 <div class="textarea-box">
     <h3>Lời nhắn</h3>
-    <textarea readonly class="textarea-box-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed diam nisl, lacinia eu dictum et, porta id diam. Nam pellentesque eu turpis eget sagittis. Pellentesque leo purus, consectetur et mauris nec, mattis mollis ex. Maecenas consectetur non ligula ut laoreet. Pellentesque nec posuere sapien.
-        Vestibulum eleifend urna sed magna condimentum venenatis.</textarea>
+    <textarea readonly class="textarea-box-message">@Model.contact.Message</textarea>
 </div>

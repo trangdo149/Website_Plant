@@ -1,0 +1,288 @@
+﻿@page
+@using System.Globalization
+@model Website_Plant.Pages.Client.Order.IndexModel
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .body-content h1 {
+            background-color: #FEF7EF;
+            color: #333;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .page-container {
+            display: flex;
+            width: 100%;
+            background-color: #FEF7EF;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 30px 200px;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: #FEF7EF;
+            padding: 30px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+            .sidebar::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 100%;
+                background-color: #BFBFBF;
+            }
+
+        .body-content {
+            flex-grow: 1;
+            padding: 30px 60px;
+            background-color: #FEF7EF;
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .camera-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: white;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        .menu-button {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 10px 18px;
+            margin-bottom: 10px;
+            border: 1px solid #E0E0E0;
+            border-radius: 320px;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            color: #1F3505 !important;
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            text-decoration: none;
+        }
+
+            .menu-button svg {
+                margin-right: 8px;
+            }
+
+            .menu-button-active {
+                background-color: #DEEDCD;
+            }
+
+
+        .chitiet {
+            background-color: #C1CEB2;
+            color: #1F3505;
+            border: none;
+            padding: 10px 35px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+            .chitiet:hover {
+                color: inherit; /* Giữ nguyên màu chữ khi hover */
+                text-decoration: none; /* Không có hiệu ứng gạch chân */
+            }
+            .edit-button i {
+                padding-right: 8px;
+            }
+
+
+        .oder {
+            margin-bottom: 24px;
+            width: 700px;
+            height:200px;
+            background-color: White;
+            border-radius: 10px;
+            box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.25);
+        }
+
+        .table-order {
+            width: 700px !important;
+            border-top: 1px solid White;
+        }
+
+        .table-order-total {
+            text-align: end;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 30px 20px 20px 20px !important;
+        }
+
+        .table-order-total1 {
+            border-top: 1px solid #BFBFBF;
+            text-align: end;
+            font-size: 25px;
+            font-weight: 400;
+            padding: 20px !important;
+        }
+
+        .table-order-item h4 {
+            font-size: 14px;
+            color: #5F5F5F;
+            font-weight: 600;
+            background-color: #EFEFEF;
+            text-align: center;
+            padding: 4px 2px;
+            border-radius: 8px;
+        }
+        .table-order-item h3 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .table-order-item {
+            gap: 40px;
+            display:flex;
+            padding: 20px !important;
+        }
+
+        .table-order-item1 {
+            gap: 40px;
+            display: flex;
+            border-top: 1px solid #BFBFBF;
+            padding: 20px !important;
+        }
+        
+        .md{
+            padding-top: 20px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            list-style: none;
+            margin-top: 60px;
+        }
+
+        .pagination-trang {
+            background-color: white;
+            border-radius: 15px;
+            margin: 0 3px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .pagination-link {
+            display: block;
+            text-decoration: none;
+            color: #1F3505;
+            min-width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 500;
+        }
+
+        .pagination-trang--active {
+            background-color: #C1CEB2;
+            border-radius: 15px;
+        }
+
+
+        .pagination-link:hover {
+            color: #1F3505;
+        }
+    </style>
+<body>
+    <div class="page-container">
+        <div class="sidebar">
+            <div class="profile-image-container">
+                <img src="~/image/avatar.png" alt="Ảnh đại diện" class="profile-image">
+                <svg class="camera-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <a class="menu-button" href="/profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-person" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                </svg>
+                Hồ sơ
+            </a>
+            <a class="menu-button menu-button-active" href="/Client/Order">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1F3505" stroke="#1F3505" stroke-width="0.5" class="bi bi-box-seam" viewBox="0 0 16 16">
+                    <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z" />
+                </svg>
+                Đơn hàng
+            </a>
+        </div>
+        <div class="body-content">
+            <h1>Đơn hàng của bạn</h1>
+            @foreach (var order in Model.listOrders)
+            {
+                int count = 0;
+                decimal total = order.shippingFee;
+                for (int i = 0; i < order.items.Count; i++)
+                {
+                    count += order.items[i].quantity;
+                    total += order.items[i].quantity * order.items[i].unitPrice;
+                }
+                <div class="oder">
+                    <table class="table-sm table-order">
+                        <tr>
+                            <td class="table-order-item">
+                                <div><img src="/image/hang.png" alt="hang" width="80" height="80"></div>
+                                <div class="md">
+                                    <h4>Mã đơn: #@order.id</h4>
+                                    <h3>Số lượng: @count</h3>
+                                </div>
+                            </td>
+                            <td class="table-order-total">Ngày: @order.orderDate</td>
+                        </tr>
+                        <tr>
+                            <td class="table-order-item1">
+                                <a class="chitiet" href="/Client/Order/Detail?id=@order.id">Chi tiết</a>
+                            </td>
+                            <td class="table-order-total1">Tổng tiền: @(total.ToString("N0", new CultureInfo("vi-VN"))) đ</td>
+                        </tr>
+                    </table>
+                </div>
+            }
+            
+            <div class="trang">
+                <ul class="pagination">
+                    @for (int i = 1; i <= Model.totalPages; i++)
+                    {
+                        var activeClass = (i == Model.page) ? "pagination-trang--active" : "";
+                        <li class="pagination-trang @activeClass">
+                            <a class="pagination-link" href="?page=@(i)">@i</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
