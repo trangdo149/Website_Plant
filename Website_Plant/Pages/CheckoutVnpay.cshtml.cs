@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Globalization;
+using System.Net.Sockets;
+using System.Net;
 using Website_Plant.MyHelpers;
 
 namespace Website_Plant.Pages
@@ -23,6 +25,8 @@ namespace Website_Plant.Pages
                 Response.Redirect("/");
                 return;
             }
+            Console.WriteLine($"Total: {Total}, DeliveryAddress: {DeliveryAddress}, ProductIdentifiers: {ProductIdentifiers}");
+
         }
         public void OnPostRedirectToVnpay()
         {
@@ -33,6 +37,7 @@ namespace Website_Plant.Pages
             string vnp_HashSecret = "CEVA3S04FEYIX7P466RXHJHKE37JAWDG"; // Chuỗi bí mật của bạn
 
             // Kiểm tra và xử lý giá trị Total
+            Total = "100000";
             if (string.IsNullOrEmpty(Total))
             {
                 throw new Exception("Giá trị Total không được truyền hoặc rỗng.");
@@ -56,9 +61,11 @@ namespace Website_Plant.Pages
             vnpay.AddRequestData("vnp_Amount", totalAmount);
             vnpay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
             vnpay.AddRequestData("vnp_CurrCode", "VND");
-            vnpay.AddRequestData("vnp_IpAddr", Request.HttpContext.Connection.RemoteIpAddress?.ToString() ?? "127.0.0.1");
+            vnpay.AddRequestData("vnp_IpAddr", GetIpAddress(HttpContext));
             vnpay.AddRequestData("vnp_Locale", "vn");
-            vnpay.AddRequestData("vnp_OrderInfo", "Thanh toán đơn hàng tại Website Plant");
+            vnpay.AddRequestData("vnp_OrderInfo", "Don hang mua tu web plant");
+            vnpay.AddRequestData("vnp_OrderType", "other");
+
             vnpay.AddRequestData("vnp_ReturnUrl", vnp_Returnurl);
             vnpay.AddRequestData("vnp_TxnRef", DateTime.Now.Ticks.ToString()); // Mã tham chiếu giao dịch
 
@@ -66,6 +73,32 @@ namespace Website_Plant.Pages
 
             // Chuyển hướng đến VNPay
             Response.Redirect(paymentUrl);
+        }
+        public static string GetIpAddress(HttpContext context)
+        {
+            var ipAddress = string.Empty;
+            try
+            {
+                var remoteIpAddress = context.Connection.RemoteIpAddress;
+
+                if (remoteIpAddress != null)
+                {
+                    if (remoteIpAddress.AddressFamily == AddressFamily.InterNetworkV6)
+                    {
+                        remoteIpAddress = Dns.GetHostEntry(remoteIpAddress).AddressList
+                            .FirstOrDefault(x => x.AddressFamily == AddressFamily.InterNetwork);
+                    }
+
+                    if (remoteIpAddress != null) ipAddress = remoteIpAddress.ToString();
+                    return ipAddress;
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Invalid IP:" + ex.Message;
+            }
+
+            return "127.0.0.1";
         }
     }
 }
