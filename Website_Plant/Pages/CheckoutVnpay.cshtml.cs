@@ -30,14 +30,24 @@ namespace Website_Plant.Pages
         }
         public void OnPostRedirectToVnpay()
         {
+            DeliveryAddress = TempData["DeliveryAddress"]?.ToString() ?? "";
+            Total = TempData["Total"]?.ToString() ?? "";
+            ProductIdentifiers = TempData["ProductIdentifiers"]?.ToString() ?? "";
+
+            TempData.Keep(); // Giữ lại dữ liệu TempData khi tải lại trang
+            if (DeliveryAddress == "" || Total == "" || ProductIdentifiers == "")
+            {
+                Console.WriteLine($"Total: {Total}, DeliveryAddress: {DeliveryAddress}, ProductIdentifiers: {ProductIdentifiers}");
+                Response.Redirect("/");
+                return;
+            }
             // Cấu hình thông tin VNPay
-            string vnp_Returnurl = "http://localhost:5237/CallbackVnpay"; // URL nhận kết quả từ VNPay
+            string vnp_Returnurl = "http://localhost:5237/thankyou"; // URL nhận kết quả từ VNPay
             string vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"; // URL thanh toán VNPay
             string vnp_TmnCode = "JH6ZQB6C"; // Mã website của bạn
             string vnp_HashSecret = "CEVA3S04FEYIX7P466RXHJHKE37JAWDG"; // Chuỗi bí mật của bạn
 
             // Kiểm tra và xử lý giá trị Total
-            Total = "100000";
             if (string.IsNullOrEmpty(Total))
             {
                 throw new Exception("Giá trị Total không được truyền hoặc rỗng.");
