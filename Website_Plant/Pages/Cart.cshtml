@@ -51,7 +51,11 @@
                                 <a role="button" class="table-link" href="/cart?action=add&id=@(item.plantInfo.Id)">+</a>
                             </td>
                             <td><p1>@(item.totalPrice.ToString("N0", new CultureInfo("vi-VN"))) đ</p1></td>
-                            <td><a class="table-link" href="/cart?action=delete&id=@(item.plantInfo.Id)"><i class="bi bi-trash"></i></a></td>
+                            <td><a class="table-link" href="/cart?action=delete&id=@(item.plantInfo.Id)" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')" ><i class="bi bi-trash"></i>
+
+                        </a>
+
+                        </td>
                         </tr>
                     }                   
                 </table>
