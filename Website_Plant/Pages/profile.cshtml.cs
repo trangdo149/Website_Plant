@@ -28,13 +28,13 @@ namespace Website_Plant.Pages
 			phone = HttpContext.Session.GetString("phone");
 			address = HttpContext.Session.GetString("address") ?? "";
 		}
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 errorMessage = "Dữ liệu không hợp lệ";
-                return;
-            }
+				return Page();
+			}
             if (phone == null) phone = "";
             string submitButton = Request.Form["action"];
             string connectionString = "Data Source=Localhost\\sqlexpress;Initial Catalog=WebPlant;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
@@ -61,14 +61,15 @@ namespace Website_Plant.Pages
                 catch (Exception ex)
                 {
                     errorMessage = ex.Message;
-                    return;
-                }
+					return Page();
+				}
                 HttpContext.Session.SetString("fullName", fullName);
 				HttpContext.Session.SetString("email", email);
 				HttpContext.Session.SetString("phone", phone);
 				HttpContext.Session.SetString("address", address);
 				successMessage = "Cập nhật thành công";
 			}
-        }
+			return RedirectToPage("/profile");
+		}
     }
 }
