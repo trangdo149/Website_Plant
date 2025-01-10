@@ -83,7 +83,7 @@ body {
             border: none;
             border-bottom: 2px solid #1f3506;
             color: #1f3506;
-            font-weight: 200;
+            font-weight: 400;
             font-size: 20px;
             padding: 10px;
             outline: none;
@@ -94,6 +94,7 @@ body {
         }
             .container form textarea::placeholder {
                 color: #859078;
+                font-weight: 400;
             }
 
         .container form h4 {
